@@ -1,0 +1,15 @@
+= simple_form_for @address, :html => { :class => "form-horizontal" } do |f|
+  = f.input :phone_number
+  = f.input :mobile_1
+  = f.input :mobile_2
+  = f.input :city_id
+  = f.input :address_1
+  = f.input :address_2
+  = f.input :addressable_id
+  = f.input :addressable_type
+  = f.input :email
+  = f.input :website_url
+  .form-actions
+    = f.button :submit, :class => 'btn-primary'
+    '
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), addresses_path, :class => 'btn'

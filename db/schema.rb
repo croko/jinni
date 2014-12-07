@@ -11,15 +11,36 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141207134932) do
+ActiveRecord::Schema.define(version: 20141207152057) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "addresses", force: true do |t|
+    t.string   "phone_number"
+    t.string   "mobile_1"
+    t.string   "mobile_2"
+    t.integer  "city_id"
+    t.string   "address_1"
+    t.string   "address_2"
+    t.integer  "addressable_id"
+    t.string   "addressable_type"
+    t.string   "email"
+    t.string   "website_url"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "authentications", force: true do |t|
     t.integer  "user_id",    null: false
     t.string   "provider",   null: false
     t.string   "uid",        null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cities", force: true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -30,7 +51,6 @@ ActiveRecord::Schema.define(version: 20141207134932) do
     t.datetime "updated_at"
     t.boolean  "active"
     t.string   "description"
-    t.string   "website_url"
   end
 
   create_table "payment_gateways", force: true do |t|
