@@ -1,9 +1,7 @@
-= simple_form_for(@payment_gateway) do |f|
-  = f.error_notification
-
-  .form-inputs
-    = f.input :name
-    = f.input :active
-
+= simple_form_for @payment_gateway, :html => { :class => "form-horizontal" } do |f|
+  = f.input :name
+  = f.input :active
   .form-actions
-    = f.button :submit
+    = f.button :submit, :class => 'btn-primary'
+    '
+    = link_to t('.cancel', :default => t("helpers.links.cancel")), payment_gateways_path, :class => 'btn'

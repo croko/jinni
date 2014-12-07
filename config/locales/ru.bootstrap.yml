@@ -1,0 +1,18 @@
+ru:
+  helpers:
+    actions: "Действия"
+    links:
+      back: "Назад"
+      cancel: "Отменить"
+      confirm: "Вы уверены?"
+      destroy: "Удалить"
+      new: "Создать"
+      edit: "Редактировать"
+      remove: "Удалить"
+      close: "Закрыть"
+      new_post: "Написать статью"
+    titles:
+      edit: "Редактировать %{model}"
+      save: "Сохранить %{model}"
+      new: "Новый %{model}"
+      delete: "Удалить %{model}"

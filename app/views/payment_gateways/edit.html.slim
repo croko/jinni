@@ -1,8 +1,4 @@
-h1 Editing payment_gateway
-
-== render 'form'
-
-= link_to 'Show', @payment_gateway
-'|
-= link_to 'Back', payment_gateways_path
-
+- model_class = PaymentGateway
+div class="page-header"
+  h1=t '.title', :default => [:'helpers.titles.edit', 'Edit %{model}'], :model => model_class.model_name.human.titleize
+= render :partial => "form"
