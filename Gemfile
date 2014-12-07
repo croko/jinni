@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.4'
+gem 'rails', '4.1.6'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -27,7 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'spring', group: :development
 
 gem 'slim-rails'
-gem "sorcery"
+gem 'sorcery'
 gem 'simple_form'
 gem 'paperclip'
 gem 'ransack', github: 'ernie/ransack'
@@ -37,6 +37,7 @@ gem 'nested_form', github: "ryanb/nested_form"
 gem 'font-awesome-sass'
 gem 'mini_magick'
 gem "twitter-bootstrap-rails"
+gem 'acts-as-taggable-on', '~> 3.4'
 
 group :development do
   gem 'quiet_assets'
@@ -58,5 +59,4 @@ group :production do
   gem 'therubyracer'
   gem 'exception_notification'
   gem 'unicorn'
-  # gem 'rails_12factor'
 end

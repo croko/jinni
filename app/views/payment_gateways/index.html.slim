@@ -1,0 +1,23 @@
+h1 Listing payment_gateways
+
+table
+  thead
+    tr
+      th Name
+      th Active
+      th
+      th
+      th
+
+  tbody
+    - @payment_gateways.each do |payment_gateway|
+      tr
+        td = payment_gateway.name
+        td = payment_gateway.active
+        td = link_to 'Show', payment_gateway
+        td = link_to 'Edit', edit_payment_gateway_path(payment_gateway)
+        td = link_to 'Destroy', payment_gateway, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Payment gateway', new_payment_gateway_path

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141128123947) do
+ActiveRecord::Schema.define(version: 20141207132432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,6 +23,76 @@ ActiveRecord::Schema.define(version: 20141128123947) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "foundations", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "payment_gateways", force: true do |t|
+    t.string   "name"
+    t.boolean  "active",     default: true
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "payment_systems", force: true do |t|
+    t.string   "name"
+    t.integer  "foundation_id"
+    t.integer  "user_id"
+    t.integer  "payment_gateway_id"
+    t.string   "public_key"
+    t.string   "private_key"
+    t.boolean  "active",             default: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "payment_systems", ["foundation_id"], name: "index_payment_systems_on_foundation_id", using: :btree
+  add_index "payment_systems", ["payment_gateway_id"], name: "index_payment_systems_on_payment_gateway_id", using: :btree
+  add_index "payment_systems", ["user_id"], name: "index_payment_systems_on_user_id", using: :btree
+
+  create_table "projects", force: true do |t|
+    t.string   "title"
+    t.string   "goal"
+    t.text     "about"
+    t.integer  "user_id"
+    t.integer  "foundation_id"
+    t.integer  "payment_system_id"
+    t.integer  "status"
+    t.date     "date_start"
+    t.date     "date_end"
+    t.integer  "category_id"
+    t.decimal  "amount",            precision: 8, scale: 2, default: 0.0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "projects", ["category_id"], name: "index_projects_on_category_id", using: :btree
+  add_index "projects", ["foundation_id"], name: "index_projects_on_foundation_id", using: :btree
+  add_index "projects", ["payment_system_id"], name: "index_projects_on_payment_system_id", using: :btree
+  add_index "projects", ["user_id"], name: "index_projects_on_user_id", using: :btree
+
+  create_table "taggings", force: true do |t|
+    t.integer  "tag_id"
+    t.integer  "taggable_id"
+    t.string   "taggable_type"
+    t.integer  "tagger_id"
+    t.string   "tagger_type"
+    t.string   "context",       limit: 128
+    t.datetime "created_at"
+  end
+
+  add_index "taggings", ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
+  add_index "taggings", ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
+
+  create_table "tags", force: true do |t|
+    t.string  "name"
+    t.integer "taggings_count", default: 0
+  end
+
+  add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "users", force: true do |t|
     t.string   "email",                           null: false

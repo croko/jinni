@@ -1,4 +1,12 @@
 Rails.application.routes.draw do
+  resources :projects
+
+  resources :payment_gateways
+
+  resources :payment_systems
+
+  resources :foundations
+
   resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.

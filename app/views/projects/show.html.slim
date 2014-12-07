@@ -1,0 +1,39 @@
+p#notice = notice
+
+p
+  strong Title:
+  = @project.title
+p
+  strong Goal:
+  = @project.goal
+p
+  strong About:
+  = @project.about
+p
+  strong User:
+  = @project.user
+p
+  strong Foundation:
+  = @project.foundation
+p
+  strong Payment system:
+  = @project.payment_system
+p
+  strong Status:
+  = @project.status
+p
+  strong Date start:
+  = @project.date_start
+p
+  strong Date end:
+  = @project.date_end
+p
+  strong Category:
+  = @project.category
+p
+  strong Amount:
+  = @project.amount
+
+= link_to 'Edit', edit_project_path(@project)
+'|
+= link_to 'Back', projects_path

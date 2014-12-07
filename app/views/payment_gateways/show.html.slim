@@ -1,0 +1,12 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @payment_gateway.name
+p
+  strong Active:
+  = @payment_gateway.active
+
+= link_to 'Edit', edit_payment_gateway_path(@payment_gateway)
+'|
+= link_to 'Back', payment_gateways_path

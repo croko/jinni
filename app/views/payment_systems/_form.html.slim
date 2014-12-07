@@ -1,0 +1,13 @@
+= simple_form_for(@payment_system) do |f|
+  = f.error_notification
+
+  .form-inputs
+    = f.input :name
+    = f.association :foundation
+    = f.association :user
+    = f.input :public_key
+    = f.input :private_key
+    = f.input :active
+
+  .form-actions
+    = f.button :submit

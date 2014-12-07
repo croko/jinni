@@ -1,0 +1,31 @@
+h1 Listing payment_systems
+
+table
+  thead
+    tr
+      th Name
+      th Foundation
+      th User
+      th Public key
+      th Private key
+      th Active
+      th
+      th
+      th
+
+  tbody
+    - @payment_systems.each do |payment_system|
+      tr
+        td = payment_system.name
+        td = payment_system.foundation
+        td = payment_system.user
+        td = payment_system.public_key
+        td = payment_system.private_key
+        td = payment_system.active
+        td = link_to 'Show', payment_system
+        td = link_to 'Edit', edit_payment_system_path(payment_system)
+        td = link_to 'Destroy', payment_system, data: {:confirm => 'Are you sure?'}, :method => :delete
+
+br
+
+= link_to 'New Payment system', new_payment_system_path

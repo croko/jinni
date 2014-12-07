@@ -1,0 +1,24 @@
+p#notice = notice
+
+p
+  strong Name:
+  = @payment_system.name
+p
+  strong Foundation:
+  = @payment_system.foundation
+p
+  strong User:
+  = @payment_system.user
+p
+  strong Public key:
+  = @payment_system.public_key
+p
+  strong Private key:
+  = @payment_system.private_key
+p
+  strong Active:
+  = @payment_system.active
+
+= link_to 'Edit', edit_payment_system_path(@payment_system)
+'|
+= link_to 'Back', payment_systems_path
