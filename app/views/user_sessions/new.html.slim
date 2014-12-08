@@ -1,0 +1,16 @@
+.container
+  h2.form_signin_heading= t 'sessions.new'
+  = simple_form_for(:session, url: user_sessions_path, method: :post, html: {role: 'form', novalidate: false, class: "form-signin"}) do |f|
+    /= render 'application/error_messages', object: f.object
+    = flash.alert
+    = f.input :email, label: false, input_html: {class: 'form-control'}, placeholder: "#{t 'activerecord.attributes.user.email'}", autofocus: true
+    = f.input :password, label: false, input_html: {class: 'form-control'}, placeholder: "#{t 'activerecord.attributes.user.password'}"
+    label.checkbox
+      =check_box_tag :remember_me
+
+    = f.button :submit, "Войти", class: 'btn btn-lg btn-success btn-block'
+
+== render 'registrations/socials'
+
+h1 Forgot Password?
+== render 'forgot_password_form'

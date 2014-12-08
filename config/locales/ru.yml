@@ -266,9 +266,10 @@ ru:
   close: 'закрыт'
 
   unauthorized:
-      manage:
-        all: "Доступ отклонен"
-
+    manage:
+      all: "Доступ отклонен"
+  session:
+      error: 'Неверный логин/пароль'
   views:
     pagination:
       previous: "&laquo; назад"

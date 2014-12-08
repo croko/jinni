@@ -134,6 +134,7 @@ ru:
         clinic_full_name: 'Клиника'
         commentable: 'Доктор(Клиника)'
       user:
+        email: 'Email'
         password: 'Пароль'
         remember_me: 'Запомнить меня'
         password_confirmation: 'Подтвердите пароль'

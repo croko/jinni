@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+
+  resources :password_resets, only: [:create, :edit, :update]
+
   resources :projects
 
   resources :payment_gateways
@@ -7,13 +10,26 @@ Rails.application.routes.draw do
 
   resources :foundations
 
+  resources :user_sessions
+
   resources :users
+  get 'login' => 'user_sessions#new', as: :login
+  post 'logout' => 'user_sessions#destroy', as: :logout
+  get 'signup' => 'registrations#new', as: 'signup'
+  get 'profile' => 'users#edit', as: 'profile'
+  post 'profile' => 'registrations#update', as: 'update_profile'
+  resources :registrations, except: [:index, :show, :update, :destroy]
+  post "oauth/callback" => "oauths#callback"
+  get "oauth/callback" => "oauths#callback" # for use with Github, Facebook
+  get "oauth/:provider" => "oauths#oauth", as: :auth_at_provider
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
   root 'projects#index'
+  # root to: 'admin#dashboard', constraints: RouteConstraints::AdminRequiredConstraint.new
+  # root to: 'home#welcome', constraints: RouteConstraints::NoUserRequiredConstraint.new
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
