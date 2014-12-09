@@ -1,0 +1,11 @@
+tr.fields
+  td
+    = f.association :city
+    = f.input :address_1
+    = f.input :address_2
+    = f.input :mobile_1
+    = f.input :mobile_2
+    = f.input :phone_number
+    = f.input :email
+    = f.input :website_url
+    = f.link_to_remove t("helpers.links.remove"), :class => 'btn btn-danger'

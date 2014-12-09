@@ -62,36 +62,18 @@ ru:
         few: 'Проекты'
         other: 'Проекты'
       user:
-        one: 'Волонтер'
-        few: 'Волонтеры'
-        other: 'Волонтеры'
+        one: 'Участник'
+        few: 'Участники'
+        other: 'Участники'
       role:
         one: "Роль"
         other: "Роли"
-      organization:
-        one: "Организация"
-        other: "Организации"
+      foundation:
+        one: "Благотворительный фонд"
+        other: "Благотворительные фонды"
       category:
-        one: "Товарная группа"
-        other: "Товарные группы"
-      bill:
-        one: "Заявка"
-        other: "Заявки"
-      invoice:
-        one: "Накладная"
-        other: "Накладные"
-      recipient_category:
-        one: "Группа получателей"
-        other: "Группы получателей"
-      contragent:
-        one: "Получатель"
-        other: "Получатели"
-      line_item:
-        one: "Склад"
-        other: "Склад"
-      internal_invoice:
-        one: "Накладная перемещения"
-        other: "Накладные перемещения"
+        one: "Категория"
+        other: "Категории"
       blog:
         one: "Блог"
         other: "Блоги"
@@ -108,8 +90,8 @@ ru:
         date_end: 'Окончание'
       address:
         phone_number: "Телефон"
-        mobile_phone_number1: "Телефон моб."
-        mobile_phone_number2: "Телефон моб."
+        mobile_1: "Телефон моб."
+        mobile_2: "Телефон моб."
         address_1: "Адрес"
         address_2: "Адрес доп."
         city: "Город"
@@ -140,15 +122,12 @@ ru:
         password_confirmation: 'Подтвердите пароль'
         name: 'Имя'
         last_name: 'Фамилия'
-        organization: 'Организация'
-        organizations_tokens: 'Организация'
         description: 'Доп. информация'
         role: 'Права доступа'
       foundation:
         name: 'Наименование'
         active: 'Показывать'
         description: 'Доп. информация'
-        website_url: 'Сайт'
       page:
         name: 'Название'
         nickname: 'Служебное имя'
@@ -159,62 +138,6 @@ ru:
       role:
         name: 'Название'
         nickname: 'Служебное имя'
-      line_item:
-        organization_id: 'Организация'
-        product_variant_id: 'Наименование'
-        product_variant_tokens: 'Наименование'
-        demand: 'Наименование дополнительное'
-        amount_in: 'Количество'
-        amount_out: 'Количество'
-        price: 'Цена'
-        invoice_id: 'Накладная'
-      line_items:
-        organization_id: 'Организация'
-        product_variant_id: 'Наименование'
-        product_variant_tokens: 'Наименование'
-        demand: 'Наименование дополнительное'
-        amount_in: 'Количество'
-        amount_out: 'Количество'
-        price: 'Цена'
-        invoice_id: 'Накладная'
-      bill:
-        contragents_tokens: 'Получатель'
-        contragent: 'Получатель'
-        contragent_id: 'Получатель'
-        status: 'Статус'
-        description: 'Описание'
-        additional_description: 'Дополнительное описание'
-        date: 'Дата'
-      bill_item:
-        demand: 'Наименование произвольное'
-        amount: 'Количество'
-        urgent: 'Срочно'
-        status: 'Выполнен'
-      invoice:
-        contragents_tokens: 'Получатель'
-        contragent: 'Получатель'
-        contragent_id: 'Получатель'
-        status: 'Статус'
-        description: 'Описание'
-        product_variant_id: 'Наименование'
-        amount_out: 'Количество'
-        price: 'Цена'
-        date: 'Дата'
-      contragent:
-        name: 'Наименование'
-        recipient_category: 'Группа получателей'
-        active: 'Показывать'
-        description: 'Описание'
-        parent_id: 'Основное подразделение'
-        parent: 'Основное подразделение'
-      internal_invoice:
-        organization_in: 'Получатель'
-        status: 'Статус'
-        description: 'Описание'
-        product_variant_id: 'Наименование'
-        amount_out: 'Количество'
-        price: 'Цена'
-        date: 'Дата'
       blog:
         date: 'Дата'
         organization_id: 'Организация'

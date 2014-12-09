@@ -4,7 +4,7 @@
   = f.input :first_name
   = f.input :last_name
   .row
-    .col-md-12
+    .col-md-6
       .table-responsive
         table.table.table-condensed
           thead
@@ -19,6 +19,15 @@
             tr
               td{colspan="4"}
                 =f.link_to_add "Добавить строку", :payment_systems
+  .row
+    .col-md-6
+      .form-inputs.col-lg-6
+      h4 Адреса
+      table.table.table-condensed
+        = f.fields_for :addresses, wrapper: false
+        tr
+          td colspan="3"
+            = f.link_to_add "Добавить адрес", :addresses
 
   .form-actions
     = f.button :submit, :class => 'btn-primary'

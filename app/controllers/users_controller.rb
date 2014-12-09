@@ -17,10 +17,12 @@ class UsersController < ApplicationController
   # GET /users/new
   def new
     @user = User.new
+    @user.addresses.build
   end
 
   # GET /users/1/edit
   def edit
+    @user.addresses.build unless @user.addresses.any?
   end
 
   # POST /users
@@ -73,6 +75,9 @@ class UsersController < ApplicationController
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password,
                                  payment_systems_attributes: [:id, :payment_gateway_id, :public_key,
-                                                              :private_key, :active, :_destroy])
+                                                              :private_key, :active, :_destroy],
+                                 addresses_attributes: [:id, :address_1, :address_2, :city_id,
+                                                        :website_url, :email, :phone_number,
+                                                        :mobile_1, :mobile_2, :_destroy])
   end
 end
