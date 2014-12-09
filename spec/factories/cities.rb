@@ -1,6 +1,6 @@
 # == Schema Information
 #
-# Table name: categories
+# Table name: cities
 #
 #  id         :integer          not null, primary key
 #  name       :string(255)
@@ -8,8 +8,9 @@
 #  updated_at :datetime
 #
 
-require 'rails_helper'
+FactoryGirl.define do
+  factory :city do
+    name "MyString"
+  end
 
-RSpec.describe Category, :type => :model do
-  pending "add some examples to (or delete) #{__FILE__}"
 end

@@ -4,6 +4,10 @@ Rails.application.routes.draw do
 
   resources :password_resets, only: [:create, :edit, :update]
 
+  resources :cities
+
+  resources :addresses
+
   resources :projects
 
   resources :payment_gateways
