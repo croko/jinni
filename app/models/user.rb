@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
   has_many :authentications, dependent: :destroy
   has_many :payment_systems
   has_many :addresses, as: :addressable, dependent: :destroy
+  has_many :projects
 
   accepts_nested_attributes_for :authentications
   accepts_nested_attributes_for :payment_systems, :reject_if => lambda { |a| a[:payment_gateway_id].blank? }, allow_destroy: true

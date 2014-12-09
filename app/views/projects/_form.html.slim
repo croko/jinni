@@ -9,9 +9,11 @@
   = f.input :date_end
   = f.association :payment_system
   = f.input :amount
-  = image_tag(@project.main_image_url) if @project.main_image
-  = f.input :main_image, as: :file
-  = f.input :main_image_cache, as: :hidden
+  - @project.main_images.each do |image|
+    = image_tag(image.url)
+  /= f.input :main_image, as: :file
+  = f.input :main_images_cache, as: :hidden
+  = f.input :main_images, as: :file, input_html: {multiple: true}
 
   .form-actions
     = f.button :submit, :class => 'btn-primary'

@@ -124,6 +124,7 @@ ru:
         last_name: 'Фамилия'
         description: 'Доп. информация'
         role: 'Права доступа'
+        with_foundation: 'Сотрудничество'
       foundation:
         name: 'Наименование'
         active: 'Показывать'

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141209134425) do
+ActiveRecord::Schema.define(version: 20141209160841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(version: 20141209134425) do
     t.datetime "updated_at"
     t.string   "main_image"
     t.string   "location"
+    t.json     "main_images"
   end
 
   add_index "projects", ["category_id"], name: "index_projects_on_category_id", using: :btree
@@ -126,7 +127,7 @@ ActiveRecord::Schema.define(version: 20141209134425) do
   add_index "tags", ["name"], name: "index_tags_on_name", unique: true, using: :btree
 
   create_table "users", force: true do |t|
-    t.string   "email",                           null: false
+    t.string   "email",                                           null: false
     t.string   "crypted_password"
     t.string   "salt"
     t.string   "first_name"
@@ -138,6 +139,7 @@ ActiveRecord::Schema.define(version: 20141209134425) do
     t.string   "reset_password_token"
     t.datetime "reset_password_token_expires_at"
     t.datetime "reset_password_email_sent_at"
+    t.boolean  "with_foundation",                 default: false
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

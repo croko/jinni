@@ -1,8 +1,10 @@
 - model_class = PaymentSystem
-= simple_nested_form_for @user, :html => { :class => "form-horizontal" } do |f|
+= simple_nested_form_for @user, html: { role: 'form' } do |f|
   = f.input :email
   = f.input :first_name
   = f.input :last_name
+  = f.input :with_foundation
+
   .row
     .col-md-6
       .table-responsive

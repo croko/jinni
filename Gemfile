@@ -29,7 +29,7 @@ gem 'spring', group: :development
 gem 'slim-rails'
 gem 'sorcery'
 gem 'simple_form'
-gem 'carrierwave'
+gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'ransack', github: 'ernie/ransack'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
