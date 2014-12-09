@@ -1,18 +1,15 @@
 class RegistrationsController < ApplicationController
-  before_filter :require_login, only: [:edit, :update]
 
   def new
-    # @account = Account.new
-    @user = User.new #@account.build_owner
+    @user = User.new
   end
 
   def create
 	  @user = User.new(safe_params)
 
 	  if @user.save
-      account = Account.create!(owner_id: @user.id)
-      @user.update_attributes(account_id: account.id)
 	  	auto_login(@user)
+#TODO
       UserMailer.welcome(@user).deliver
 
       redirect_to root_url
@@ -20,27 +17,6 @@ class RegistrationsController < ApplicationController
      render :new
 	  end
 	end
-
-	def edit
-		@user = current_user
-	end
-
-	# def update
-   #  if params[:user][:password].blank?
-   #    params[:user].delete('password')
-   #    params[:user].delete('password_confirmation')
-   #  end
-  #
-   #  @user = User.find(current_user.id)
-  #
-   #  respond_to do |format|
-   #    if @user.update(safe_params)
-   #      format.html { redirect_to profile_url, notice: "#{t 'registrations.profile_updated', default: 'Profile was successfully updated'}." }
-   #    else
-   #      format.html { render action: 'edit' }
-   #    end
-   #  end
-	# end
 
   private
 

@@ -1,0 +1,6 @@
+tr.fields
+  td= f.association :payment_gateway, label: false
+  td= f.input :public_key, label: false, input_html: {class: 'input-sm '}
+  td= f.input :private_key, label: false, input_html: {class: 'input-sm '}
+  td= f.input :active, label: false, input_html: {class: 'input-sm '}
+  td= f.link_to_remove icon('trash-o')

@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  resources :categories
+
   resources :password_resets, only: [:create, :edit, :update]
 
   resources :projects
