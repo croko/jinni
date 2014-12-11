@@ -1,3 +1,12 @@
+class AdminConstraint
+  def self.matches?(request)
+    if request.session[:user_id]
+      @current_user = User.try(:find, request.session[:user_id])
+      !!@current_user.try(:admin?)
+    end
+  end
+end
+
 Rails.application.routes.draw do
 
   resources :categories
@@ -29,11 +38,16 @@ Rails.application.routes.draw do
   get "oauth/callback" => "oauths#callback" # for use with Github, Facebook
   get "oauth/:provider" => "oauths#oauth", as: :auth_at_provider
 
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
-  # You can have the root of your site routed with "root"
   root 'projects#index'
+
+
+  constraints(AdminConstraint) do
+    namespace :admin do
+    # mount Resque::Server, at: '/resque'
+      root to: 'dashboard#show', as: :dashboard
+    end
+  end
+
   # root to: 'admin#dashboard', constraints: RouteConstraints::AdminRequiredConstraint.new
   # root to: 'home#welcome', constraints: RouteConstraints::NoUserRequiredConstraint.new
 
