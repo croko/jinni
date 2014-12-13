@@ -1,5 +1,5 @@
 - model_class = PaymentSystem
-= simple_nested_form_for @user, html: { class: 'form-horizontal', role: 'form' } do |f|
+= simple_nested_form_for @user, wrapper: :horizontal_form do |f|
   = f.input :email
   = f.input :first_name
   = f.input :last_name
@@ -26,7 +26,7 @@
       .form-inputs.col-lg-6
       h4 Адреса
       table.table.table-condensed
-        = f.fields_for :addresses, wrapper: false
+        = f.fields_for :addresses, wrapper: :horizontal_form
         tr
           td colspan="3"
             = f.link_to_add "Добавить адрес", :addresses

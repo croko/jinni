@@ -36,8 +36,8 @@ gem 'bootstrap-kaminari-views'
 gem 'nested_form', github: "ryanb/nested_form"
 gem 'font-awesome-sass'
 gem 'mini_magick'
-gem "twitter-bootstrap-rails"
 gem 'acts-as-taggable-on', '~> 3.4'
+gem 'bootstrap-sass', '~> 3.3.1'
 
 group :development do
   gem 'quiet_assets'

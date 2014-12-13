@@ -120,7 +120,7 @@ ru:
         password: 'Пароль'
         remember_me: 'Запомнить меня'
         password_confirmation: 'Подтвердите пароль'
-        name: 'Имя'
+        first_name: 'Имя'
         last_name: 'Фамилия'
         description: 'Доп. информация'
         role: 'Права доступа'
