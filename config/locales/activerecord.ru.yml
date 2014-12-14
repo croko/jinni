@@ -155,3 +155,5 @@ ru:
         announce: 'Анонс'
         body: 'Текст'
         published: "Опубликована"
+      user_session:
+        remember_me: 'Запомнить меня'

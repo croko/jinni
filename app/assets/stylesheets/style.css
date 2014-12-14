@@ -187,7 +187,7 @@ ul.social li:hover > a { color: #009abd !important }
     position: absolute;
     left: 0%; /* centers the loading animation horizontally one the screen */
     top: 15%; /* centers the loading animation vertically one the screen */
-    background-image: image-url('/loading.gif'); /* path to your loading animation */
+    background-image: image-url('loading.gif'); /* path to your loading animation */
     background-repeat: no-repeat;
     background-position: center;
     /*margin: -100px 0 0 -100px; */ /* is width and height divided by two */
@@ -233,7 +233,7 @@ Custom Background Images
 ====================*/
 #header {
     color: #ffffff;
-    background: image-url('/bg/header.jpg');
+    background: image-url('bg/header.jpg');
     background-attachment: fixed;
     background-size: cover;
 }
@@ -281,19 +281,19 @@ Custom Background Images
     background-attachment: fixed;
 }
 #fact.img-bg {
-    background: image-url('/bg/fact.jpg');
+    background: image-url('bg/fact.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
 }
 #sca-bg {
-    background: image-url('/bg/action.jpg');
+    background: image-url('bg/action.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
 }
 #fullwidth-video {
-    background: image-url('/bg/video.jpg');
+    background: image-url('bg/video.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
@@ -712,13 +712,13 @@ Testimonials
     padding: 40px 0px 10px 0px;
 }
 #testimonial-bg {
-    background: image-url('/bg/testimonial1.jpg');
+    background: image-url('bg/testimonial1.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;
 }
 #testimonial-bg2 {
-    background: image-url('/bg/testimonial2.jpg');
+    background: image-url('bg/testimonial2.jpg');
     background-size: cover;
     background-position: center;
     background-attachment: fixed;

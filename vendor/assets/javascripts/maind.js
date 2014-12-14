@@ -4,12 +4,13 @@
     /*====================================
     Preloader Script
     ======================================*/
-    $(window).load(function() {
+    var ready;
+    ready = function() {
         // makes sure the whole site is loaded
         $('#status').fadeOut(); // will first fade out the loading animation
-        $('#preloader').delay(350).fadeOut('slow'); // will fade out the white DIV that covers the website.
-        $('body').delay(350).css({'overflow':'visible'});
-    });
+        $('#preloader').delay(50).fadeOut('slow'); // will fade out the white DIV that covers the website.
+        $('body').delay(100).css({'overflow':'visible'});
+    };
 
     /*====================================
     NAV SCRIPTS
@@ -113,28 +114,32 @@
     ======================================*/
     $(window).load(function() {
         var $container = $('.portfolioContainer');
-        $container.isotope({
-            filter: '*',
-            animationOptions: {
-                duration: 750,
-                easing: 'linear',
-                queue: false
-            }
-        });
-        $('.item-cat a').click(function() {
-            $('.item-cat .current').removeClass('current');
-            $(this).addClass('current');
-            var selector = $(this).attr('data-filter');
+        if ($container.length > 0) {
             $container.isotope({
-                filter: selector,
+                filter: '*',
                 animationOptions: {
                     duration: 750,
                     easing: 'linear',
                     queue: false
                 }
             });
-            return false;
-        });
-    });
-    
+            $('.item-cat a').click(function () {
+                $('.item-cat .current').removeClass('current');
+                $(this).addClass('current');
+                var selector = $(this).attr('data-filter');
+                $container.isotope({
+                    filter: selector,
+                    animationOptions: {
+                        duration: 750,
+                        easing: 'linear',
+                        queue: false
+                    }
+                });
+                return false;
+            });
+        }});
+
+    $(document).ready(ready);
+    $(document).on('page:load', ready);
+
 })(jQuery);
