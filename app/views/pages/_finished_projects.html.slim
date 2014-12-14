@@ -1,89 +1,20 @@
-|  <!-- *****************************
-|  Portfolio Section
-|  ******************************* -->
-|  <section id="portfolio" class="bg light-gray">
-|    <div class="container">
-|      <div class="row wow fadeIn" data-wow-delay="0.2s">
-|        <div class="section-title text-center col-sm-12 col-md-12 col-lg-12">
-|          <h2>Законченные проекты</h2>
-|          <hr>
-|          <h5>Look At Our Latest Awesome & Creative Works</h5>
-|          <div class="bigspace"></div>
-|        </div>
-|      </div>
-|
-|      <div id="lightbox" class="row text-center"><!-- Portfolio Wrapper -->
-|
-|            <div class="item col-sm-6 col-md-3"> <!-- Item 1 -->
-|              <div class="wow fadeIn" data-wow-delay="0.4s"> <!-- Fade In Effect -->
-|                <div class="portfolio-img"> <!-- Portfolio Image Wrapper -->
-|                  <div class="hover"> <!-- Hover Wrapper -->
-|                    <div class="hover-content">
-|                      <!-- Larger image popup -->
-|                      <a title="Branding Design Project #1" href="/assets/portfolio/02.jpg" data-lightbox-gallery="gallery1" data-lightbox-hidpi="assets/portfolio/02.jpg" class="plink"><i class="fa fa-search"></i></a> <!-- Image Lightbox -->
-|                      <a href="portfolio-single1.html" class="plink"><i class="fa fa-link"></i></a><!-- Portfolio Link To -->
-|                    </div>
-|                  </div> <!-- End Hover Wrapper -->
-|                  <img src="assets/portfolio/02.jpg" class="img-responsive" alt="">
-|                </div><!-- End Portfolio Image Wrapper -->
-|                <h4><a href="portfolio-single1.html">Branding Design</a></h4> <!-- Portfolio Project Name -->
-|                <p class="small">Branding</p><!-- Portfolio Category -->
-|              </div><!-- End Fade In Effect -->
-|            </div><!-- End Item 1 -->
-|
-|            <div class="item col-sm-6 col-md-3"> <!-- Item 2 -->
-|              <div class="wow fadeIn" data-wow-delay="0.8s"> <!-- Fade In Effect -->
-|                <div class="portfolio-img"> <!-- Portfolio Image Wrapper -->
-|                  <div class="hover"> <!-- Hover Wrapper -->
-|                    <div class="hover-content">
-|                      <!-- Larger image popup -->
-|                      <a title="Mockup Project #2" href="assets/portfolio/03.jpg" data-lightbox-gallery="gallery1" data-lightbox-hidpi="assets/portfolio/03.jpg" class="plink"><i class="fa fa-search"></i></a><!-- Image Lightbox -->
-|                      <a href="portfolio-single2.html" class="plink"><i class="fa fa-link"></i></a><!-- Portfolio Link To -->
-|                    </div>
-|                  </div> <!-- End Hover Wrapper -->
-|                  <img src="assets/portfolio/03.jpg" class="img-responsive" alt="">
-|                </div><!-- End Portfolio Image Wrapper -->
-|                <h4><a href="portfolio-single2.html">Mockup Project</a></h4> <!-- Portfolio Project Name -->
-|                <p class="small">Design</p><!-- Portfolio Category -->
-|              </div><!-- End Fade In Effect -->
-|            </div><!-- End Item 2 -->
-|
-|            <div class="item col-sm-6 col-md-3"> <!-- Item 3 -->
-|              <div class="wow fadeIn" data-wow-delay="1.2s"> <!-- Fade In Effect -->
-|                <div class="portfolio-img"> <!-- Portfolio Image Wrapper -->
-|                  <div class="hover"> <!-- Hover Wrapper -->
-|                    <div class="hover-content">
-|                      <!-- Larger image popup -->
-|                      <a title="Identity Design Project #3" href="assets/portfolio/04.jpg" data-lightbox-gallery="gallery1" data-lightbox-hidpi="assets/portfolio/04.jpg" class="plink"><i class="fa fa-search"></i></a> <!-- Image Lightbox -->
-|                      <a href="portfolio-single1.html" class="plink"><i class="fa fa-link"></i></a><!-- Portfolio Link To -->
-|                    </div>
-|                  </div> <!-- End Hover Wrapper -->
-|                  <img src="assets/portfolio/04.jpg" class="img-responsive" alt="">
-|                </div><!-- End Portfolio Image Wrapper -->
-|                <h4><a href="portfolio-single1.html">Identity Design</a></h4> <!-- Portfolio Project Name -->
-|                <p class="small">Branding</p><!-- Portfolio Category -->
-|              </div><!-- End Fade In Effect -->
-|            </div><!-- End Item 3 -->
-|
-|            <div class="item col-sm-6 col-md-3"> <!-- Item 4 -->
-|              <div class="wow fadeIn" data-wow-delay="1.6s"> <!-- Fade In Effect -->
-|                <div class="portfolio-img"> <!-- Portfolio Image Wrapper -->
-|                  <div class="hover"> <!-- Hover Wrapper -->
-|                    <div class="hover-content">
-|                      <!-- Larger image popup -->
-|                      <a title="Business Card Design Project #4" href="assets/portfolio/05.jpg" data-lightbox-gallery="gallery1" data-lightbox-hidpi="assets/portfolio/05.jpg" class="plink"><i class="fa fa-search"></i></a><!-- Image Lightbox -->
-|                      <a href="portfolio-single2.html" class="plink"><i class="fa fa-link"></i></a><!-- Portfolio Link To -->
-|                    </div>
-|                  </div> <!-- End Hover Wrapper -->
-|                  <img src="assets/portfolio/05.jpg" class="img-responsive" alt="">
-|                </div><!-- End Portfolio Image Wrapper -->
-|                <h4><a href="portfolio-single1.html">Business Card Design</a></h4> <!-- Portfolio Project Name -->
-|                <p class="small">Design</p><!-- Portfolio Category -->
-|              </div><!-- End Fade In Effect -->
-|            </div><!-- End Item 4 -->
-|
-|        </div><!-- End Portfolio Wrapper -->
-|
-|      </div> <!-- End Row -->
-|  </section>
-|
+section#portfolio.bg.light-gray
+  .container
+    .row.wow.fadeIn {data-wow-delay="0.2s"}
+      .section-title.text-center.col-sm-12.col-md-12.col-lg-12
+        h2 Законченные проекты
+        hr
+        h5 Look At Our Latest Awesome & Creative Works
+        .bigspace
+    .row.text-center
+      - 4.times do
+        .item.col-sm-6.col-md-3
+          .wow.fadeIn {data-wow-delay="0.4s"}
+            .portfolio-img
+              =link_to '#', class: 'plink' do
+                .hover
+                  .hover-content
+                    =icon('search fa-2x')
+                =image_tag('portfolio/02.jpg', class: 'img-responsive')
+            h4= link_to 'Branding Design', '#'
+            p.small Branding

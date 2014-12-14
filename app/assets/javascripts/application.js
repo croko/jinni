@@ -18,11 +18,9 @@
 //= require wow
 //= require SmoothScroll
 //= require jquery.easing.min
-//= require jquery.isotope
 //= require jquery.backstretch.min
 //= require nivo-lightbox.min
 //= require maind
 //= require main
 //= require backstretch
 //= require turbolinks
-// require_tree .
