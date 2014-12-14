@@ -1,0 +1,37 @@
+section#blog
+  .container
+    .row
+      .section-title.text-center.col-sm-12.col-md-12.col-lg-12
+        h2 Проекты
+        hr
+        h5 Learn More About the Latest News About Us
+        .space
+
+    .row
+      - 3.times do
+        .col-sm-4.col-md-4.col-lg-4.posts.wow.fadeIn {data-wow-delay="0.4s"}
+          .blog-photo
+            = link_to '#', class: 'plink' do
+              .hover
+                .hover-content
+                  =icon('search fa-2x')
+              =image_tag('blog/01.jpg', class: 'img-responsive')
+            .date
+              h4 21
+              p.small October 2014
+
+          .caption.text-left
+            h2= link_to 'Top 10 Trending Themes', '#'
+            .post-meta
+              span.bold
+                = icon('user')
+                |Author:
+                = link_to 'Jenn Pers', '#', class: 'highlight'
+              span.bold
+                = icon('comment')
+                = link_to '1', '#', class: 'highlight'
+              span.bold
+                = icon('heart')
+                = link_to '1', '#', class: 'highlight'
+            p What may look great to one visitor may not even appear for another! You could very easily have shelled out hundreds or even thousands of dollars to have a website created using the Flash technology...
+            =link_to 'Read More', '#', class: 'btn btn-default st-btn'

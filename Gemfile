@@ -38,6 +38,7 @@ gem 'font-awesome-sass'
 gem 'mini_magick'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'bootstrap-sass', '~> 3.3.1'
+gem 'font-awesome-sass'
 
 group :development do
   gem 'quiet_assets'

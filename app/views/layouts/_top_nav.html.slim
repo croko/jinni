@@ -1,0 +1,19 @@
+nav.navbar.top-nav role="navigation"
+  .container
+    .navbar-collapse.collapse-buttons
+      ul.nav.navbar-nav.navbar-left
+        li
+          span.bold.nav-info
+            i.glyphicon.glyphicon-phone-alt= link_to ' 0927-373-5550', '#'
+        li
+          span.bold.nav-info
+            i.glyphicon.glyphicon-send= mail_to ' info@mywebsite.com'
+      ul.social.navbar-nav.navbar-right
+        li= link_to icon('facebook'), '#'
+        li= link_to icon('google-plus'), '#'
+        li= link_to icon('twitter'), '#'
+        -if logged_in?
+          li= link_to 'выйти', logout_path, method: :post
+        -else
+          li= link_to 'войти', login_path
+

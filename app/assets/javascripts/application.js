@@ -14,5 +14,15 @@
 //= require jquery_ujs
 //= require jquery_nested_form
 //= require bootstrap-sprockets
+//= require bootstrap-hover-dropdown.min
+//= require wow
+//= require SmoothScroll
+//= require jquery.easing.min
+//= require jquery.isotope
+//= require jquery.backstretch.min
+//= require nivo-lightbox.min
+//= require maind
+//= require main
+//= require backstretch
 //= require turbolinks
-//= require_tree .
+// require_tree .
