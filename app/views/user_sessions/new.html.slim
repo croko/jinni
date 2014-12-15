@@ -1,35 +1,30 @@
 #header.wow.fadeIn
   .color-overlay
     .container
-      h2 Вход
-      p Для создания проектов необходимо зарегистрироваться
+      h2= t('titles.user_session.login_header')
+      p= t('titles.user_session.login_header_message')
 
 #contact
   .container
     .row.wow.fadeIn {data-wow-delay="0.4s"}
       .section-title.text-center.col-sm-12.col-md-12.col-lg-12
-        h2 Вход
+        h2=t('titles.user_session.login_title')
         hr
-        h5 Введите свой логин и пароль или войдите с помощью социальных сетей
+        h5=t('titles.user_session.login_message')
         .bigspace
 
     .row
-      = flash.alert
       .col-md-8.col-md-offset-2.col-lg-8.col-lg-offset-2
+        .text-danger= flash.alert
         #contact-form.text-center
           =simple_form_for(:session, url: user_sessions_path, method: :post, html: {role: 'form', novalidate: false, wrapper: false}) do |f|
             .row
               .col-md-6.form.wow.fadeIn {data-wow-delay="0.8s"}
-                = f.input :email, label: false, input_html: {class: 'form-control'}, placeholder: "#{t 'activerecord.attributes.user.email'}", autofocus: true
-                = f.input :password, label: false, input_html: {class: 'form-control'}, placeholder: "#{t 'activerecord.attributes.user.password'}"
-                = f.input :remember_me, as: :boolean, label: "#{t 'activerecord.attributes.user_session.remember_me'}"
-              .col-md-6.pull-right.form.wow.fadeIn {data-wow-delay="0.8s"}
-                = link_to auth_at_provider_path(provider: :facebook), class: 'section-title' do
-                  =icon('facebook fa-2x', 'Facebook')
-              .col-md-6.pull-right.form.wow.fadeIn {data-wow-delay="0.8s"}
-                = link_to auth_at_provider_path(provider: :google), class: 'section-title' do
-                  =icon('google fa-2x', 'Google')
+                = f.input :email, label: false, input_html: {class: 'form-control'}, autofocus: true
+                = f.input :password, label: false, input_html: {class: 'form-control'}
+                = f.input :remember_me, as: :boolean
+              == render 'registrations/socials'
             .row
               .col-md-offset-4.col-md-4.form.wow.fadeIn {data-wow-delay="0.8s"}
-                = f.button :submit, "Войти", class: 'btn btn-default st-btn'
+                = f.button :submit, class: 'btn btn-default st-btn'
     == render 'forgot_password_form'

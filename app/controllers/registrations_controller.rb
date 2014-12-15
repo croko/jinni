@@ -1,4 +1,5 @@
 class RegistrationsController < ApplicationController
+  skip_before_action :require_login
 
   def new
     @user = User.new
@@ -10,9 +11,9 @@ class RegistrationsController < ApplicationController
 	  if @user.save
 	  	auto_login(@user)
 #TODO
-      UserMailer.welcome(@user).deliver
+      # UserMailer.welcome(@user).deliver
 
-      redirect_to root_url
+      redirect_to new_project_url
     else
      render :new
 	  end

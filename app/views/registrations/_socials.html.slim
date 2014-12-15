@@ -1,3 +1,6 @@
-/p= link_to 'Login with Twitter', auth_at_provider_path(provider: :twitter)
-p= link_to 'Login with Facebook', auth_at_provider_path(provider: :facebook)
-p= link_to 'Login with Google', auth_at_provider_path(provider: :google)
+.col-md-6.pull-right.form.wow.fadeIn {data-wow-delay="0.8s"}
+  = link_to auth_at_provider_path(provider: :facebook), class: 'section-title' do
+    =icon('facebook fa-2x', 'Facebook')
+.col-md-6.pull-right.form.wow.fadeIn {data-wow-delay="0.8s"}
+  = link_to auth_at_provider_path(provider: :google), class: 'section-title' do
+    =icon('google fa-2x', 'Google')

@@ -1,4 +1,4 @@
-en:
+ru:
   simple_form:
     "yes": 'Да'
     "no": 'Нет'
@@ -9,9 +9,11 @@ en:
       # When using html, text and mark won't be used.
       # html: '<abbr title="required">*</abbr>'
     error_notification:
-      default_message: "Please review the problems below:"
+      default_message: "Возникли ошибки:"
     # Examples
-    # labels:
+    labels:
+      session:
+        remember_me: 'Запомнить меня'
     #   defaults:
     #     password: 'Password'
     #   user:
@@ -29,3 +31,15 @@ en:
     # prompts:
     #   defaults:
     #     age: 'Select your age'
+    placeholders:
+      session:
+        email: 'Введите свой email'
+        password: 'Пароль'
+        reset_password_email: 'Введите свой email'
+      registration:
+        email: 'Введите свой email'
+        first_name: 'Имя'
+        last_name: 'Фамилия'
+        password: 'Пароль'
+        password_confirmation: 'Подтвердите пароль'
+

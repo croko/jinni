@@ -31,4 +31,9 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :payment_systems, :reject_if => lambda { |a| a[:payment_gateway_id].blank? }, allow_destroy: true
   accepts_nested_attributes_for :addresses, allow_destroy: true
 
+  validates :password, length: { minimum: 5 }
+  validates :password, confirmation: true
+  validates :password_confirmation, presence: true
+  validates :email, presence: true, uniqueness: true
+
 end

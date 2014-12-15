@@ -269,7 +269,7 @@ ru:
     manage:
       all: "Доступ отклонен"
   session:
-      error: 'Неверный логин/пароль'
+      error: 'Неверный логин или пароль'
   views:
     pagination:
       previous: "&laquo; назад"
@@ -278,3 +278,23 @@ ru:
       truncate: "..."
       first: "первая"
       last: "последняя"
+  helpers:
+    submit:
+      session:
+        submit: 'Войти'
+        reset_password: 'Сбросить пароль!'
+      registration:
+        create: 'Зарегистрироваться'
+  titles:
+    user_session:
+      login_header: 'Вход'
+      login_header_message: 'Для управления проектами необходимо авторизоваться'
+      login_title: 'Вход'
+      login_message: 'Введите свой логин и пароль или войдите с помощью социальных сетей'
+      forgot_password: 'Забыли пароль?'
+    registration:
+      login_header: 'Регистрация'
+      login_header_message: 'Для создания проектов необходимо зарегистрироваться'
+      login_title: 'Регистрация'
+      login_message: 'Введите свой логин и пароль или войдите с помощью социальных сетей'
+
