@@ -8,5 +8,6 @@ class Project < ActiveRecord::Base
 
   enum status: [ :open, :close ]
 
-  validates_presence_of :category_id
+  validates_presence_of :category_id, :title, :goal, :date_start, :date_end, :amount, :about
+  validates_numericality_of :amount, greater_than: 0
 end
