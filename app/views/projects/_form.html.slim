@@ -1,21 +1,80 @@
-= simple_form_for @project, :html => { :class => "form-horizontal" } do |f|
-  = f.input :title
-  = f.association :category
-  = f.input :goal
-  = f.input :location
-  = f.input :about
-  = f.association :foundation
-  = f.input :date_start
-  = f.input :date_end
-  = f.association :payment_system
-  = f.input :amount
-  - @project.main_images.each do |image|
-    = image_tag(image.url)
-  /= f.input :main_image, as: :file
-  = f.input :main_images_cache, as: :hidden
-  = f.input :main_images, as: :file, input_html: {multiple: true}
+.row
+  .col-md-12.col-lg-12
+    .text-danger= flash.alert
+    #contact-form.text-center
 
-  .form-actions
-    = f.button :submit, :class => 'btn-primary'
-    '
-    = link_to t('.cancel', :default => t("helpers.links.cancel")), projects_path, :class => 'btn'
+      = simple_form_for @project, html: { :class => "form-horizontal" }, wrapper: :horizontal_form do |f|
+        .row
+          .col-md-9.wow.fadeIn {data-wow-delay="0.8s"}
+            = f.input :title
+          .col-md-3.wow.fadeIn {data-wow-delay="0.8s"}
+            |sd sdfgsdfgdfgsdfgsdfgsfgdsfg sgfd
+        .row
+          .col-md-9.wow.fadeIn {data-wow-delay="0.8s"}
+            = f.association :category
+          .col-md-3.wow.fadeIn {data-wow-delay="0.8s"}
+            |sd sdfgsdfgdfgsdfgsdfgsfgdsfg sgfd
+        .row
+          .col-md-9.wow.fadeIn {data-wow-delay="0.8s"}
+            = f.input :goal, as: :text, input_html: {rows: 6}
+          .col-md-3.wow.fadeIn {data-wow-delay="0.8s"}
+            |sd sdfgsdfgdfgsdfgsdfgsfgdsfg sgfd
+        .row
+          .col-md-9.wow.fadeIn {data-wow-delay="0.8s"}
+            = f.input :location
+          .col-md-3.wow.fadeIn {data-wow-delay="0.8s"}
+            |sd sdfgsdfgdfgsdfgsdfgsfgdsfg sgfd
+        .row
+          .col-md-9.wow.fadeIn {data-wow-delay="0.8s"}
+            = f.input :about, as: :text, input_html: {rows: 15}
+          .col-md-3.wow.fadeIn {data-wow-delay="0.8s"}
+            |sd sdfgsdfgdfgsdfgsdfgsfgdsfg sgfd
+        .row
+          .col-md-9.wow.fadeIn {data-wow-delay="0.8s"}
+            = f.association :foundation
+          .col-md-3.wow.fadeIn {data-wow-delay="0.8s"}
+            |sd sdfgsdfgdfgsdfgsdfgsfgdsfg sgfd
+        .row
+          .col-md-9.wow.fadeIn {data-wow-delay="0.8s"}
+            = f.input :date_start, as: :string, input_html: {class: 'datepicker', value: l(@project.date_start) }
+          .col-md-3.wow.fadeIn {data-wow-delay="0.8s"}
+            |sd sdfgsdfgdfgsdfgsdfgsfgdsfg sgfd
+        .row
+          .col-md-9.wow.fadeIn {data-wow-delay="0.8s"}
+            = f.input :date_end, as: :string, input_html: {class: 'datepicker', value: l(@project.date_end)}
+          .col-md-3.wow.fadeIn {data-wow-delay="0.8s"}
+            |sd sdfgsdfgdfgsdfgsdfgsfgdsfg sgfd
+        .row
+          .col-md-9.wow.fadeIn {data-wow-delay="0.8s"}
+            = f.association :payment_system
+          .col-md-3.wow.fadeIn {data-wow-delay="0.8s"}
+            |sd sdfgsdfgdfgsdfgsdfgsfgdsfg sgfd
+        .row
+          .col-md-9.wow.fadeIn {data-wow-delay="0.8s"}
+            = f.input :amount
+          .col-md-3.wow.fadeIn {data-wow-delay="0.8s"}
+            |sd sdfgsdfgdfgsdfgsdfgsfgdsfg sgfd
+        - @project.main_images.each do |image|
+          .row
+            .col-md-9.wow.fadeIn {data-wow-delay="0.8s"}
+              = image_tag(image.thumb.url)
+        .row
+          .col-md-9.wow.fadeIn {data-wow-delay="0.8s"}
+            = f.input :main_images_cache, as: :hidden
+          .col-md-3.wow.fadeIn {data-wow-delay="0.8s"}
+            |sd sdfgsdfgdfgsdfgsdfgsfgdsfg sgfd
+        .row
+          .col-md-9.wow.fadeIn {data-wow-delay="0.8s"}
+            = f.input :main_images, as: :file, wrapper: :horizontal_form, input_html: {multiple: true}
+          .col-md-3.wow.fadeIn {data-wow-delay="0.8s"}
+            |sd sdfgsdfgdfgsdfgsdfgsfgdsfg sgfd
+        .row
+          .col-md-9.wow.fadeIn {data-wow-delay="0.8s"}
+            = f.input :published
+          .col-md-3.wow.fadeIn {data-wow-delay="0.8s"}
+            |sd sdfgsdfgdfgsdfgsdfgsfgdsfg sgfd
+
+        .row
+          .col-md-offset-2.col-md-6.wow.fadeIn {data-wow-delay="0.8s"}
+            = f.button :submit, class: 'btn btn-default st-btn'
+            = link_to t('.cancel', :default => t("helpers.links.cancel")), projects_path, class: 'btn btn-default bt-btn'

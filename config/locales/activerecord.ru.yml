@@ -73,6 +73,7 @@ ru:
         other: "Благотворительные фонды"
       category:
         one: "Категория"
+        few: "Категории"
         other: "Категории"
       blog:
         one: "Блог"
@@ -84,10 +85,19 @@ ru:
     attributes:
       project:
         category: 'Категория'
-        title: "Заголовок"
-        goal: 'Цель'
+        title: "Название"
+        goal: 'Краткое описание'
         date_start: 'Начало'
         date_end: 'Окончание'
+        category: 'Категория'
+        location: 'Расположение'
+        about: 'Описание'
+        foundation: 'Благотворительный фонд'
+        payment_system: 'Платежная система'
+        amount: 'Бюджет проекта'
+        main_images: 'Изображения'
+        published: 'Опубликован'
+        approved: 'Проверен'
       address:
         phone_number: "Телефон"
         mobile_1: "Телефон моб."

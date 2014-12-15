@@ -172,6 +172,12 @@ ru:
       create: Создать %{model}
       submit: Сохранить %{model}
       update: Сохранить %{model}
+      session:
+        submit: 'Войти'
+        reset_password: 'Сбросить пароль!'
+      registration:
+        create: 'Зарегистрироваться'
+
   number:
     currency:
       format:
@@ -278,13 +284,6 @@ ru:
       truncate: "..."
       first: "первая"
       last: "последняя"
-  helpers:
-    submit:
-      session:
-        submit: 'Войти'
-        reset_password: 'Сбросить пароль!'
-      registration:
-        create: 'Зарегистрироваться'
   titles:
     user_session:
       login_header: 'Вход'
@@ -297,4 +296,9 @@ ru:
       login_header_message: 'Для создания проектов необходимо зарегистрироваться'
       login_title: 'Регистрация'
       login_message: 'Введите свой логин и пароль или войдите с помощью социальных сетей'
-
+    project:
+      header: 'Проекты'
+      header_message: 'Создание проекта'
+      title: 'Регистрация'
+      message: 'Введите свой логин и пароль или войдите с помощью социальных сетей'
+      share_this: 'Поделиться'

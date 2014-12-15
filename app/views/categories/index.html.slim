@@ -1,6 +1,6 @@
 - model_class = Category
 div class="page-header"
-  h1=t '.title', :default => model_class.model_name.human.pluralize.titleize
+  h1= t "activerecord.models.#{model_class.to_s.downcase}", count: 2
 table class="table table-striped"
   thead
     tr

@@ -4,8 +4,9 @@ class Project < ActiveRecord::Base
   belongs_to :payment_system
   belongs_to :category
 
-  # mount_uploader :main_image, ProjectImageUploader
   mount_uploaders :main_images, ProjectImageUploader
+
+  enum status: [ :open, :close ]
 
   validates_presence_of :category_id
 end

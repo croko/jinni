@@ -21,6 +21,9 @@
 //= require jquery.backstretch.min
 //= require nivo-lightbox.min
 //= require maind
+//= require moment
+//= require bootstrap-datetimepicker
+//= require moment/ru
 //= require main
 //= require backstretch
 //= require turbolinks
