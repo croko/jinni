@@ -36,12 +36,12 @@
             |sd sdfgsdfgdfgsdfgsdfgsfgdsfg sgfd
         .row
           .col-md-9.wow.fadeIn {data-wow-delay="0.8s"}
-            = f.input :date_start, as: :string, input_html: {class: 'datepicker', value: l(@project.date_start) }
+            = f.input :date_start, as: :string, input_html: {class: 'datepicker', value: l(@project.date_start || Date.today) }
           .col-md-3.wow.fadeIn {data-wow-delay="0.8s"}
             |sd sdfgsdfgdfgsdfgsdfgsfgdsfg sgfd
         .row
           .col-md-9.wow.fadeIn {data-wow-delay="0.8s"}
-            = f.input :date_end, as: :string, input_html: {class: 'datepicker', value: l(@project.date_end)}
+            = f.input :date_end, as: :string, input_html: {class: 'datepicker', value: l(@project.date_end || Date.today + 30.days)}
           .col-md-3.wow.fadeIn {data-wow-delay="0.8s"}
             |sd sdfgsdfgdfgsdfgsdfgsfgdsfg sgfd
         .row
