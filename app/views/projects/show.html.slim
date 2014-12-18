@@ -12,10 +12,10 @@
 
           #post-featured-slider.carousel.slide {data-ride="carousel"}
             .carousel-inner
-              - @project.main_images.each_with_index do |image , i|
+              - @project.photos.each_with_index do |photo , i|
                 - css = i == 0 ? 'active' : ''
                 .item{class = "#{css}"}
-                  =image_tag(image.medium.url)
+                  =image_tag(photo.main_image.medium.url)
 
         .single-post-title.wow.fadeIn {data-wow-delay="1s"}
           h2= @project.title
@@ -130,15 +130,15 @@
               hr
             .ad-space
               =link_to image_tag('blog/ads.jpg', class: 'img-responsive')
-
-          .widget.latest-posts
+          /Temporary commented out
+          /.widget.latest-posts
             .widget-title
               h4 Latest Posts
               hr
 
             .media
               =link_to '#', class: 'pull-left' do
-                =image_tag(@project.main_images.first.thumb.url, class: 'media-object small')
+                =image_tag(@project.photos.first.main_image.thumb.url, class: 'media-object small')
             .media-body
               h6.media-heading= link_to '#' do
                 |Top 10 Trending Themes
@@ -146,7 +146,7 @@
 
             .media
               =link_to '#', class: 'pull-left' do
-                =image_tag(@project.main_images.first.thumb.url, class: 'media-object small')
+                =image_tag(@project.photos.first.main_image.thumb.url, class: 'media-object small')
             .media-body
               h6.media-heading= link_to '#' do
                 |Top 10 Trending Themes
@@ -154,7 +154,7 @@
 
             .media
               =link_to '#', class: 'pull-left' do
-                =image_tag(@project.main_images.first.thumb.url, class: 'media-object small')
+                =image_tag(@project.photos.first.main_image.thumb.url, class: 'media-object small')
             .media-body
               h6.media-heading= link_to '#' do
                 |Top 10 Trending Themes

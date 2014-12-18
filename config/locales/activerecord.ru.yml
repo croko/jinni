@@ -107,7 +107,7 @@ ru:
         foundation: 'Благотворительный фонд'
         payment_system: 'Платежная система'
         amount: 'Бюджет проекта'
-        main_images: 'Изображения'
+        main_image: 'Изображение'
         published: 'Опубликован'
         approved: 'Проверен'
         user: 'Участник'
@@ -189,3 +189,5 @@ ru:
       payment_gateway:
         name: 'Название'
         active: 'Включен'
+      photo:
+        main_image: 'Изображение'

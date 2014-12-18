@@ -3,10 +3,11 @@ class Project < ActiveRecord::Base
   belongs_to :foundation
   belongs_to :payment_system
   belongs_to :category
+  has_many :photos
 
   include AdminProject
 
-  mount_uploaders :main_images, ProjectImageUploader
+  accepts_nested_attributes_for :photos, allow_destroy: true
 
   enum status: [ :open, :close ]
 

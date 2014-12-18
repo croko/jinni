@@ -3,7 +3,7 @@
     .text-danger= flash.alert
     #contact-form.text-center
 
-      = simple_form_for @project, html: { :class => "form-horizontal" }, wrapper: :horizontal_form do |f|
+      = simple_nested_form_for @project, html: { :class => "form-horizontal" }, wrapper: :horizontal_form do |f|
         .row
           .col-md-9.wow.fadeIn {data-wow-delay="0.8s"}
             = f.input :title
@@ -54,20 +54,15 @@
             = f.input :amount
           .col-md-3.wow.fadeIn {data-wow-delay="0.8s"}
             |sd sdfgsdfgdfgsdfgsdfgsfgdsfg sgfd
-        - @project.main_images.each do |image|
-          .row
-            .col-md-9.wow.fadeIn {data-wow-delay="0.8s"}
-              = image_tag(image.thumb.url)
         .row
-          .col-md-9.wow.fadeIn {data-wow-delay="0.8s"}
-            = f.input :main_images_cache, as: :hidden
-          .col-md-3.wow.fadeIn {data-wow-delay="0.8s"}
-            |sd sdfgsdfgdfgsdfgsdfgsfgdsfg sgfd
-        .row
-          .col-md-9.wow.fadeIn {data-wow-delay="0.8s"}
-            = f.input :main_images, as: :file, wrapper: :horizontal_form, input_html: {multiple: true}
-          .col-md-3.wow.fadeIn {data-wow-delay="0.8s"}
-            |sd sdfgsdfgdfgsdfgsdfgsfgdsfg sgfd
+          .col-md-12.wow.fadeIn {data-wow-delay="0.8s"}
+            h4= t("titles.project.photos")
+            table.table.table-condensed
+              = f.fields_for :photos, wrapper: false
+              tr
+                td colspan="4"
+                  = f.link_to_add "Добавить изображение", :photos
+
         .row
           .col-md-9.wow.fadeIn {data-wow-delay="0.8s"}
             = f.input :published
