@@ -10,4 +10,5 @@
 #
 
 class PaymentGateway < ActiveRecord::Base
+  has_many :payment_systems, dependent: :restrict_with_error
 end

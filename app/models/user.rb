@@ -22,6 +22,8 @@ class User < ActiveRecord::Base
     config.authentications_class = Authentication
   end
 
+  include AdminUser
+
   has_many :authentications, dependent: :destroy
   has_many :payment_systems
   has_many :addresses, as: :addressable, dependent: :destroy

@@ -1,14 +1,15 @@
-class AdminConstraint
-  def self.matches?(request)
-    if request.session[:user_id]
-      @current_user = User.find_by(:id, request.session[:user_id])
-      !!@current_user.try(:admin?)
-    end
-  end
-end
+# class AdminConstraint
+#   def self.matches?(request)
+#     if request.session[:user_id]
+#       @current_user = User.find_by(:id, request.session[:user_id])
+#       !!@current_user.try(:admin?)
+#     end
+#   end
+# end
 
 Rails.application.routes.draw do
 
+  mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :categories
 
   resources :password_resets, only: [:create, :edit, :update]
@@ -41,12 +42,12 @@ Rails.application.routes.draw do
   root 'pages#index'
 
 
-  constraints(AdminConstraint) do
-    namespace :admin do
-    # mount Resque::Server, at: '/resque'
-      root to: 'dashboard#show', as: :dashboard
-    end
-  end
+  # constraints(AdminConstraint) do
+  #   namespace :admin do
+  #   # mount Resque::Server, at: '/resque'
+  #     root to: 'dashboard#show', as: :dashboard
+  #   end
+  # end
 
   # root to: 'admin#dashboard', constraints: RouteConstraints::AdminRequiredConstraint.new
   # root to: 'home#welcome', constraints: RouteConstraints::NoUserRequiredConstraint.new

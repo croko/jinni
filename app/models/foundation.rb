@@ -11,7 +11,7 @@
 #
 
 class Foundation < ActiveRecord::Base
-  has_many :payment_systems, dependent: :destroy
+  has_many :payment_systems, dependent: :restrict_with_error
   has_many :addresses, as: :addressable, dependent: :destroy
   accepts_nested_attributes_for :payment_systems, allow_destroy: true
 end

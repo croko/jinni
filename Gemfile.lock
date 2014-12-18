@@ -25,6 +25,25 @@ GIT
   specs:
     nested_form (0.3.2)
 
+GIT
+  remote: git://github.com/sferik/rails_admin.git
+  revision: f8f3e026960272d00cae50b2d7293e25d849cc02
+  specs:
+    rails_admin (0.6.6)
+      builder (~> 3.1)
+      coffee-rails (~> 4.0)
+      font-awesome-rails (>= 3.0, < 5)
+      haml (~> 4.0)
+      jquery-rails (>= 3.0, < 5)
+      jquery-ui-rails (~> 5.0)
+      kaminari (~> 0.14)
+      nested_form (~> 0.3)
+      rack-pjax (~> 0.7)
+      rails (~> 4.0)
+      remotipart (~> 1.0)
+      safe_yaml (~> 1.0)
+      sass-rails (>= 4.0, < 6)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -101,8 +120,12 @@ GEM
       i18n (~> 0.5)
     faraday (0.9.0)
       multipart-post (>= 1.2, < 3)
+    font-awesome-rails (4.2.0.0)
+      railties (>= 3.2, < 5.0)
     font-awesome-sass (4.2.2)
       sass (~> 3.2)
+    haml (4.0.6)
+      tilt
     hike (1.2.3)
     i18n (0.6.11)
     jbuilder (2.2.5)
@@ -111,6 +134,8 @@ GEM
     jquery-rails (3.1.2)
       railties (>= 3.0, < 5.0)
       thor (>= 0.14, < 2.0)
+    jquery-ui-rails (5.0.3)
+      railties (>= 3.2.16)
     json (1.8.1)
     jwt (1.2.0)
     kaminari (0.16.1)
@@ -127,12 +152,15 @@ GEM
     method_source (0.8.2)
     mime-types (2.4.3)
     mini_magick (4.0.1)
+    mini_portile (0.6.1)
     minitest (5.4.3)
     momentjs-rails (2.8.3)
       railties (>= 3.1)
     multi_json (1.10.1)
     multi_xml (0.5.5)
     multipart-post (2.0.0)
+    nokogiri (1.6.5)
+      mini_portile (~> 0.6.0)
     oauth (0.4.7)
     oauth2 (0.9.4)
       faraday (>= 0.8, < 0.10)
@@ -155,6 +183,9 @@ GEM
     quiet_assets (1.0.3)
       railties (>= 3.1, < 5.0)
     rack (1.5.2)
+    rack-pjax (0.8.0)
+      nokogiri (~> 1.5)
+      rack (~> 1.1)
     rack-test (0.6.2)
       rack (>= 1.0)
     rails (4.1.6)
@@ -177,6 +208,7 @@ GEM
     rdoc (4.1.2)
       json (~> 1.4)
     ref (1.0.5)
+    remotipart (1.2.1)
     rspec-core (3.1.7)
       rspec-support (~> 3.1.0)
     rspec-expectations (3.1.2)
@@ -193,6 +225,7 @@ GEM
       rspec-mocks (~> 3.1.0)
       rspec-support (~> 3.1.0)
     rspec-support (3.1.2)
+    safe_yaml (1.0.4)
     sass (3.2.19)
     sass-rails (4.0.5)
       railties (>= 4.0.0, < 5.0)
@@ -279,6 +312,7 @@ DEPENDENCIES
   pry-rails
   quiet_assets
   rails (= 4.1.6)
+  rails_admin!
   ransack!
   rspec-rails
   sass-rails (~> 4.0.3)

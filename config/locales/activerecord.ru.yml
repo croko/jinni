@@ -67,9 +67,11 @@ ru:
         other: 'Участники'
       role:
         one: "Роль"
+        few: "Роли"
         other: "Роли"
       foundation:
         one: "Благотворительный фонд"
+        few: "Благотворительные фонды"
         other: "Благотворительные фонды"
       category:
         one: "Категория"
@@ -77,10 +79,20 @@ ru:
         other: "Категории"
       blog:
         one: "Блог"
+        few: "Блоги"
         other: "Блоги"
       post:
         one: "Статья"
+        few: "Статьи"
         other: "Статьи"
+      city:
+        one: 'Город'
+        few: 'Города'
+        other: 'Города'
+      payment_gateway:
+        one: 'Платежная система'
+        few: 'Платежные системы'
+        other: 'Платежные системы'
 
     attributes:
       project:
@@ -98,6 +110,7 @@ ru:
         main_images: 'Изображения'
         published: 'Опубликован'
         approved: 'Проверен'
+        user: 'Участник'
       address:
         phone_number: "Телефон"
         mobile_1: "Телефон моб."
@@ -134,7 +147,11 @@ ru:
         last_name: 'Фамилия'
         description: 'Доп. информация'
         role: 'Права доступа'
-        with_foundation: 'Сотрудничество'
+        with_foundation: 'Сотрудничество с фондом'
+        addresses: 'Адрес'
+        payment_systems: 'Платежные системы'
+        projects: 'Проекты'
+        admin: 'Администратор'
       foundation:
         name: 'Наименование'
         active: 'Показывать'
@@ -167,3 +184,8 @@ ru:
         published: "Опубликована"
       user_session:
         remember_me: 'Запомнить меня'
+      city:
+        name: 'Название'
+      payment_gateway:
+        name: 'Название'
+        active: 'Включен'
