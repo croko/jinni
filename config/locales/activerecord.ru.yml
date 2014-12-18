@@ -111,6 +111,8 @@ ru:
         published: 'Опубликован'
         approved: 'Проверен'
         user: 'Участник'
+        featured: 'Выделен'
+        photos: 'Изображения'
       address:
         phone_number: "Телефон"
         mobile_1: "Телефон моб."
