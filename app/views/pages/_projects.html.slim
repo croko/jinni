@@ -8,20 +8,19 @@ section#blog
         .space
 
     .row
-      - 3.times do
+      - projects.each do |project|
         .col-sm-4.col-md-4.col-lg-4.posts.wow.fadeIn {data-wow-delay="0.4s"}
           .blog-photo
-            = link_to '#', class: 'plink' do
+            = link_to project_path(project), class: 'plink' do
               .hover
                 .hover-content
                   =icon('search fa-2x')
-              =image_tag('blog/01.jpg', class: 'img-responsive')
+              =image_tag(project.photos.first.main_image.thumb.url, class: 'img-responsive')
             .date
-              h4 21
-              p.small October 2014
-
+              h4=project.date_end.day
+              p.small= project.localized_end_date
           .caption.text-left
-            h2= link_to 'Top 10 Trending Themes', '#'
+            h2= link_to project.title, project_path(project)
             .post-meta
               span.bold
                 = icon('user', 'Author: ')
@@ -34,7 +33,7 @@ section#blog
                 = link_to '1', '#', class: 'highlight'
             .post-meta
               span.bold
-                = icon('money','Бюджет 10000')
+                = icon('money','Бюджет ' "#{number_to_currency(project.amount)}")
               span.bold
                 = icon('money','Собрано 1000')
             .progress

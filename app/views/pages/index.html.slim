@@ -1,8 +1,7 @@
 == render 'layouts/slider'
 /TODO Featured projects
-== render 'projects'
-
-== render 'projects'
+== render partial: 'projects', locals: {projects: @featured_projects} if @featured_projects.any?
+== render partial: 'projects', locals: {projects: @projects} if @projects.any?
 == render 'offer'
 == render 'partners'
 == render 'finished_projects'

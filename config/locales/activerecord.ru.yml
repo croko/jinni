@@ -93,6 +93,10 @@ ru:
         one: 'Платежная система'
         few: 'Платежные системы'
         other: 'Платежные системы'
+      photo:
+        one: 'Изображение'
+        few: 'Изображения'
+        other: 'Изображения'
 
     attributes:
       project:
@@ -113,6 +117,7 @@ ru:
         user: 'Участник'
         featured: 'Выделен'
         photos: 'Изображения'
+        status: 'Статус'
       address:
         phone_number: "Телефон"
         mobile_1: "Телефон моб."

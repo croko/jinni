@@ -7,8 +7,8 @@
 
         .featured-media.wow.fadeIn {data-wow-delay="0.5s" data-wow-duration="2s"}
           .date
-            h4 21
-            p.small October 2014
+            h4=@project.date_end.day
+            p.small= @project.localized_end_date
 
           #post-featured-slider.carousel.slide {data-ride="carousel"}
             .carousel-inner
@@ -32,7 +32,7 @@
             = link_to 'Comments', '#', class: 'highlight'
           .post-meta
             span.bold
-              = icon('money','Бюджет 10000')
+              = icon('money','Бюджет ' "#{project.amount}")
             span.bold
               = icon('money','Собрано 1000')
           .progress
