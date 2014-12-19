@@ -39,11 +39,20 @@ module AdminProject
         field :published
         field :approved
         field :status, :enum do
+
           enum do
-           ['open','close']
+            Project.statuses.map { |k, _| [k.titleize, k] }
           end
-          # visible false
+
+          pretty_value do
+            bindings[:object].send(:status).titleize
+          end
+
+          def form_value
+            bindings[:object].status
+          end
         end
+
         field :photos
 
 
