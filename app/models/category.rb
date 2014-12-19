@@ -9,4 +9,6 @@
 #
 
 class Category < ActiveRecord::Base
+  has_many :projects
+  scope :sorted, -> {order('name')}
 end

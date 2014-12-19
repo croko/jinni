@@ -24,7 +24,14 @@ module AdminProject
       end
 
       edit do
-        field :category
+        field :category do
+          associated_collection_cache_all false
+          associated_collection_scope do
+            Proc.new { |scope|
+              scope.order(:name)
+            }
+          end
+        end
         field :title
         field :goal
         field :about
@@ -54,10 +61,7 @@ module AdminProject
         end
 
         field :photos
-
-
       end
-
     end
   end
 

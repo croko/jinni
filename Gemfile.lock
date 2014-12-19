@@ -20,6 +20,13 @@ GIT
       polyamorous (~> 1.1)
 
 GIT
+  remote: git://github.com/norman/friendly_id.git
+  revision: 519ef0768ea6440d9402e40a7fa4a1fc1fcb3619
+  specs:
+    friendly_id (5.1.0.beta.1)
+      activerecord (>= 4.0.0)
+
+GIT
   remote: git://github.com/ryanb/nested_form.git
   revision: 1b0689dfb4d230ceabd278eba159fcb02f23c68a
   specs:
@@ -80,6 +87,7 @@ GEM
       activerecord (>= 2.3.0)
       rake (>= 0.8.7)
     arel (5.0.1.20140414130214)
+    babosa (0.3.11)
     bcrypt (3.1.9)
     bootstrap-kaminari-views (0.0.5)
       kaminari (>= 0.13)
@@ -290,6 +298,7 @@ PLATFORMS
 DEPENDENCIES
   acts-as-taggable-on (~> 3.4)
   annotate (>= 2.5.0)
+  babosa
   bootstrap-kaminari-views
   bootstrap-sass (~> 3.3.1)
   bootstrap3-datetimepicker-rails (~> 3.1.3)
@@ -300,6 +309,7 @@ DEPENDENCIES
   factory_girl_rails
   faker
   font-awesome-sass
+  friendly_id (~> 5.1.0.beta.1)!
   jbuilder (~> 2.0)
   jquery-rails
   kaminari

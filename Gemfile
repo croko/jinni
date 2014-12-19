@@ -34,7 +34,6 @@ gem 'ransack', github: 'ernie/ransack'
 gem 'kaminari'
 gem 'bootstrap-kaminari-views'
 gem 'nested_form', github: "ryanb/nested_form"
-gem 'font-awesome-sass'
 gem 'mini_magick'
 gem 'acts-as-taggable-on', '~> 3.4'
 gem 'bootstrap-sass', '~> 3.3.1'
@@ -42,6 +41,8 @@ gem 'font-awesome-sass'
 gem 'momentjs-rails', '>= 2.8.1'
 gem 'bootstrap3-datetimepicker-rails', '~> 3.1.3'
 gem 'rails_admin', github: 'sferik/rails_admin'
+gem 'friendly_id', '~> 5.1.0.beta.1', github: 'norman/friendly_id'
+gem 'babosa'
 
 group :development do
   gem 'quiet_assets'

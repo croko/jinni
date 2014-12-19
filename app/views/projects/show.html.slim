@@ -97,31 +97,15 @@
         .sidebar
           .widget.category
             .widget-title
-              h4 Categories
+              h4= t "activerecord.models.category.few"
               hr
 
             ul.cat
-              li= link_to '#' do
-                'Web Design
-                span.post-count 10
-              li= link_to '#' do
-                'Graphics
-                span.post-count 10
-              li= link_to '#' do
-                'Mobile Apps
-                span.post-count 10
-              li= link_to '#' do
-                'Web Design
-                span.post-count 10
-              li= link_to '#' do
-                'Web Design
-                span.post-count 10
-              li= link_to '#' do
-                'Web Design
-                span.post-count 10
-              li= link_to '#' do
-                'Web Design
-                span.post-count 10
+              -@categories.each do |category|
+                li= link_to category do
+                  = category.name
+                  span.post-count= category.projects.size
+
 
 
           .widget.ad-block
