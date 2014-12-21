@@ -136,6 +136,7 @@ ru:
         district: "Район"
       category:
         name: 'Наименование'
+        projects: 'Проекты'
       comment:
         user_id: "Участник"
         message: "Комментарий"

@@ -63,6 +63,8 @@ module AdminProject
 
         field :photos
       end
+      exclude_fields :slug
+
     end
   end
 

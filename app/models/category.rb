@@ -9,6 +9,7 @@
 #
 
 class Category < ActiveRecord::Base
+  include AdminCategory
   extend FriendlyId
   friendly_id :name, use: :slugged
 
