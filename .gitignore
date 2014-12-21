@@ -17,3 +17,5 @@
 .ruby-version
 database.yml
 /public/uploads
+/public/projects
+/public/users

@@ -12,6 +12,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+    @finished_projects = @user.finished_projects
   end
 
   # GET /users/new
@@ -73,7 +74,7 @@ class UsersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
-    params.require(:user).permit(:first_name, :last_name, :email, :password, :with_foundation,
+    params.require(:user).permit(:first_name, :last_name, :email, :password, :with_foundation, :image, :image_cache, :about,
                                  payment_systems_attributes: [:id, :payment_gateway_id, :public_key,
                                                               :private_key, :active, :_destroy],
                                  addresses_attributes: [:id, :address_1, :address_2, :city_id,

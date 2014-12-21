@@ -1,12 +1,11 @@
 class ProjectsController < ApplicationController
-  skip_before_action :require_login, only: [:index, :show]
+  skip_before_action :require_login, only: [:show]
   before_action :set_project, only: [:edit, :update, :destroy]
-  before_action only: [:edit, :update]
 
   # GET /projects
   # GET /projects.json
   def index
-    @projects = Project.all
+    @projects = current_user.projects
   end
 
   # GET /projects/1
@@ -77,7 +76,7 @@ class ProjectsController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def project_params
     params.require(:project).permit(:title, :goal, :about, :foundation_id, :date_start, :date_end, :category_id, :amount, :published, :tag_list,
-                                    :location, :payment_system_id, :tag_list_tokens,
+                                    :location, :payment_system_id,
                                     photos_attributes: [:id, :main_image, :main_image_cache, :_destroy])
   end
 end

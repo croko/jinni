@@ -303,9 +303,12 @@ ru:
       login_message: 'Введите свой логин и пароль или войдите с помощью социальных сетей'
     project:
       header: 'Проекты'
-      header_message: 'Создание проекта'
-      title: 'Создайте свой проект'
+      new_header_message: 'Создание проекта'
+      edit_header_message: 'Редактирование проекта'
+      title: 'Создайте свой новый проект'
       message: 'Текст для создания проекта'
+      edit_title: 'Редактирование данных проекта'
+      edit_message: 'Текст для редактирования проекта'
       share_this: 'Поделиться'
       photos: 'Фотографии'
       tags: 'Теги'
@@ -314,3 +317,15 @@ ru:
       author: 'Автор'
       comments: 'Комментарии'
       read_more: 'Помочь'
+      my_header: 'Мои проекты'
+      my_header_message: 'Здесь собраны все Ваши проекты'
+    about:
+      header: 'О нас'
+      header_message: ''
+      description: 'Дополнительная информация'
+    user:
+      header: 'Участник'
+      edit_header_message: 'Профиль'
+      edit_title: 'Редактирование личных данных'
+      edit_message: 'Текст для редактирования'
+

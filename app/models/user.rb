@@ -22,20 +22,23 @@ class User < ActiveRecord::Base
     config.authentications_class = Authentication
   end
 
+  mount_uploader :image, UserImageUploader
+
   include AdminUser
 
   has_many :authentications, dependent: :destroy
   has_many :payment_systems
   has_many :addresses, as: :addressable, dependent: :destroy
   has_many :projects
+  has_many :finished_projects, -> { where(status: 1) }, class_name: 'Project'
 
   accepts_nested_attributes_for :authentications
   accepts_nested_attributes_for :payment_systems, :reject_if => lambda { |a| a[:payment_gateway_id].blank? }, allow_destroy: true
   accepts_nested_attributes_for :addresses, allow_destroy: true
 
-  validates :password, length: { minimum: 5 }
+  validates :password, length: { minimum: 5 }, allow_blank: true
   validates :password, confirmation: true
-  validates :password_confirmation, presence: true
+  validates :password_confirmation, presence: true, allow_nil: true
   validates :email, presence: true, uniqueness: true
 
   def fio

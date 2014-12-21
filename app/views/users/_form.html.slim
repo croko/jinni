@@ -4,7 +4,14 @@
   = f.input :first_name
   = f.input :last_name
   = f.input :with_foundation
-
+  = f.input :password
+  = f.input :password_confirmation
+  = f.input :about, as: :text, input_html: {rows: 6}
+  = f.input :image_cache, as: :hidden
+  = f.input :image
+  .row
+    .col-md-6
+      =image_tag(@user.image.thumb.url)
   .row
     .col-md-6
       .table-responsive

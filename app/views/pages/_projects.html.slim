@@ -15,7 +15,7 @@
         .post-meta
           span.bold
             = icon('user', "#{t 'titles.project.author'} : ")
-            = link_to project.user.fio, '#', class: 'highlight'
+            = link_to project.user.fio, user_path(project.user), class: 'highlight'
           span.bold
             = icon('comment')
             = link_to '1', '#', class: 'highlight'

@@ -155,13 +155,16 @@ ru:
         password_confirmation: 'Подтвердите пароль'
         first_name: 'Имя'
         last_name: 'Фамилия'
-        description: 'Доп. информация'
         role: 'Права доступа'
         with_foundation: 'Сотрудничество с фондом'
         addresses: 'Адрес'
         payment_systems: 'Платежные системы'
         projects: 'Проекты'
+        finished_projects: 'Законченные проекты'
         admin: 'Администратор'
+        about: 'О себе'
+        image: 'Фотография'
+
       foundation:
         name: 'Наименование'
         active: 'Показывать'
