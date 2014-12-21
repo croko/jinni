@@ -31,4 +31,4 @@ nav.navbar.navbar-default.navbar-main role="navigation"
               li= link_to 'Onepage', '#'
               li= link_to 'Onepage', '#'
 
-        li= link_to (t "titles.navbar.profile"), edit_user_path(current_user)
+        li= link_to (t "titles.navbar.profile"), edit_user_path(current_user) if current_user

@@ -26,8 +26,6 @@ Rails.application.routes.draw do
 
   resources :payment_gateways
 
-  resources :payment_systems
-
   resources :foundations
 
   resources :user_sessions
