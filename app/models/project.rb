@@ -1,4 +1,5 @@
 require "babosa"
+
 class Project < ActiveRecord::Base
   belongs_to :user
   belongs_to :foundation
@@ -7,8 +8,13 @@ class Project < ActiveRecord::Base
   has_many :photos
 
   include AdminProject
+  include TagExtend
+
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged
+
+  acts_as_taggable
+  # attr_reader :tag_list_tokens
 
   accepts_nested_attributes_for :photos, allow_destroy: true
 
@@ -28,7 +34,7 @@ class Project < ActiveRecord::Base
   end
 
   def progress
-    70
+    (collected / amount).round * 100
   end
 
   def slug_candidates

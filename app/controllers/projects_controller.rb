@@ -1,6 +1,7 @@
 class ProjectsController < ApplicationController
   skip_before_action :require_login, only: [:index, :show]
   before_action :set_project, only: [:edit, :update, :destroy]
+  before_action only: [:edit, :update]
 
   # GET /projects
   # GET /projects.json
@@ -63,16 +64,20 @@ class ProjectsController < ApplicationController
     end
   end
 
-  private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_project
-      @project = current_user.projects.friendly.find(params[:id])
-    end
+  def tags
+    render json: Project.project_tag_names(params[:q])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def project_params
-      params.require(:project).permit(:title, :goal, :about, :foundation_id, :date_start, :date_end, :category_id, :amount, :published,
-                                      :location, :payment_system_id,
-                                      photos_attributes: [:id, :main_image, :main_image_cache, :_destroy])
-    end
+  private
+  # Use callbacks to share common setup or constraints between actions.
+  def set_project
+    @project = current_user.projects.friendly.find(params[:id])
+  end
+
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def project_params
+    params.require(:project).permit(:title, :goal, :about, :foundation_id, :date_start, :date_end, :category_id, :amount, :published, :tag_list,
+                                    :location, :payment_system_id, :tag_list_tokens,
+                                    photos_attributes: [:id, :main_image, :main_image_cache, :_destroy])
+  end
 end

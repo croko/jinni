@@ -18,7 +18,11 @@ Rails.application.routes.draw do
 
   resources :addresses
 
-  resources :projects
+  resources :projects do
+    collection do
+      get :tags, as: :tags
+    end
+  end
 
   resources :payment_gateways
 

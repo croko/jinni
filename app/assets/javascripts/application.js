@@ -26,4 +26,5 @@
 //= require moment/ru
 //= require main
 //= require backstretch
+//= require jquery.tokeninput.min
 //= require turbolinks

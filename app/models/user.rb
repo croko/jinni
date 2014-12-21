@@ -38,4 +38,7 @@ class User < ActiveRecord::Base
   validates :password_confirmation, presence: true
   validates :email, presence: true, uniqueness: true
 
+  def fio
+    last_name.to_s + ' ' + first_name.to_s
+  end
 end

@@ -55,6 +55,11 @@
           .col-md-3.wow.fadeIn {data-wow-delay="0.8s"}
             |sd sdfgsdfgdfgsdfgsdfgsfgdsfg sgfd
         .row
+          .col-md-9.wow.fadeIn {data-wow-delay="0.8s"}
+            = f.input :tag_list, input_html: { data: {load: @project.tag_list_json}}
+          .col-md-3.wow.fadeIn {data-wow-delay="0.8s"}
+            |sd sdfgsdfgdfgsdfgsdfgsfgdsfg sgfd
+        .row
           .col-md-12.wow.fadeIn {data-wow-delay="0.8s"}
             h4= t("titles.project.photos")
             table.table.table-condensed

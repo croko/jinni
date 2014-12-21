@@ -23,8 +23,8 @@ section#blog
             h2= link_to project.title, project_path(project)
             .post-meta
               span.bold
-                = icon('user', 'Author: ')
-                = link_to 'Jenn Pers', '#', class: 'highlight'
+                = icon('user', "#{t 'titles.project.author'} : ")
+                = link_to project.user.fio, '#', class: 'highlight'
               span.bold
                 = icon('comment')
                 = link_to '1', '#', class: 'highlight'
@@ -33,15 +33,12 @@ section#blog
                 = link_to '1', '#', class: 'highlight'
             .post-meta
               span.bold
-                = icon('money','Бюджет ' "#{number_to_currency(project.amount)}")
+                = icon('money', "#{t 'activerecord.attributes.project.amount'} #{number_to_currency(project.amount, precision: 0)}")
               span.bold
-                = icon('money','Собрано 1000')
+                = icon('money', "#{t 'activerecord.attributes.project.collected'} #{number_to_currency(project.collected, precision: 0)}")
             .progress
               .progress-bar {role="progressbar" aria-valuenow="#{project.progress}" aria-valuemin="0" aria-valuemax="100" style="width: #{project.progress}%"}
                 |#{project.progress}%
 
             p What may look great to one visitor may not even appear for another! You could very easily have shelled out hundreds or even thousands of dollars to have a website created using the Flash technology...
-            .progress-bar {role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%"}
-              span.sr-only
-                |90% Complete
-            =link_to 'Read More', project, class: 'btn btn-default st-btn'
+            =link_to t('titles.project.read_more'), project, class: 'btn btn-default st-btn'

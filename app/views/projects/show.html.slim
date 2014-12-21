@@ -22,22 +22,22 @@
 
         .post-meta.wow.fadeIn {data-wow-delay="1.4s"}
           span.bold
-            = icon('user', 'Author:')
-            = link_to 'Jenn Pers', '#', class: 'highlight'
+            = icon('user', "#{t 'titles.project.author'} : ")
+            = link_to @project.user.fio, '#', class: 'highlight'
           span.bold
-            = icon('tag', 'Category: ')
-            = link_to 'Category', '#', class: 'highlight'
+            = icon('tag', "#{t 'titles.project.category'} : " )
+            = link_to @project.category.name, @project.category, class: 'highlight'
           span.bold
-            = icon('tag', 'Comments: ')
+            = icon('tag', "#{t 'titles.project.category'} : ")
             = link_to 'Comments', '#', class: 'highlight'
           .post-meta
             span.bold
-              = icon('money','Бюджет ' "#{@project.amount}")
+              = icon('money', "#{t 'activerecord.attributes.project.amount'} #{number_to_currency(@project.amount, precision: 0)}")
             span.bold
-              = icon('money','Собрано 1000')
+              = icon('money', "#{t 'activerecord.attributes.project.collected'} #{number_to_currency(@project.collected, precision: 0)}")
           .progress
-            .progress-bar {role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100" style="width: 90%"}
-              |90%
+            .progress-bar {role="progressbar" aria-valuenow="#{@project.progress}" aria-valuemin="0" aria-valuemax="100" style="width: #{@project.progress}%"}
+              |#{@project.progress}%
 
         .post-body.wow.fadeIn {data-wow-delay="1.5s" data-wow-duration="2s"}
           p.lead= @project.goal
@@ -49,18 +49,15 @@
           .pull-left
             ul.post-tags
               li=icon('tag')
-              li= link_to 'одежда', '#'
-              li= link_to 'вооружение', '#'
-              li= link_to 'продукты', '#'
-              li= link_to 'лекарства', '#'
+              -@project.tags.each do |tag|
+                li= link_to tag.name, '#'
 
           .pull-right
             ul.social-share
               li= t "titles.project.share_this"
-              li= link_to '#' do
-                =icon('facebook')
-                =icon('google-plus')
-                =icon('twitter')
+              li= link_to icon('facebook'), '#'
+              li= link_to icon('google-plus'), '#'
+              li= link_to icon('twitter'), '#'
 
         .media.post-author.wow.fadeIn {data-wow-delay="0.4s"}
           =link_to '#', class: 'pull-left' do
@@ -106,11 +103,9 @@
                   = category.name
                   span.post-count= category.projects.size
 
-
-
           .widget.ad-block
             .widget-title
-              h4 Ads Here
+              h4=t "titles.project.ads"
               hr
             .ad-space
               =link_to image_tag('blog/ads.jpg', class: 'img-responsive')
@@ -146,15 +141,12 @@
 
           .dwidget.tags
             .widget-title
-              h4 Tags
+              h4=t "titles.project.tags"
               hr
               br
               ul.tag-lists
-                li= link_to 'Web Design', '#'
-                li= link_to 'Development', '#'
-                li= link_to 'Wordpress', '#'
-                li= link_to 'Design', '#'
-                li= link_to 'Blogging', '#'
+                -Project.all_tag_counts.each do |tag|
+                  li= link_to tag.name, '#'
 
   -if @project.user == current_user
     .row

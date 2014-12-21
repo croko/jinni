@@ -110,7 +110,7 @@ ru:
         about: 'Описание'
         foundation: 'Благотворительный фонд'
         payment_system: 'Платежная система'
-        amount: 'Бюджет проекта'
+        amount: 'Бюджет'
         main_image: 'Изображение'
         published: 'Опубликован'
         approved: 'Проверен'
@@ -118,6 +118,8 @@ ru:
         featured: 'Выделен'
         photos: 'Изображения'
         status: 'Статус'
+        tag_list: 'Теги'
+        collected: 'Собрано'
       address:
         phone_number: "Телефон"
         mobile_1: "Телефон моб."
