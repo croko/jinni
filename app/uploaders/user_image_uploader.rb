@@ -30,6 +30,9 @@ class UserImageUploader < CarrierWave::Uploader::Base
   # def scale(width, height)
   #   # do something
   # end
+  def default_url
+   "fallback/" + [version_name, "default.jpg"].compact.join('_')
+  end
 
   # Create different versions of your uploaded files:
   version :thumb do
@@ -37,7 +40,7 @@ class UserImageUploader < CarrierWave::Uploader::Base
   end
 
   version :medium do
-    process :resize_to_fit => [800, 500]
+    process :resize_to_fill => [800, 500]
   end
 
   # Add a white list of extensions which are allowed to be uploaded.
