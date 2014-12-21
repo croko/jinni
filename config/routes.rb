@@ -10,7 +10,7 @@
 Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  resources :categories
+  resources :categories, only: :show
 
   resources :password_resets, only: [:create, :edit, :update]
 

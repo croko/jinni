@@ -41,6 +41,7 @@ module AdminProject
         field :date_start
         field :date_end
         field :amount
+        field :tag_list
         field :location
         field :featured
         field :published

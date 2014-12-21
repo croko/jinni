@@ -1,44 +1,35 @@
-section#blog
-  .container
-    .row
-      .section-title.text-center.col-sm-12.col-md-12.col-lg-12
-        h2 Проекты
-        hr
-        h5 Learn More About the Latest News About Us
-        .space
+.row
+  - projects.each do |project|
+    .col-sm-6.col-md-4.col-lg-4.posts.wow.fadeIn {data-wow-delay="0.4s"}
+      .blog-photo
+        = link_to project_path(project), class: 'plink' do
+          .hover
+            .hover-content
+              =icon('search fa-2x')
+          =image_tag(project.photos.first.main_image.thumb.url, class: 'img-responsive')
+        .date
+          h4=project.date_end.day
+          p.small= project.localized_end_date
+      .caption.text-left
+        h2= link_to project.title, project_path(project)
+        .post-meta
+          span.bold
+            = icon('user', "#{t 'titles.project.author'} : ")
+            = link_to project.user.fio, '#', class: 'highlight'
+          span.bold
+            = icon('comment')
+            = link_to '1', '#', class: 'highlight'
+          span.bold
+            = icon('heart')
+            = link_to '1', '#', class: 'highlight'
+        .post-meta
+          span.bold
+            = icon('money', "#{t 'activerecord.attributes.project.amount'} #{number_to_currency(project.amount, precision: 0)}")
+          span.bold
+            = icon('money', "#{t 'activerecord.attributes.project.collected'} #{number_to_currency(project.collected, )}")
+        .progress
+          .progress-bar {role="progressbar" aria-valuenow="#{project.progress}" aria-valuemin="0" aria-valuemax="100" style="width: #{project.progress}%"}
+            |#{project.progress}%
 
-    .row
-      - projects.each do |project|
-        .col-sm-4.col-md-4.col-lg-4.posts.wow.fadeIn {data-wow-delay="0.4s"}
-          .blog-photo
-            = link_to project_path(project), class: 'plink' do
-              .hover
-                .hover-content
-                  =icon('search fa-2x')
-              =image_tag(project.photos.first.main_image.thumb.url, class: 'img-responsive')
-            .date
-              h4=project.date_end.day
-              p.small= project.localized_end_date
-          .caption.text-left
-            h2= link_to project.title, project_path(project)
-            .post-meta
-              span.bold
-                = icon('user', "#{t 'titles.project.author'} : ")
-                = link_to project.user.fio, '#', class: 'highlight'
-              span.bold
-                = icon('comment')
-                = link_to '1', '#', class: 'highlight'
-              span.bold
-                = icon('heart')
-                = link_to '1', '#', class: 'highlight'
-            .post-meta
-              span.bold
-                = icon('money', "#{t 'activerecord.attributes.project.amount'} #{number_to_currency(project.amount, precision: 0)}")
-              span.bold
-                = icon('money', "#{t 'activerecord.attributes.project.collected'} #{number_to_currency(project.collected, precision: 0)}")
-            .progress
-              .progress-bar {role="progressbar" aria-valuenow="#{project.progress}" aria-valuemin="0" aria-valuemax="100" style="width: #{project.progress}%"}
-                |#{project.progress}%
-
-            p What may look great to one visitor may not even appear for another! You could very easily have shelled out hundreds or even thousands of dollars to have a website created using the Flash technology...
-            =link_to t('titles.project.read_more'), project, class: 'btn btn-default st-btn'
+        p= project.goal
+        =link_to t('titles.project.read_more'), project, class: 'btn btn-default st-btn'

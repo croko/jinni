@@ -1,0 +1,8 @@
+.widget.tags
+  .widget-title
+    h4=t "titles.project.tags"
+    hr
+  br
+  ul.tag-lists
+    -Project.all_tag_counts.each do |tag|
+      li= link_to tag.name, '#'

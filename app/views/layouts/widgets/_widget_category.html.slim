@@ -1,0 +1,10 @@
+.widget.category
+  .widget-title
+    h4= t "activerecord.models.category.few"
+    hr
+
+  ul.cat
+    -@categories.each do |category|
+     li= link_to category do
+       = category.name
+       span.post-count= category.projects.size

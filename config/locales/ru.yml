@@ -285,6 +285,11 @@ ru:
       first: "первая"
       last: "последняя"
   titles:
+    search: 'Поиск'
+    navbar:
+      my_projects: 'Мои проекты'
+      profile: 'Мой профиль'
+      navigation: 'Навигация'
     user_session:
       login_header: 'Вход'
       login_header_message: 'Для управления проектами необходимо авторизоваться'

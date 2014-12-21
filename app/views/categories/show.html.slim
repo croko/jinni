@@ -1,15 +1,22 @@
-- model_class = Category
-div class="page-header"
-  h1=t '.title', :default => model_class.model_name.human.titleize
+#header
+  .color-overlay
+    .container
+      h2=@category.name
+      p This is the Blog Style 2 With Sidebar
 
-p
-  strong= model_class.human_attribute_name(:name) + ':'
-  br
-  = @category.name
-
-.form-actions
-  = link_to t('.back', :default => t("helpers.links.back")), categories_path, :class => 'btn'
-  '
-  = link_to t('.edit', :default => t("helpers.links.edit")), edit_category_path(@category), :class => 'btn'
-  '
-  = link_to t('.destroy', :default => t("helpers.links.destroy")), category_path(@category), :method => "delete", :data => { :confirm => t('.confirm', :default => t("helpers.links.confirm", :default => 'Are you sure?')) }, :class => 'btn btn-danger'
+section#blog-posts.text-center
+  .bigspace
+    .container
+      .row
+        .col-md-8
+          - @projects.each_slice(2) do |slice|
+            .row
+              - slice.each do |project|
+                == render partial: 'projects/project', locals: {project: project}
+        .col-md-4.wow.fadeIn {data-wow-delay="0.4s"}
+          .sidebar
+            ==render partial: 'layouts/widgets/widget_search'
+            == render partial: 'layouts/widgets/widget_category'
+            == render partial: 'layouts/widgets/widget_ads'
+            == render partial: 'layouts/widgets/widget_latest_posts'
+            == render partial: 'layouts/widgets/widget_tags'

@@ -9,12 +9,10 @@ class Project < ActiveRecord::Base
 
   include AdminProject
   include TagExtend
+  acts_as_taggable
 
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged
-
-  acts_as_taggable
-  # attr_reader :tag_list_tokens
 
   accepts_nested_attributes_for :photos, allow_destroy: true
 

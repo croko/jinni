@@ -1,7 +1,22 @@
 == render 'layouts/slider'
-/TODO Featured projects
-== render partial: 'projects', locals: {projects: @featured_projects} if @featured_projects.any?
-== render partial: 'projects', locals: {projects: @projects} if @projects.any?
+section#blog
+  .container
+    .row
+      .section-title.text-center.col-sm-12.col-md-12.col-lg-12
+        h2 Выделенные проекты
+        hr
+        h5 Learn More About the Latest News About Us
+        .space
+    == render partial: 'projects', locals: {projects: @featured_projects} if @featured_projects.any?
+  .container
+    .row
+      .section-title.text-center.col-sm-12.col-md-12.col-lg-12
+        h2 Проекты
+        hr
+        h5 Learn More About the Latest News About Us
+        .space
+
+    == render partial: 'projects', locals: {projects: @projects} if @projects.any?
 == render 'offer'
 == render 'partners'
 == render 'finished_projects'

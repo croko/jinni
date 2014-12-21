@@ -9,6 +9,14 @@
 #
 
 class Category < ActiveRecord::Base
+  extend FriendlyId
+  friendly_id :name, use: :slugged
+
   has_many :projects
   scope :sorted, -> {order('name')}
+
+  def normalize_friendly_id(input)
+    input.to_s.to_slug.normalize(transliterations: :russian).to_s
+  end
+
 end

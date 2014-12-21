@@ -1,4 +1,9 @@
-- model_class = Project
+#header
+  .color-overlay
+    .container
+      h2= @project.title
+      p This is the Blog Style 2 With Sidebar
+
 
 #single-post.text-center
   .container
@@ -92,61 +97,10 @@
 
       .col-md-4.wow.fadeIn {data-wow-delay="0.4s"}
         .sidebar
-          .widget.category
-            .widget-title
-              h4= t "activerecord.models.category.few"
-              hr
-
-            ul.cat
-              -@categories.each do |category|
-                li= link_to category do
-                  = category.name
-                  span.post-count= category.projects.size
-
-          .widget.ad-block
-            .widget-title
-              h4=t "titles.project.ads"
-              hr
-            .ad-space
-              =link_to image_tag('blog/ads.jpg', class: 'img-responsive')
-          /Temporary commented out
-          /.widget.latest-posts
-            .widget-title
-              h4 Latest Posts
-              hr
-
-            .media
-              =link_to '#', class: 'pull-left' do
-                =image_tag(@project.photos.first.main_image.thumb.url, class: 'media-object small')
-            .media-body
-              h6.media-heading= link_to '#' do
-                |Top 10 Trending Themes
-              p.small Pellentesque massa eu nulla consequat sed porttitor arcu
-
-            .media
-              =link_to '#', class: 'pull-left' do
-                =image_tag(@project.photos.first.main_image.thumb.url, class: 'media-object small')
-            .media-body
-              h6.media-heading= link_to '#' do
-                |Top 10 Trending Themes
-              p.small Pellentesque massa eu nulla consequat sed porttitor arcu
-
-            .media
-              =link_to '#', class: 'pull-left' do
-                =image_tag(@project.photos.first.main_image.thumb.url, class: 'media-object small')
-            .media-body
-              h6.media-heading= link_to '#' do
-                |Top 10 Trending Themes
-              p.small Pellentesque massa eu nulla consequat sed porttitor arcu
-
-          .dwidget.tags
-            .widget-title
-              h4=t "titles.project.tags"
-              hr
-              br
-              ul.tag-lists
-                -Project.all_tag_counts.each do |tag|
-                  li= link_to tag.name, '#'
+          == render partial: 'layouts/widgets/widget_category'
+          == render partial: 'layouts/widgets/widget_ads'
+          == render partial: 'layouts/widgets/widget_latest_posts'
+          == render partial: 'layouts/widgets/widget_tags'
 
   -if @project.user == current_user
     .row
