@@ -48,4 +48,7 @@ class Project < ActiveRecord::Base
     input.to_s.to_slug.normalize(transliterations: :russian).to_s
   end
 
+  def thumb
+    photos.try(:first).try(:main_image).try(:thumb).try(:url)
+  end
 end

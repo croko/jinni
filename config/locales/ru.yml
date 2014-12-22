@@ -328,4 +328,8 @@ ru:
       edit_header_message: 'Профиль'
       edit_title: 'Редактирование личных данных'
       edit_message: 'Текст для редактирования'
-
+    registration:
+      success: 'Успешная регистрция'
+    login:
+      success: 'Успешный вход'
+      fail: 'Ошибка входа'

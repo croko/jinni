@@ -6,7 +6,7 @@
           .hover
             .hover-content
               =icon('search fa-2x')
-          =image_tag(project.photos.first.main_image.thumb.url, class: 'img-responsive')
+          =image_tag(project.thumb, class: 'img-responsive')
         .date
           h4=project.date_end.day
           p.small= project.localized_end_date
@@ -15,7 +15,8 @@
         .post-meta
           span.bold
             = icon('user', "#{t 'titles.project.author'} : ")
-            = link_to project.user.fio, user_path(project.user), class: 'highlight'
+            - if project.user
+              = link_to project.user.try.fio, user_path(project.user), class: 'highlight'
           span.bold
             = icon('comment')
             = link_to '1', '#', class: 'highlight'
