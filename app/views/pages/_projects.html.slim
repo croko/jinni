@@ -16,7 +16,7 @@
           span.bold
             = icon('user', "#{t 'titles.project.author'} : ")
             - if project.user
-              = link_to project.user.try.fio, user_path(project.user), class: 'highlight'
+              = link_to project.user.fio, user_path(project.user), class: 'highlight'
           span.bold
             = icon('comment')
             = link_to '1', '#', class: 'highlight'
