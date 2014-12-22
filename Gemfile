@@ -43,6 +43,7 @@ gem 'bootstrap3-datetimepicker-rails', '~> 3.1.3'
 gem 'rails_admin', github: 'sferik/rails_admin'
 gem 'friendly_id', '~> 5.1.0.beta.1', github: 'norman/friendly_id'
 gem 'babosa'
+gem "fog"
 
 group :development do
   gem 'quiet_assets'
