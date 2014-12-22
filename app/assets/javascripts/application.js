@@ -24,7 +24,6 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require moment/ru
-//= require main
-//= require backstretch
+//= require main.js.coffee.erb
 //= require jquery.tokeninput.min
 //= require turbolinks

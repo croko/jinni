@@ -24,6 +24,12 @@ ready = ->
     noResultsText: 'Ничего не найдено'
     prePopulate: $('#project_tag_list').data('load')
 
+  $('.use_backstretch').backstretch([
+    "<%= asset_path 'bg/ag1.jpg' %>"
+  , "<%= asset_path 'bg/ag2.jpg' %>"
+  , "<%= asset_path 'bg/ag3.jpg' %>"
+  ], {duration: 3000, fade: 750})
+
 $(document).ready(ready)
 $(document).on('page:load', ready)
 window.ready = ready
