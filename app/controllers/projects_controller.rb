@@ -1,11 +1,15 @@
 class ProjectsController < ApplicationController
-  skip_before_action :require_login, only: [:show]
+  skip_before_action :require_login, only: [:index, :show]
   before_action :set_project, only: [:edit, :update, :destroy]
 
   # GET /projects
   # GET /projects.json
   def index
-    @projects = current_user.projects
+    if current_user
+      @projects = current_user.projects
+    else
+      @projects = Project.open.approved.published.sorted
+    end
   end
 
   # GET /projects/1
