@@ -17,6 +17,7 @@ nav.navbar.navbar-default.navbar-main role="navigation"
               -@categories.each do |category|
                 li= link_to category.name, category
 
+        li= link_to (t "activerecord.models.project.few"), projects_path
         li= link_to (t "titles.navbar.my_projects"), projects_path if current_user
 
         /li.dropdown
