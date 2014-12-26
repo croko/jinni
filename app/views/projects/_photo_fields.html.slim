@@ -1,5 +1,5 @@
 tr.fields
   td= f.input :main_image_cache, as: :hidden
   td= f.input :main_image, as: :file, wrapper: :horizontal_form
-  td= image_tag(f.object.main_image.thumb.url)
+  td= image_tag(f.object.main_image.thumb.url, size: '345x259')
   td= f.link_to_remove icon('trash-o','', class: 'fa-2x')
