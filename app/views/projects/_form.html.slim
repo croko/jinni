@@ -5,63 +5,78 @@
 
       = simple_nested_form_for @project, html: { :class => "form-horizontal" }, wrapper: :horizontal_form do |f|
         .row
-          .col-md-9.wow.fadeIn {data-wow-delay="0.8s"}
+          .col-md-7.wow.fadeIn {data-wow-delay="0.8s"}
             = f.input :title
-          .col-md-3.wow.fadeIn {data-wow-delay="0.8s"}
-            |sd sdfgsdfgdfgsdfgsdfgsfgdsfg sgfd
+          .col-md-5.wow.fadeIn {data-wow-delay="0.8s"}
+            blockquote
+              small= t 'activerecord.attributes.project.title_description'
         .row
-          .col-md-9.wow.fadeIn {data-wow-delay="0.8s"}
+          .col-md-7.wow.fadeIn {data-wow-delay="0.8s"}
             = f.association :category
-          .col-md-3.wow.fadeIn {data-wow-delay="0.8s"}
-            |sd sdfgsdfgdfgsdfgsdfgsfgdsfg sgfd
+          .col-md-5.wow.fadeIn {data-wow-delay="0.8s"}
+            blockquote
+              small= t "activerecord.attributes.project.category_description"
         .row
-          .col-md-9.wow.fadeIn {data-wow-delay="0.8s"}
+          .col-md-7.wow.fadeIn {data-wow-delay="0.8s"}
             = f.input :goal, as: :text, input_html: {rows: 6}
-          .col-md-3.wow.fadeIn {data-wow-delay="0.8s"}
-            |sd sdfgsdfgdfgsdfgsdfgsfgdsfg sgfd
+          .col-md-5.wow.fadeIn {data-wow-delay="0.8s"}
+            blockquote
+              small= t "activerecord.attributes.project.goal_description"
         .row
-          .col-md-9.wow.fadeIn {data-wow-delay="0.8s"}
+          .col-md-7.wow.fadeIn {data-wow-delay="0.8s"}
             = f.input :location
-          .col-md-3.wow.fadeIn {data-wow-delay="0.8s"}
-            |sd sdfgsdfgdfgsdfgsdfgsfgdsfg sgfd
+          .col-md-5.wow.fadeIn {data-wow-delay="0.8s"}
+            blockquote
+              small= t "activerecord.attributes.project.location_description"
         .row
-          .col-md-9.wow.fadeIn {data-wow-delay="0.8s"}
+          .col-md-7.wow.fadeIn {data-wow-delay="0.8s"}
             = f.input :about, as: :text, input_html: {rows: 15}
-          .col-md-3.wow.fadeIn {data-wow-delay="0.8s"}
-            |sd sdfgsdfgdfgsdfgsdfgsfgdsfg sgfd
+          .col-md-5.wow.fadeIn {data-wow-delay="0.8s"}
+            blockquote
+              small= t "activerecord.attributes.project.about_description"
         .row
-          .col-md-9.wow.fadeIn {data-wow-delay="0.8s"}
+          .col-md-7.wow.fadeIn {data-wow-delay="0.8s"}
             = f.association :foundation
-          .col-md-3.wow.fadeIn {data-wow-delay="0.8s"}
-            |sd sdfgsdfgdfgsdfgsdfgsfgdsfg sgfd
+          .col-md-5.wow.fadeIn {data-wow-delay="0.8s"}
+            blockquote
+              small= t "activerecord.attributes.project.foundation_description"
         .row
-          .col-md-9.wow.fadeIn {data-wow-delay="0.8s"}
+          .col-md-7.wow.fadeIn {data-wow-delay="0.8s"}
             = f.input :date_start, as: :string, input_html: {class: 'datepicker', value: l(@project.date_start || Date.today) }
-          .col-md-3.wow.fadeIn {data-wow-delay="0.8s"}
-            |sd sdfgsdfgdfgsdfgsdfgsfgdsfg sgfd
+          .col-md-5.wow.fadeIn {data-wow-delay="0.8s"}
+            blockquote
+              small= t "activerecord.attributes.project.date_start_description"
         .row
-          .col-md-9.wow.fadeIn {data-wow-delay="0.8s"}
+          .col-md-7.wow.fadeIn {data-wow-delay="0.8s"}
             = f.input :date_end, as: :string, input_html: {class: 'datepicker', value: l(@project.date_end || Date.today + 30.days)}
-          .col-md-3.wow.fadeIn {data-wow-delay="0.8s"}
-            |sd sdfgsdfgdfgsdfgsdfgsfgdsfg sgfd
+          .col-md-5.wow.fadeIn {data-wow-delay="0.8s"}
+            blockquote
+              small= t "activerecord.attributes.project.date_end_description"
         .row
-          .col-md-9.wow.fadeIn {data-wow-delay="0.8s"}
+          .col-md-7.wow.fadeIn {data-wow-delay="0.8s"}
             = f.association :payment_system
-          .col-md-3.wow.fadeIn {data-wow-delay="0.8s"}
-            |sd sdfgsdfgdfgsdfgsdfgsfgdsfg sgfd
+          .col-md-5.wow.fadeIn {data-wow-delay="0.8s"}
+            blockquote
+              small= t "activerecord.attributes.project.payment_system_description"
         .row
-          .col-md-9.wow.fadeIn {data-wow-delay="0.8s"}
+          .col-md-7.wow.fadeIn {data-wow-delay="0.8s"}
             = f.input :amount
-          .col-md-3.wow.fadeIn {data-wow-delay="0.8s"}
-            |sd sdfgsdfgdfgsdfgsdfgsfgdsfg sgfd
+          .col-md-5.wow.fadeIn {data-wow-delay="0.8s"}
+            blockquote
+              small= t "activerecord.attributes.project.amount_description"
         .row
-          .col-md-9.wow.fadeIn {data-wow-delay="0.8s"}
+          .col-md-7.wow.fadeIn {data-wow-delay="0.8s"}
             = f.input :tag_list, input_html: { data: {load: @project.tag_list_json}}
-          .col-md-3.wow.fadeIn {data-wow-delay="0.8s"}
-            |sd sdfgsdfgdfgsdfgsdfgsfgdsfg sgfd
+          .col-md-5.wow.fadeIn {data-wow-delay="0.8s"}
+            blockquote
+              small= t "activerecord.attributes.project.tag_list_description"
         .row
           .col-md-12.wow.fadeIn {data-wow-delay="0.8s"}
             h4= t("titles.project.photos")
+        .row
+          .col-md-12.wow.fadeIn {data-wow-delay="0.8s"}
+            blockquote
+              small= t "activerecord.attributes.project.photos_description"
             table.table.table-condensed
               = f.fields_for :photos, wrapper: false
               tr
@@ -69,10 +84,11 @@
                   = f.link_to_add "Добавить изображение", :photos
 
         .row
-          .col-md-9.wow.fadeIn {data-wow-delay="0.8s"}
+          .col-md-7.wow.fadeIn {data-wow-delay="0.8s"}
             = f.input :published
-          .col-md-3.wow.fadeIn {data-wow-delay="0.8s"}
-            |sd sdfgsdfgdfgsdfgsdfgsfgdsfg sgfd
+          .col-md-5.wow.fadeIn {data-wow-delay="0.8s"}
+            blockquote
+              small= t "activerecord.attributes.project.published_description"
 
         .row
           .col-md-offset-2.col-md-6.wow.fadeIn {data-wow-delay="0.8s"}
