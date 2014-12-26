@@ -319,6 +319,7 @@ ru:
       read_more: 'Помочь'
       my_header: 'Мои проекты'
       my_header_message: 'Здесь собраны все Ваши проекты'
+      last_projects: 'Новые проекты'
     about:
       header: 'О нас'
       header_message: ''
@@ -333,3 +334,6 @@ ru:
     login:
       success: 'Успешный вход'
       fail: 'Ошибка входа'
+    tos: 'Правила пользования сервисом'
+    privacy: 'Правила приватности'
+    rights: 'Все права защищены ©'

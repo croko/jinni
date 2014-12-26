@@ -2,10 +2,14 @@ class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
-  before_filter :require_login, :get_categories
+  before_filter :require_login, :get_categories, :latest_projects
 
   def get_categories
     @categories = Category.sorted
+  end
+
+  def latest_projects
+    @latest_projects = Project.open.exclude_featured.approved.published.sorted.limit(3)
   end
 
   private
