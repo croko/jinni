@@ -16,6 +16,11 @@
             p.small= @project.localized_end_date
 
           #post-featured-slider.carousel.slide {data-ride="carousel"}
+            ol.carousel-indicators
+              - @project.photos.each_with_index do |photo , i|
+                - css = i == 0 ? 'active' : ''
+                li{class = "#{css}" data-target="#post-featured-slider" data-slide-to="#{i}" }
+
             .carousel-inner
               - @project.photos.each_with_index do |photo , i|
                 - css = i == 0 ? 'active' : ''
