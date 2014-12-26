@@ -10,17 +10,17 @@
         .carousel-inner
           .item.active
             .carousel-caption
-              h1 Помоги волонтерам
+              h1= t 'titles.slider.help'
               hr
-              p.lead We build a professional website that will effectively promote your products or services and encourage visitors
+              p.lead придумать текст
               .col-md-4.col-md-offset-4
                 =link_to 'Помочь', '#', class: "btn btn-default btn-lg st-btn"
 
           .item
             .carousel-caption
-              h1 Создай свой проект
+              h1= t 'titles.slider.create'
               hr
-              p.lead We build a professional website that will effectively promote your products or services and encourage visitors
+              p.lead придумать текст
               .col-md-4.col-md-offset-4
-                =link_to 'Создать', new_project_path, class: "btn btn-default btn-lg st-btn"
+                =link_to "#{t 'titles.offer.button'}", new_project_path, class: "btn btn-default btn-lg st-btn"
 

@@ -1,10 +1,10 @@
 #subscribe.bg-img.white-text
   .color-overlay
     .container.wow.fadeInDown {data-wow-delay="0.5s" data-wow-duaration="0.5s"}
-      h2 A Complete Multi-Purpose Template
+      h2= t 'titles.offer.title'
       hr
-      p.lead Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lorem quam, adipiscing condimentum tristique vel, eleifend sed turpis. Pellentesque cursus arcu id magna euismod in elementum purus molestie.
+      p.lead= t 'titles.offer.text'
       .form-group
-        =link_to 'Subscribe', '#', class: "btn btn-lg st-btn"
+        =link_to "#{t 'titles.offer.button'}", new_project_path, class: "btn btn-lg st-btn"
 
 
