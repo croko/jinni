@@ -185,6 +185,9 @@ ru:
         about: 'О себе'
         image: 'Аватар'
         remove_image: 'Удалить'
+        twitter_url: 'Мой профиль в Twitter'
+        facebook_url: 'Мой профиль в Facebook'
+        google_url: 'Мой профиль в Google+'
       foundation:
         name: 'Наименование'
         active: 'Показывать'

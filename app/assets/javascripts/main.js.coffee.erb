@@ -30,6 +30,25 @@ ready = ->
   , "<%= asset_path 'bg/ag3.jpg' %>"
   ], {duration: 3000, fade: 750})
 
+  disqus_shortname = "croko-backer"
+  (->
+    s = document.createElement("script")
+    s.async = true
+    s.type = "text/javascript"
+    s.src = "//" + disqus_shortname + ".disqus.com/count.js"
+    (document.getElementsByTagName("HEAD")[0] or document.getElementsByTagName("BODY")[0]).appendChild s
+    return
+  )()
+
+  (->
+    dsq = document.createElement("script")
+    dsq.type = "text/javascript"
+    dsq.async = true
+    dsq.src = "//" + disqus_shortname + ".disqus.com/embed.js"
+    (document.getElementsByTagName("head")[0] or document.getElementsByTagName("body")[0]).appendChild dsq
+    return
+  )()
+
 $(document).ready(ready)
 $(document).on('page:load', ready)
 window.ready = ready

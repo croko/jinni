@@ -50,6 +50,24 @@
               small= t 'activerecord.attributes.project.title_description'
         .row
           .col-md-7.wow.fadeIn {data-wow-delay="0.8s"}
+            = f.input :google_url
+          .col-md-5.wow.fadeIn {data-wow-delay="0.8s"}
+            blockquote
+              small= t 'activerecord.attributes.project.title_description'
+        .row
+          .col-md-7.wow.fadeIn {data-wow-delay="0.8s"}
+            = f.input :facebook_url
+          .col-md-5.wow.fadeIn {data-wow-delay="0.8s"}
+            blockquote
+              small= t 'activerecord.attributes.project.title_description'
+        .row
+          .col-md-7.wow.fadeIn {data-wow-delay="0.8s"}
+            = f.input :twitter_url
+          .col-md-5.wow.fadeIn {data-wow-delay="0.8s"}
+            blockquote
+              small= t 'activerecord.attributes.project.title_description'
+        .row
+          .col-md-7.wow.fadeIn {data-wow-delay="0.8s"}
             = f.input :image_cache, as: :hidden
             = f.input :image, as: :file, wrapper: :horizontal_form
           .col-md-5.wow.fadeIn {data-wow-delay="0.8s"}

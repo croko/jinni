@@ -25,6 +25,7 @@ class User < ActiveRecord::Base
   mount_uploader :image, UserImageUploader
 
   include AdminUser
+  include SocialUrl
 
   attr_reader :avatar_url
 

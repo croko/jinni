@@ -65,40 +65,30 @@
 
           .pull-right
             ul.social-share
+              /TODO add share links
               li= t "titles.project.share_this"
-              li= link_to icon('facebook'), '#'
-              li= link_to icon('google-plus'), '#'
-              li= link_to icon('twitter'), '#'
+              li= link_to icon('facebook'), project_url
+              li= link_to icon('google-plus'), project_url
+              li= link_to icon('twitter'), project_url
 
         .media.post-author.wow.fadeIn {data-wow-delay="0.4s"}
-          =link_to '#', class: 'pull-left' do
-            =image_tag('clients/02.jpg', class: 'media-object')
+          =link_to user_path(@project.user), class: 'pull-left' do
+            =image_tag(@project.user.avatar, class: 'media-object')
           .media-body
-            h4.media-heading.author-name Jenn Pereira
-            | Jenn is a full time Internet Marketing Analyst and Strategist. Her brain is an ocean of ideas and creativeness, and she loves expressing and sharing those ideas on her writings and artworks. She is not perfect nor a perfectionist, but she is a believer of perfection in every work she does.
+            h4.media-heading.author-name= @project.user.first_name
+            =@project.user.about
 
             ul.author-social
-              li= link_to '#' do
+              li= link_to @project.user.facebook_url do
                 =icon('facebook')
-              li= link_to '#' do
+              li= link_to @project.user.google_url do
                 =icon('google-plus')
-              li= link_to '#' do
+              li= link_to @project.user.twitter_url do
                 =icon('twitter')
 
         #comments
           .comments-num.wow.fadeIn {data-wow-delay="0.6s"}
-            span.fa.fa-comment 3 Comments
-            hr
-
-            .comment-lists
-              ul.media-list
-                li#commenter.media
-                  .media-body.wow.fadeIn {data-wow-delay="0.5s"}
-                    .media-heading
-                      span.commenter-name Lian Plamer
-                      span.comment-date 3 min ago
-                    p Turpis ut mollis, elit et vestibulum mattis integer aenean nulla, in vitae id augue vitae. Lacus eu nulla ante lorem, viverra pretium ipsum etiam, platea nec purus malesuada id leo, aliquam metus, ac velit viverra.
-                    hr
+            #disqus_thread
 
 
       .col-md-4.wow.fadeIn {data-wow-delay="0.4s"}
