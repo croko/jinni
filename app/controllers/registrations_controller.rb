@@ -13,7 +13,7 @@ class RegistrationsController < ApplicationController
 #TODO
       # UserMailer.welcome(@user).deliver
 
-      redirect_to new_project_url
+      redirect_to edit_user_path(@user), notice: "t 'registration.success'"
     else
      render :new
 	  end

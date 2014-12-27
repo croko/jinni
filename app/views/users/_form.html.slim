@@ -1,44 +1,87 @@
 - model_class = PaymentSystem
-= simple_nested_form_for @user, wrapper: :horizontal_form do |f|
-  = f.input :email
-  = f.input :first_name
-  = f.input :last_name
-  = f.input :with_foundation
-  = f.input :password
-  = f.input :password_confirmation
-  = f.input :about, as: :text, input_html: {rows: 6}
-  = f.input :image_cache, as: :hidden
-  = f.input :image
-  .row
-    .col-md-6
-      =image_tag(@user.image.thumb.url)
-  .row
-    .col-md-6
-      .table-responsive
-        table.table.table-condensed
-          thead
-            tr
-              th.col-lg-4= model_class.human_attribute_name(:payment_gateway_id)
-              th.col-lg-2= model_class.human_attribute_name(:public_key)
-              th.col-lg-2= model_class.human_attribute_name(:private_key)
-              th.col-lg-2= model_class.human_attribute_name(:active)
-              th.col-lg-1
-          tbody
-            =f.fields_for :payment_systems, wrapper: false
-            tr
-              td{colspan="4"}
-                =f.link_to_add "Добавить строку", :payment_systems
-  .row
-    .col-md-6
-      .form-inputs.col-lg-6
-      h4 Адреса
-      table.table.table-condensed
-        = f.fields_for :addresses, wrapper: :horizontal_form
-        tr
-          td colspan="3"
-            = f.link_to_add "Добавить адрес", :addresses
 
-  .form-actions
-    = f.button :submit, :class => 'btn-primary'
-    '
-    = link_to t('.cancel', :default => t("helpers.links.cancel")), users_path, :class => 'btn'
+.row
+  .col-md-12.col-lg-12
+    .text-danger= flash.alert
+    #contact-form.text-center
+
+      = simple_nested_form_for @user, html: { :class => "form-horizontal" }, wrapper: :horizontal_form do |f|
+        .row
+          .col-md-7.wow.fadeIn {data-wow-delay="0.8s"}
+            = f.input :email
+          .col-md-5.wow.fadeIn {data-wow-delay="0.8s"}
+            blockquote
+              small= t 'activerecord.attributes.project.title_description'
+        .row
+          .col-md-7.wow.fadeIn {data-wow-delay="0.8s"}
+            = f.input :first_name
+          .col-md-5.wow.fadeIn {data-wow-delay="0.8s"}
+            blockquote
+              small= t 'activerecord.attributes.project.title_description'
+        .row
+          .col-md-7.wow.fadeIn {data-wow-delay="0.8s"}
+            = f.input :last_name
+          .col-md-5.wow.fadeIn {data-wow-delay="0.8s"}
+            blockquote
+              small= t 'activerecord.attributes.project.title_description'
+        .row
+          .col-md-7.wow.fadeIn {data-wow-delay="0.8s"}
+            = f.input :password
+          .col-md-5.wow.fadeIn {data-wow-delay="0.8s"}
+            blockquote
+              small= t 'activerecord.attributes.project.title_description'
+        .row
+          .col-md-7.wow.fadeIn {data-wow-delay="0.8s"}
+            = f.input :password_confirmation
+          .col-md-5.wow.fadeIn {data-wow-delay="0.8s"}
+            blockquote
+              small= t 'activerecord.attributes.project.title_description'
+        .row
+          .col-md-7.wow.fadeIn {data-wow-delay="0.8s"}
+            = f.input :with_foundation
+          .col-md-5.wow.fadeIn {data-wow-delay="0.8s"}
+            blockquote
+              small= t 'activerecord.attributes.project.title_description'
+        .row
+          .col-md-7.wow.fadeIn {data-wow-delay="0.8s"}
+            = f.input :about, as: :text, input_html: {rows: 6}
+          .col-md-5.wow.fadeIn {data-wow-delay="0.8s"}
+            blockquote
+              small= t 'activerecord.attributes.project.title_description'
+        .row
+          .col-md-7.wow.fadeIn {data-wow-delay="0.8s"}
+            = f.input :image_cache, as: :hidden
+            = f.input :image, as: :file, wrapper: :horizontal_form
+          .col-md-5.wow.fadeIn {data-wow-delay="0.8s"}
+            =image_tag(@user.image.thumb.url, size: '133x100')
+            =f.input :remove_image, as: :boolean
+        .row
+          .col-md-12.wow.fadeIn {data-wow-delay="0.8s"}
+            h4= PaymentSystem.model_name.human(count: 2)
+        .row
+          .col-md-12.wow.fadeIn {data-wow-delay="0.8s"}
+            blockquote
+              small= t "titles.payment_system.text"
+            table.table.table-condensed
+              thead
+                tr
+                  th.col-lg-4= model_class.human_attribute_name(:payment_gateway_id)
+                  th.col-lg-2= model_class.human_attribute_name(:public_key)
+                  th.col-lg-2= model_class.human_attribute_name(:private_key)
+                  th.col-lg-2= model_class.human_attribute_name(:active)
+                  th.col-lg-1
+              = f.fields_for :payment_systems, wrapper: false
+              tr
+                td colspan="4"
+                  = f.link_to_add "#{t 'helpers.links.add_row'}", :payment_systems
+        .row
+          .col-md-12.wow.fadeIn {data-wow-delay="0.8s"}
+            h4= Address.model_name.human
+        .row.fields
+          .col-md-12.wow.fadeIn {data-wow-delay="0.8s"}
+            = f.fields_for :addresses, wrapper: :horizontal_form
+
+        .row
+          .col-md-offset-2.col-md-6.wow.fadeIn {data-wow-delay="0.8s"}
+            = f.button :submit, class: 'btn btn-default st-btn'
+            = link_to t('.cancel', :default => t("helpers.links.cancel")), user_path(current_user), class: 'btn btn-default bt-btn'

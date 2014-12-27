@@ -28,3 +28,5 @@
             .row
               .col-md-offset-4.col-md-4.form.wow.fadeIn {data-wow-delay="0.8s"}
                 = f.button :submit, "#{t('helpers.submit.registration.create')}", class: 'btn btn-default st-btn'
+              .col-md-4.form.wow.fadeIn {data-wow-delay="0.8s"}
+                = link_to t("helpers.submit.session.submit"), login_url, class: 'btn btn-default st-btn'

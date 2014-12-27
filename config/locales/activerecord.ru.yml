@@ -93,10 +93,18 @@ ru:
         one: 'Платежная система'
         few: 'Платежные системы'
         other: 'Платежные системы'
+      payment_system:
+        one: 'Настройки платежной системы'
+        few: 'Настройки платежных систем'
+        other: 'Настройки платежных систем'
       photo:
         one: 'Изображение'
         few: 'Изображения'
         other: 'Изображения'
+      address:
+        one: 'Адрес'
+        few: 'Адреса'
+        other: 'Адреса'
 
     attributes:
       project:
@@ -161,7 +169,7 @@ ru:
         clinic_full_name: 'Клиника'
         commentable: 'Доктор(Клиника)'
       user:
-        email: 'Email'
+        email: 'Email (Логин)'
         password: 'Пароль'
         remember_me: 'Запомнить меня'
         password_confirmation: 'Подтвердите пароль'
@@ -175,8 +183,8 @@ ru:
         finished_projects: 'Законченные проекты'
         admin: 'Администратор'
         about: 'О себе'
-        image: 'Фотография'
-
+        image: 'Аватар'
+        remove_image: 'Удалить'
       foundation:
         name: 'Наименование'
         active: 'Показывать'
@@ -216,3 +224,9 @@ ru:
         active: 'Включен'
       photo:
         main_image: 'Изображение'
+      payment_system:
+        payment_gateway: 'платежная система'
+        payment_gateway_id: 'платежная система'
+        public_key: 'публичный ключ'
+        private_key: 'приватный ключ'
+        active: 'включена'

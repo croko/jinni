@@ -9,4 +9,5 @@
 #
 
 class City < ActiveRecord::Base
+  scope :sorted, -> {order('name')}
 end

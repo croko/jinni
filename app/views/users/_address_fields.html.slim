@@ -1,11 +1,31 @@
-tr.fields
-  td
-    = f.association :city
+.row
+  .col-md-7.wow.fadeIn {data-wow-delay="0.8s"}
+    = f.association :city, collection: City.sorted
+  .col-md-5.wow.fadeIn {data-wow-delay="0.8s"}
+    blockquote
+      small= t 'activerecord.attributes.project.title_description'
+  .col-md-7.wow.fadeIn {data-wow-delay="0.8s"}
     = f.input :address_1
+  .col-md-5.wow.fadeIn {data-wow-delay="0.8s"}
+    blockquote
+      small= t 'activerecord.attributes.project.title_description'
+  .col-md-7.wow.fadeIn {data-wow-delay="0.8s"}
     = f.input :address_2
-    = f.input :mobile_1
-    = f.input :mobile_2
+  .col-md-5.wow.fadeIn {data-wow-delay="0.8s"}
+    blockquote
+      small= t 'activerecord.attributes.project.title_description'
+  .col-md-7.wow.fadeIn {data-wow-delay="0.8s"}
     = f.input :phone_number
+  .col-md-5.wow.fadeIn {data-wow-delay="0.8s"}
+    blockquote
+      small= t 'activerecord.attributes.project.title_description'
+  .col-md-7.wow.fadeIn {data-wow-delay="0.8s"}
     = f.input :email
+  .col-md-5.wow.fadeIn {data-wow-delay="0.8s"}
+    blockquote
+      small= t 'activerecord.attributes.project.title_description'
+  .col-md-7.wow.fadeIn {data-wow-delay="0.8s"}
     = f.input :website_url
-    = f.link_to_remove t("helpers.links.remove"), :class => 'btn btn-danger'
+  .col-md-5.wow.fadeIn {data-wow-delay="0.8s"}
+    blockquote
+      small= t 'activerecord.attributes.project.title_description'

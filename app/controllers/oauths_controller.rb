@@ -24,12 +24,18 @@ class OauthsController < ApplicationController
           # NOTE: this is the place to add '@user.activate!' if you are using user_activation submodule
           reset_session # protect from session fixation attack
           auto_login(@user)
+
+          if provider == 'google'
+            auth = @user.authentications.find_by(provider: 'google')
+            auth.update_attribute('avatar_url', user_hash[:user_info]['picture']) if auth
+          end
+
           redirect_to edit_user_path(@user), notice: "t 'registration.success' #{provider.titleize}!" and return
         end
 
         redirect_to projects_path, :notice => "t 'login.success' #{provider.titleize}!"
       rescue
-        redirect_to root_path, :alert => "t 'login.fail' #{provider.titleize}!"
+        redirect_to root_path, :alert =>  "#{t} login.fail #{provider.titleize}!"
       end
     end
   end

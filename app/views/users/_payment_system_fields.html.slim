@@ -1,6 +1,6 @@
 tr.fields
-  td= f.association :payment_gateway, label: false
-  td= f.input :public_key, label: false, input_html: {class: 'input-sm '}
-  td= f.input :private_key, label: false, input_html: {class: 'input-sm '}
-  td= f.input :active, label: false, input_html: {class: 'input-sm '}
-  td= f.link_to_remove icon('trash-o')
+  td= f.association :payment_gateway, label: false, wrapper_html: {class: 'col-md-12'}
+  td= f.input :public_key, label: false, wrapper_html: {class: 'col-md-12'}
+  td= f.input :private_key, label: false,wrapper_html: {class: 'col-md-12'}
+  td= f.input :active, label: false, wrapper: :horizontal_form
+  td= f.link_to_remove icon('trash-o','', class: 'fa-2x'), wrapper: :horizontal_form

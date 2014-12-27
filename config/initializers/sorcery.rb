@@ -107,13 +107,15 @@ Rails.application.config.sorcery.configure do |config|
   config.twitter.key = ""
   config.twitter.secret = ""
   config.twitter.callback_url = "http://0.0.0.0:3000/oauth/callback?provider=twitter"
-  config.twitter.user_info_mapping = {:email => "screen_name"}
+  config.twitter.user_info_mapping = {:email => "screen_name", avatar_url: 'profile_image_url'}
   #
   config.facebook.key = "#{Rails.application.secrets.sorcery_facebook_key}"
   config.facebook.secret = "#{Rails.application.secrets.sorcery_facebook_secret}"
   config.facebook.callback_url = "#{Rails.application.secrets.sorcery_facebook_callback_url}"
-  config.facebook.user_info_mapping = {email: "email", first_name: 'first_name', last_name: 'last_name'}
-  config.facebook.access_permissions = ["email", "publish_stream"]
+  config.facebook.user_info_mapping = {email: "email", first_name: "first_name", last_name: "last_name"}
+  config.facebook.access_permissions = ['email', 'offline_access']
+  # config.facebook.scope = "email,offline_access"
+
   #
   # config.github.key = ""
   # config.github.secret = ""
@@ -123,7 +125,7 @@ Rails.application.config.sorcery.configure do |config|
   config.google.key = "#{Rails.application.secrets.sorcery_google_key}"
   config.google.secret = "#{Rails.application.secrets.sorcery_google_secret}"
   config.google.callback_url = "#{Rails.application.secrets.sorcery_google_callback_url}"
-  config.google.user_info_mapping = {email: "email", first_name: "first_name", last_name: 'last_name'}
+  config.google.user_info_mapping = {email: "email", first_name: "given_name", last_name: "family_name"}
   #
   # config.vk.key = ""
   # config.vk.secret = ""

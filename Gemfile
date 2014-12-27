@@ -29,6 +29,7 @@ gem 'spring', group: :development
 gem 'slim-rails'
 gem 'sorcery'
 gem 'simple_form'
+gem "fog", require: "fog/aws/storage"
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
 gem 'ransack', github: 'ernie/ransack'
 gem 'kaminari'
@@ -43,7 +44,6 @@ gem 'bootstrap3-datetimepicker-rails', '~> 3.1.3'
 gem 'rails_admin', github: 'sferik/rails_admin'
 gem 'friendly_id', '~> 5.1.0.beta.1', github: 'norman/friendly_id'
 gem 'babosa'
-gem "fog"
 
 group :development do
   gem 'quiet_assets'

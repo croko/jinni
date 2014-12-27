@@ -169,9 +169,9 @@ ru:
     select:
       prompt: ! 'Выберите: '
     submit:
-      create: Создать %{model}
-      submit: Сохранить %{model}
-      update: Сохранить %{model}
+      create: Создать
+      submit: Сохранить
+      update: Сохранить
       session:
         submit: 'Войти'
         reset_password: 'Сбросить пароль!'
@@ -276,6 +276,9 @@ ru:
       all: "Доступ отклонен"
   session:
       error: 'Неверный логин или пароль'
+      login_success: 'Вход в систему выполнен'
+      logout: 'Выход из системы выполнен'
+      login_fail: ''
   views:
     pagination:
       previous: "&laquo; назад"
@@ -301,6 +304,7 @@ ru:
       login_header_message: 'Для создания проектов необходимо зарегистрироваться'
       login_title: 'Регистрация'
       login_message: 'Введите свой логин и пароль или войдите с помощью социальных сетей'
+      success: 'Добро пожаловать! Вы успешно зарегистрировались.'
     project:
       header: 'Проекты'
       new_header_message: 'Создание проекта'
@@ -330,8 +334,6 @@ ru:
       edit_header_message: 'Профиль'
       edit_title: 'Редактирование личных данных'
       edit_message: 'Текст для редактирования'
-    registration:
-      success: 'Успешная регистрция'
     login:
       success: 'Успешный вход'
       fail: 'Ошибка входа'
@@ -345,3 +347,5 @@ ru:
     slider:
       help: 'Помоги волонтерам'
       create: 'Создай свой проект'
+    payment_system:
+      text: 'Текст для платежных систем'

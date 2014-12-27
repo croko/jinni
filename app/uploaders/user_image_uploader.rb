@@ -31,7 +31,7 @@ class UserImageUploader < CarrierWave::Uploader::Base
   #   # do something
   # end
   def default_url
-   "fallback/" + [version_name, "default.jpg"].compact.join('_')
+    model.avatar
   end
 
   # Create different versions of your uploaded files:

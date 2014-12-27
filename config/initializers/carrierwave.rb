@@ -1,3 +1,5 @@
+require 'fog/aws/storage'
+
 CarrierWave.configure do |config|
   config.fog_credentials = {
       aws_access_key_id:  "#{Rails.application.secrets.aws_access_key_id}",

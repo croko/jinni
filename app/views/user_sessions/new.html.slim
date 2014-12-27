@@ -25,6 +25,8 @@
                 = f.input :remember_me, as: :boolean
               == render 'registrations/socials'
             .row
-              .col-md-offset-4.col-md-4.form.wow.fadeIn {data-wow-delay="0.8s"}
+              .col-md-offset-2.col-md-4.form.wow.fadeIn {data-wow-delay="0.8s"}
                 = f.button :submit, class: 'btn btn-default st-btn'
+              .col-md-4.form.wow.fadeIn {data-wow-delay="0.8s"}
+                = link_to t("helpers.submit.registration.create"), signup_url, class: 'btn btn-default st-btn'
     == render 'forgot_password_form'

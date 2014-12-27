@@ -11,6 +11,8 @@ ru:
       remove: "Удалить"
       close: "Закрыть"
       new_post: "Написать статью"
+      add_photo: "Добавить изображение"
+      add_row: "Добавить строку"
     titles:
       edit: "Редактировать %{model}"
       save: "Сохранить %{model}"

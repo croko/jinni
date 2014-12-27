@@ -26,11 +26,14 @@ class User < ActiveRecord::Base
 
   include AdminUser
 
+  attr_reader :avatar_url
+
   has_many :authentications, dependent: :destroy
   has_many :payment_systems
   has_many :addresses, as: :addressable, dependent: :destroy
   has_many :projects
   has_many :finished_projects, -> { where(status: 1) }, class_name: 'Project'
+  belongs_to :city
 
   accepts_nested_attributes_for :authentications
   accepts_nested_attributes_for :payment_systems, :reject_if => lambda { |a| a[:payment_gateway_id].blank? }, allow_destroy: true
@@ -38,10 +41,16 @@ class User < ActiveRecord::Base
 
   validates :password, length: { minimum: 5 }, allow_blank: true
   validates :password, confirmation: true
-  validates :password_confirmation, presence: true, allow_nil: true
+  validates :password_confirmation, presence: true, allow_blank: true
   validates :email, presence: true, uniqueness: true
+
+  validates :addresses, presence: true, on: :update
 
   def fio
     last_name.to_s + ' ' + first_name.to_s
+  end
+
+  def avatar
+    authentications.first.avatar_url
   end
 end
