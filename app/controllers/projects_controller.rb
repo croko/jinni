@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    if current_user
+    if params[:pr] == 'my'
       @projects = current_user.projects
     else
       @projects = Project.open.approved.published.sorted
@@ -16,6 +16,24 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @project = Project.friendly.find(params[:id])
+
+    if @project.payment_system.present?
+      Liqpay.default_options = {
+         public_key:  @project.payment_system.public_key,
+         private_key:  @project.payment_system.private_key,
+         language: 'ru'
+      }
+
+      @liqpay_request = Liqpay::Request.new(
+        amount: '1000',
+        currency: 'UAH',
+        order_id: @project.id,
+        description: @project.title,
+        type: 'donate',
+        result_url: project_url(@project),
+        server_url: liqpay_callback_url
+      )
+    end
   end
 
   # GET /projects/new

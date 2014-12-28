@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141227165535) do
+ActiveRecord::Schema.define(version: 20141228155916) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -99,6 +99,24 @@ ActiveRecord::Schema.define(version: 20141227165535) do
   add_index "payment_systems", ["payment_gateway_id"], name: "index_payment_systems_on_payment_gateway_id", using: :btree
   add_index "payment_systems", ["user_id"], name: "index_payment_systems_on_user_id", using: :btree
 
+  create_table "payments", force: true do |t|
+    t.integer  "project_id"
+    t.integer  "payment_gateway_id"
+    t.string   "sender_phone"
+    t.string   "payment_transaction"
+    t.string   "payment_status"
+    t.string   "payment_type"
+    t.string   "liqpay_order_id"
+    t.decimal  "commission",          precision: 8, scale: 2, default: 0.0
+    t.string   "currency"
+    t.decimal  "amount",              precision: 8, scale: 2, default: 0.0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "payments", ["payment_gateway_id"], name: "index_payments_on_payment_gateway_id", using: :btree
+  add_index "payments", ["project_id"], name: "index_payments_on_project_id", using: :btree
+
   create_table "photos", force: true do |t|
     t.integer  "project_id"
     t.string   "main_image"
@@ -128,6 +146,7 @@ ActiveRecord::Schema.define(version: 20141227165535) do
     t.boolean  "approved",                                  default: false
     t.string   "slug"
     t.decimal  "collected",         precision: 8, scale: 2, default: 0.0
+    t.integer  "payments_count"
   end
 
   add_index "projects", ["category_id"], name: "index_projects_on_category_id", using: :btree

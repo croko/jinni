@@ -90,9 +90,9 @@ ru:
         few: 'Города'
         other: 'Города'
       payment_gateway:
-        one: 'Платежная система'
-        few: 'Платежные системы'
-        other: 'Платежные системы'
+        one: 'Платежный шлюз'
+        few: 'Платежные шлюзы'
+        other: 'Платежные шлюзы'
       payment_system:
         one: 'Настройки платежной системы'
         few: 'Настройки платежных систем'
@@ -105,6 +105,10 @@ ru:
         one: 'Адрес'
         few: 'Адреса'
         other: 'Адреса'
+      payment:
+        one: 'Платеж'
+        few: 'Платежи'
+        other: 'Платежи'
 
     attributes:
       project:
@@ -228,8 +232,23 @@ ru:
       photo:
         main_image: 'Изображение'
       payment_system:
+        name: 'название'
         payment_gateway: 'платежная система'
-        payment_gateway_id: 'платежная система'
+        payment_gateway_id: 'платежный шлюз'
         public_key: 'публичный ключ'
         private_key: 'приватный ключ'
         active: 'включена'
+      payment:
+        project: 'Проект'
+        project_id: 'Проект'
+        payment_gateway: 'Платежный шлюз'
+        payment_gateway_id: 'Платежный шлюз'
+        sender_phone: 'Телефон'
+        payment_transaction: 'Транзакция №'
+        payment_status: 'Статус'
+        payment_type: 'Тип платежа'
+        liqpay_order_id: 'Счет №'
+        commission: 'Комиссия'
+        currency: 'Валюта'
+        amount: 'Сумма'
+        created_at: 'Дата проведения'

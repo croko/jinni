@@ -75,7 +75,7 @@ class UsersController < ApplicationController
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
     params.require(:user).permit(:first_name, :last_name, :email, :password, :password_confirmation, :with_foundation, :image, :image_cache, :about, :remove_image,
-                                 payment_systems_attributes: [:id, :payment_gateway_id, :public_key,
+                                 payment_systems_attributes: [:id, :name, :payment_gateway_id, :public_key,
                                                               :private_key, :active, :_destroy],
                                  addresses_attributes: [:id, :address_1, :address_2, :city_id,
                                                         :website_url, :email, :phone_number,

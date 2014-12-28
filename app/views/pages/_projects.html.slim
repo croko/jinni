@@ -22,12 +22,12 @@
             = link_to '1', '#', class: 'highlight'
           span.bold
             = icon('heart')
-            = link_to '1', '#', class: 'highlight'
+            = link_to project.payments.size, project_path(project), class: 'highlight'
         .post-meta
           span.bold
             = icon('money', "#{t 'activerecord.attributes.project.amount'} #{number_to_currency(project.amount, precision: 0)}")
           span.bold
-            = icon('money', "#{t 'activerecord.attributes.project.collected'} #{number_to_currency(project.collected, )}")
+            = icon('money', "#{t 'activerecord.attributes.project.collected'} #{number_to_currency(project.collected, precision: 0)}")
         .progress
           .progress-bar {role="progressbar" aria-valuenow="#{project.progress}" aria-valuemin="0" aria-valuemax="100" style="width: #{project.progress}%"}
             |#{project.progress}%

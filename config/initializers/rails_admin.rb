@@ -12,7 +12,7 @@ RailsAdmin.config do |config|
   ## == Cancan ==
   # config.authorize_with :cancan
   config.authorize_with do
-      redirect_to main_app.root_path unless current_user.admin
+    redirect_to main_app.root_path unless current_user.admin
   end
 
   ## == PaperTrail ==
@@ -21,7 +21,7 @@ RailsAdmin.config do |config|
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
 
   config.excluded_models = ["Authentication"]
-  RailsAdmin.config {|c| c.label_methods << :last_name}
+  RailsAdmin.config { |c| c.label_methods << :last_name }
 
   config.model 'Address' do
     visible false
@@ -32,15 +32,21 @@ RailsAdmin.config do |config|
   end
 
   config.actions do
-    dashboard                     # mandatory
-    index                         # mandatory
+    dashboard # mandatory
+    index # mandatory
     new
     export
     bulk_delete
     show
-    edit
-    delete
-    show_in_app
+    edit do
+      except ['Payment']
+    end
+    delete do
+      except ['Payment']
+    end
+    show_in_app do
+      except ['Payment']
+    end
 
     ## With an audit adapter, you can add:
     # history_index

@@ -1,4 +1,5 @@
 tr.fields
+  td= f.input :name, label: false, wrapper_html: {class: 'col-md-12'}
   td= f.association :payment_gateway, label: false, wrapper_html: {class: 'col-md-12'}
   td= f.input :public_key, label: false, wrapper_html: {class: 'col-md-12'}
   td= f.input :private_key, label: false,wrapper_html: {class: 'col-md-12'}

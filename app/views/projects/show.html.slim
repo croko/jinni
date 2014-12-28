@@ -53,6 +53,9 @@
           .progress
             .progress-bar {role="progressbar" aria-valuenow="#{@project.progress}" aria-valuemin="0" aria-valuemax="100" style="width: #{@project.progress}%"}
               |#{@project.progress}%
+          .post-meta
+            = liqpay_button @liqpay_request do
+              =submit_tag("#{t 'titles.project.pay'}", class: 'btn btn-default btn-lg st-btn yellow pull-right')
 
         .post-body.wow.fadeIn {data-wow-delay="1.5s" data-wow-duration="2s"}
           p.lead= @project.goal
@@ -64,7 +67,7 @@
               li=icon('tag')
               -@project.tags.each do |tag|
                 li= link_to tag.name, '#'
-
+          /TODO finish tags
           .pull-right
             ul.social-share
               /TODO add share links

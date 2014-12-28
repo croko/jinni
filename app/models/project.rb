@@ -6,6 +6,7 @@ class Project < ActiveRecord::Base
   belongs_to :payment_system
   belongs_to :category, counter_cache: true
   has_many :photos
+  has_many :payments
 
   include AdminProject
   include TagExtend
