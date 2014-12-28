@@ -39,8 +39,12 @@
             = icon('tag', "#{t 'titles.project.category'} : " )
             = link_to @project.category.name, @project.category, class: 'highlight'
           span.bold
-            = icon('tag', "#{t 'titles.project.category'} : ")
-            = link_to 'Comments', '#', class: 'highlight'
+            -if @project.open?
+              = icon('play')
+              .label.label-success= t @project.status
+            -else
+              = icon('stop')
+              .label.label-warning= t @project.status
           .post-meta
             span.bold
               = icon('money', "#{t 'activerecord.attributes.project.amount'} #{number_to_currency(@project.amount, precision: 0)}")
@@ -53,9 +57,7 @@
         .post-body.wow.fadeIn {data-wow-delay="1.5s" data-wow-duration="2s"}
           p.lead= @project.goal
           p= @project.about
-
         .space
-
         .post-bottom-bar.wow.fadeIn
           .pull-left
             ul.post-tags

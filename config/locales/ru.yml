@@ -268,8 +268,8 @@ ru:
   no: 'Нет'
   'true': 'Да'
   'false': 'Нет'
-  open: 'открыт'
-  close: 'закрыт'
+  open: 'Активен'
+  close: 'Завершен'
 
   unauthorized:
     manage:
