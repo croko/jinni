@@ -1,0 +1,9 @@
+development:
+  api_secret: '6YYcVrhKH4Vn0MrW9VOuS4CbOGnCriQCiL2rJgTqI6qQRQBPF0KxrV1GKdKy8G0W'
+  api_key: 'y2DyJhZSPdDk0R9G7pzZVjX5eaeO0hqeJc8E6k2RoK3oupbPxWs7WWw1anKMM9wN'
+  access_token: 'f95c36ba0a7f46b0bbd8b5e814936d58'
+
+production:
+  api_secret: <%= ENV["DISQUS_API_SECRET"] %>
+  api_key: <%= ENV["DISQUS_API_KEY"] %>
+  access_token: <%= ENV["DISQUS_ACCESS_TOKEN"] %>

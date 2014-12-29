@@ -5,6 +5,9 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
+    # cc = DisqusApi.v3.threads.details(forum: 'jinni',  :"thread:ident" => 'project_4')
+    # cc.response['posts']
+    # binding.pry
     if params[:pr] == 'my' && current_user
       @projects = current_user.projects
     else
