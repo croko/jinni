@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    if params[:pr] == 'my'
+    if params[:pr] == 'my' && current_user
       @projects = current_user.projects
     else
       @projects = Project.open.approved.published.sorted

@@ -17,7 +17,7 @@
           = link_to project.user.fio, user_path(project.user), class: 'highlight'
       span.bold
         = icon('comment')
-        = link_to '1', '#', class: 'highlight'
+        = link_to '', project_url(project) + '#disqus_thread', data: {:"disqus-identifier" => "project_#{project.id}"}, class: 'highlight'
       span.bold
         = icon('heart')
         = link_to project.payments.size, project_path(project), class: 'highlight'

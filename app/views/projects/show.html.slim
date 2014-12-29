@@ -107,3 +107,7 @@
     .row
       .col-md-offset-2.col-md-6.wow.fadeIn {data-wow-delay="0.8s"}
         = link_to t('.edit', :default => t("helpers.links.edit")), edit_project_path(@project), class: 'btn btn-default st-btn'
+
+javascript:
+  var disqus_identifier = "project_#{@project.id}";
+  var disqus_title = "#{@project.title}";
