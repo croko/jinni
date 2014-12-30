@@ -4,8 +4,7 @@ nav.navbar.navbar-default.navbar-main role="navigation"
       =button_tag class: 'navbar-toggle collapsed', data: {toggle: 'collapse', target: '#bs-example-navbar-collapse-1'} do
         span.sr-only=(t "titles.navbar.navigation")
         span.fa.fa-bars.fa-2x
-      =link_to 'JINNI', root_path, class: 'navbar-brand'
-      /image_tag('logo.png'), root_path, class: 'navbar-brand'
+      =link_to image_tag('logo.png'), root_path, class: 'navbar-brand'
 
     / Collect the nav links, forms, and other content for toggling
     .collapse.navbar-collapse#bs-example-navbar-collapse-1
