@@ -323,6 +323,7 @@ ru:
       read_more: 'Подробнее'
       my_header: 'Мои проекты'
       my_header_message: 'Здесь собраны все Ваши проекты'
+      header_message: 'придумать текст'
       last_projects: 'Новые проекты'
       finished: 'Завершенные проекты'
       pay: 'Пожертвовать!'
