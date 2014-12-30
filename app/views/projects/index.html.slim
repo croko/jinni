@@ -1,15 +1,26 @@
 #header
   .color-overlay
     .container
-      h2= t('titles.project.my_header')
-      p= t('titles.project.my_header_message')
+      -if current_user
+        h2= t('titles.project.my_header')
+        p= t('titles.project.my_header_message')
+      -else
+        h2= t('titles.project.header')
+        p= t('titles.project.header_message')
 
 section#blog-posts.text-center
   .bigspace
     .container
-      .row
-        .col-md-offset-2.col-md-6.wow.fadeIn {data-wow-delay="0.8s"}
-          = link_to("#{t 'helpers.links.new'}" , new_project_path, class: 'btn btn-default st-btn')
+      -if current_user
+        .row
+          .section-title.text-center.col-sm-12.col-md-12.col-lg-12
+            h2=t('titles.project.title')
+            hr
+        .space
+        .row
+          .text-center.col-sm-12.col-md-12.col-lg-12
+            = link_to("#{t 'helpers.links.new'}" , new_project_path, class: 'btn btn-default st-btn')
+        .bigspace
       .row
         .col-md-8
           - @projects.each_slice(2) do |slice|

@@ -21,6 +21,7 @@ class Project < ActiveRecord::Base
 
   validates_presence_of :category_id, :title, :goal, :date_start, :date_end, :amount, :about
   validates_numericality_of :amount, greater_than: 0
+  validates_length_of :goal, maximum: 250
 
   scope :published, -> { where(published: true) }
   scope :featured, -> { where(featured: true) }
