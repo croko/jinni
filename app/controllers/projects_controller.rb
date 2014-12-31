@@ -2,6 +2,8 @@ class ProjectsController < ApplicationController
   skip_before_action :require_login, only: [:index, :show]
   before_action :set_project, only: [:edit, :update, :destroy]
 
+  include PaymentProcessing
+
   # GET /projects
   # GET /projects.json
   def index
@@ -9,6 +11,7 @@ class ProjectsController < ApplicationController
     # cc.response['posts']
     # binding.pry
     if params[:pr] == 'my' && current_user
+      @my_projects = true
       @projects = current_user.projects
     else
       @projects = Project.open.approved.published.sorted
@@ -21,21 +24,7 @@ class ProjectsController < ApplicationController
     @project = Project.friendly.find(params[:id])
 
     if @project.payment_system.present?
-      Liqpay.default_options = {
-         public_key:  @project.payment_system.public_key,
-         private_key:  @project.payment_system.private_key,
-         language: 'ru'
-      }
-
-      @liqpay_request = Liqpay::Request.new(
-        amount: '1000',
-        currency: 'UAH',
-        order_id: @project.id,
-        description: @project.title,
-        type: 'donate',
-        result_url: project_url(@project),
-        server_url: liqpay_callback_url
-      )
+      liqpay_form
     end
   end
 

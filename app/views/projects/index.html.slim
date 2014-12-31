@@ -1,7 +1,7 @@
 #header
   .color-overlay
     .container
-      -if current_user
+      -if @my_projects
         h2= t('titles.project.my_header')
         p= t('titles.project.my_header_message')
       -else

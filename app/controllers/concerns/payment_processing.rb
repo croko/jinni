@@ -1,8 +1,26 @@
 module PaymentProcessing
   extend ActiveSupport::Concern
 
+  def liqpay_form
+     Liqpay.default_options = {
+         public_key: @project.payment_system.public_key,
+         private_key: @project.payment_system.private_key,
+         language: 'ru'
+     }
+
+     @liqpay_request = Liqpay::Request.new(
+         amount: '1000',
+         currency: 'UAH',
+         order_id: SecureRandom.urlsafe_base64(nil, true).to_s + @project.id.to_s,
+         description: @project.title,
+         type: 'donate',
+         result_url: project_url(@project),
+         server_url: liqpay_callback_url
+     )
+  end
+
   def liqpay_payment
-    @project = Project.find(params[:order_id])
+    @project = Project.find(params[:order_id].partition('==')[2])
     payment_gateway = PaymentGateway.find_by(name: 'LiqPay')
 
     if @project.present?
