@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.1.6'
+gem 'rails', '4.2'
 # Use postgresql as the database for Active Record
 gem 'pg'
 # Use SCSS for stylesheets
@@ -46,11 +46,13 @@ gem 'friendly_id', '~> 5.1.0.beta.1', github: 'norman/friendly_id'
 gem 'babosa'
 gem 'liqpay', '~>1.0.0'
 gem 'disqus_api'
+gem 'responders', '~> 2.0'
 
 group :development do
   gem 'quiet_assets'
   gem 'annotate', ">=2.5.0"
   gem 'thin'
+  gem 'web-console', '~> 2.0'
 end
 
 group :development, :test do
