@@ -15,10 +15,6 @@ Rails.application.routes.draw do
 
   resources :password_resets, only: [:create, :edit, :update]
 
-  resources :cities
-
-  resources :addresses
-
   resources :projects do
     collection do
       get :tags, as: :tags
@@ -26,8 +22,6 @@ Rails.application.routes.draw do
     resources :reports, exclude: :index
   end
   get 'my-projects' => 'projects#index', as: :my_projects, pr: 'my'
-
-  resources :payment_gateways
 
   resources :foundations
 

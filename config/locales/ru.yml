@@ -326,6 +326,7 @@ ru:
       header_message: 'придумать текст'
       last_projects: 'Новые проекты'
       finished: 'Завершенные проекты'
+      finished_message: 'придумать текст'
       pay: 'Пожертвовать!'
       edit_report: 'Редактировать отчет'
       new_report: 'Создать отчет'

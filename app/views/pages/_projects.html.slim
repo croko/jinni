@@ -1,36 +1,37 @@
-.row
-  - projects.each do |project|
-    .col-sm-6.col-md-4.col-lg-4.posts.wow.fadeIn {data-wow-delay="0.4s"}
-      .blog-photo
-        = link_to project_path(project), class: 'plink' do
-          .hover
-            .hover-content
-              =icon('search fa-2x')
-          =image_tag(project.thumb, class: 'img-responsive')
-        .date
-          h4=project.date_end.day
-          p.small= project.localized_end_date
-      .caption.text-left
-        h2= link_to project.title, project_path(project)
-        .post-meta
-          span.bold
-            = icon('user', "#{t 'titles.project.author'} : ")
-            - if project.user
-              = link_to project.user.fio, user_path(project.user), class: 'highlight'
-          span.bold
-            = icon('comment')
-            = link_to '', project_url(project) + '#disqus_thread', data: {:"disqus-identifier" => "project_#{project.id}"}, class: 'highlight'
-          /span.bold
-            = icon('heart')
-            = link_to project.payments.size, project_path(project), class: 'highlight'
-        .post-meta
-          span.bold
-            = icon('money', "#{t 'activerecord.attributes.project.amount'} #{number_to_currency(project.amount, precision: 0)}")
-          span.bold
-            = icon('money', "#{t 'activerecord.attributes.project.collected'} #{number_to_currency(project.collected, precision: 0)}")
-        .progress
-          .progress-bar {role="progressbar" aria-valuenow="#{project.progress}" aria-valuemin="0" aria-valuemax="100" style="width: #{project.progress}%"}
-            |#{project.progress}%
+-projects.each_slice(3) do |slice|
+  .row
+    - slice.each do |project|
+      .col-sm-6.col-md-4.col-lg-4.posts.wow.fadeIn {data-wow-delay="0.4s"}
+        .blog-photo
+          = link_to project_path(project), class: 'plink' do
+            .hover
+              .hover-content
+                =icon('search fa-2x')
+            =image_tag(project.thumb, class: 'img-responsive')
+          .date
+            h4=project.date_end.day
+            p.small= project.localized_end_date
+        .caption.text-left
+          h2= link_to project.title, project_path(project)
+          .post-meta
+            span.bold
+              = icon('user', "#{t 'titles.project.author'} : ")
+              - if project.user
+                = link_to project.user.fio, user_path(project.user), class: 'highlight'
+            span.bold
+              = icon('comment')
+              = link_to '', project_url(project) + '#disqus_thread', data: {:"disqus-identifier" => "project_#{project.id}"}, class: 'highlight'
+            /span.bold
+              = icon('heart')
+              = link_to project.payments.size, project_path(project), class: 'highlight'
+          .post-meta
+            span.bold
+              = icon('money', "#{t 'activerecord.attributes.project.amount'} #{number_to_currency(project.amount, precision: 0)}")
+            span.bold
+              = icon('money', "#{t 'activerecord.attributes.project.collected'} #{number_to_currency(project.collected, precision: 0)}")
+          .progress
+            .progress-bar {role="progressbar" aria-valuenow="#{project.progress}" aria-valuemin="0" aria-valuemax="100" style="width: #{project.progress}%"}
+              |#{project.progress}%
 
-        p= project.goal
-        =link_to t('titles.project.read_more'), project, class: 'btn btn-default st-btn'
+          p= project.goal
+          =link_to t('titles.project.read_more'), project, class: 'btn btn-default st-btn'

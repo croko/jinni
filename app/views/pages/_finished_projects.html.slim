@@ -4,18 +4,17 @@ section#portfolio.bg.light-gray
       .section-title.text-center.col-sm-12.col-md-12.col-lg-12
         h2= t 'titles.project.finished'
         hr
-        h5 придумать текст
+        h5= t 'titles.project.finished_message'
         .bigspace
-    / - @finished_projects slice
-    .row.text-center
-      - 4.times do
-        .item.col-sm-6.col-md-3
-          .wow.fadeIn {data-wow-delay="0.4s"}
-            .portfolio-img
-              =link_to '#', class: 'plink' do
-                .hover
-                  .hover-content
-                    =icon('search fa-2x')
-                =image_tag('portfolio/02.jpg', class: 'img-responsive')
-            h4= link_to 'Branding Design', '#'
-            p.small Branding
+    - @finished_projects.each_slice(4) do |slice|
+      .row.text-center
+        -slice.each do |project|
+          .item.col-sm-6.col-md-3
+            .wow.fadeIn {data-wow-delay="0.4s"}
+              .portfolio-img
+                =link_to project_path(project), class: 'plink' do
+                  .hover
+                    .hover-content
+                      =icon('search fa-2x')
+                  =image_tag(project.thumb, class: 'img-responsive')
+              h4= link_to project.title, project_path(project)
