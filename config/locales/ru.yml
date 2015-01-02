@@ -329,6 +329,7 @@ ru:
       pay: 'Пожертвовать!'
       edit_report: 'Редактировать отчет'
       new_report: 'Создать отчет'
+      phone: 'Телефон'
     report:
       header: 'Отчет'
       new_header_message: 'Создание отчета'
@@ -338,8 +339,8 @@ ru:
       edit_title: 'Редактирование данных отчета'
       edit_message: 'Текст для редактирования отчета'
     about:
-      header: 'О нас'
-      header_message: ''
+      header: 'Автор проекта'
+      header_message: 'придумать текст для автора'
       description: 'Дополнительная информация'
     user:
       header: 'Участник'
