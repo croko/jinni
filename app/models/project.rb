@@ -7,15 +7,18 @@ class Project < ActiveRecord::Base
   belongs_to :category, counter_cache: true
   has_many :photos
   has_many :payments
+  has_many :reports
 
   include AdminProject
   include TagExtend
+  # include FriendlyNorm
   acts_as_taggable
 
   extend FriendlyId
   friendly_id :slug_candidates, use: :slugged
 
   accepts_nested_attributes_for :photos, allow_destroy: true
+  accepts_nested_attributes_for :reports, allow_destroy: true
 
   enum status: [:open, :close]
 

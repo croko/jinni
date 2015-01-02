@@ -9,6 +9,7 @@
 
 Rails.application.routes.draw do
 
+
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   resources :categories, only: :show
 
@@ -22,6 +23,7 @@ Rails.application.routes.draw do
     collection do
       get :tags, as: :tags
     end
+    resources :reports, exclude: :index
   end
   get 'my-projects' => 'projects#index', as: :my_projects, pr: 'my'
 

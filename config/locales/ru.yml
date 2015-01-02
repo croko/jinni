@@ -327,6 +327,16 @@ ru:
       last_projects: 'Новые проекты'
       finished: 'Завершенные проекты'
       pay: 'Пожертвовать!'
+      edit_report: 'Редактировать отчет'
+      new_report: 'Создать отчет'
+    report:
+      header: 'Отчет'
+      new_header_message: 'Создание отчета'
+      edit_header_message: 'Редактирование отчета'
+      title: 'Создайте отчета'
+      message: 'Текст для создания отчета'
+      edit_title: 'Редактирование данных отчета'
+      edit_message: 'Текст для редактирования отчета'
     about:
       header: 'О нас'
       header_message: ''

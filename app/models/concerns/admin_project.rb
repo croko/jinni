@@ -62,9 +62,10 @@ module AdminProject
         end
 
         field :photos
-      end
-      exclude_fields :slug
+        field :reports
 
+      end
+      exclude_fields :slug, :project_id
     end
   end
 

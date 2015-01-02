@@ -33,7 +33,7 @@ module PaymentProcessing
         liqpay_response = Liqpay::Response.new(params)
 
         if liqpay_response.success?
-          @project.payments.create!(
+          @project.payments.create(
               commission: params[:receiver_commission],
               sender_phone: params[:sender_phone],
               payment_transaction: params[:transaction_id],
