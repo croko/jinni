@@ -21,7 +21,7 @@
       span.bold
         = icon('heart')
         = link_to project.payments.size, project_path(project), class: 'highlight'
-    .post-meta
+      br
       span.bold
         = icon('money', "#{t 'activerecord.attributes.project.amount'} #{number_to_currency(project.amount, precision: 0)}")
       span.bold

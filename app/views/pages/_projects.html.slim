@@ -18,13 +18,13 @@
               = icon('user', "#{t 'titles.project.author'} : ")
               - if project.user
                 = link_to project.user.fio, user_path(project.user), class: 'highlight'
-            span.bold
+            /span.bold
               = icon('comment')
               = link_to '', project_url(project) + '#disqus_thread', data: {:"disqus-identifier" => "project_#{project.id}"}, class: 'highlight'
-            /span.bold
+            span.bold
               = icon('heart')
               = link_to project.payments.size, project_path(project), class: 'highlight'
-          .post-meta
+            br
             span.bold
               = icon('money', "#{t 'activerecord.attributes.project.amount'} #{number_to_currency(project.amount, precision: 0)}")
             span.bold
