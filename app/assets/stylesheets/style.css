@@ -1047,12 +1047,6 @@ Sidebar
     -webkit-box-shadow: none;
     box-shadow: none;
 }
-.form-group.search .input-group-addon {
-    border-radius: 0px;
-    background: #474747;
-    border-color: #474747;
-    color: #ffffff !important;
-}
 .widget ul.cat li>a {
     transition: padding-left 0.5s ease;
     -webkit-transition : padding-left 0.5s ease;

@@ -22,15 +22,9 @@ section#blog-posts.text-center
             = link_to("#{t 'helpers.links.new'}" , new_project_path, class: 'btn btn-default st-btn')
         .bigspace
       .row
-        .col-md-8
-          - @projects.each_slice(2) do |slice|
-            .row
-              - slice.each do |project|
-                == render partial: 'projects/project', locals: {project: project}
+        #results.col-md-8
+          == render 'results'
         .col-md-4.wow.fadeIn {data-wow-delay="0.4s"}
           .sidebar
             ==render partial: 'layouts/widgets/widget_search'
-            == render partial: 'layouts/widgets/widget_category'
-            == render partial: 'layouts/widgets/widget_ads'
-            == render partial: 'layouts/widgets/widget_latest_posts'
-            == render partial: 'layouts/widgets/widget_tags'
+            == render 'layouts/sidebar'

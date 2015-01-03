@@ -1,9 +1,9 @@
 .widget.search
   .widget-title
-    h4= t "titles.search"
+    h4= t "titles.category_search"
     hr
   br
-  = search_form_for @q, url: projects_path, class: 'form-inline', role: 'form', remote: true do |f|
+  = search_form_for @q, url: category_path(@category), class: 'form-inline', role: 'form', remote: true do |f|
     .form-group.search
       .input-group
         = f.text_field :title_cont, class: 'form-control', placeholder: " #{t 'simple_form.placeholders.search'}"

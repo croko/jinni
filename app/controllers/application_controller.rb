@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
   end
 
   def latest_projects
-    @latest_projects = Project.open.exclude_featured.approved.published.sorted.limit(3)
+    @latest_projects = Project.open.approved.published.sorted.limit(5)
   end
 
   private

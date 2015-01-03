@@ -3,11 +3,12 @@ class CategoriesController < ApplicationController
   skip_before_action :require_login
 
   def show
+    @q = @category.projects.open.approved.published.search(params[:q])
+    @projects = @q.result.sorted
   end
 
   private
     def set_category
       @category = Category.friendly.find(params[:id])
-      @projects = @category.projects.open.approved.published.sorted
     end
 end

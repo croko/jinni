@@ -8,15 +8,9 @@ section#blog-posts.text-center
   .bigspace
     .container
       .row
-        .col-md-8
-          - @projects.each_slice(2) do |slice|
-            .row
-              - slice.each do |project|
-                == render partial: 'projects/project', locals: {project: project}
+        #results.col-md-8
+          == render 'projects/results'
         .col-md-4.wow.fadeIn {data-wow-delay="0.4s"}
           .sidebar
-            ==render partial: 'layouts/widgets/widget_search'
-            == render partial: 'layouts/widgets/widget_category'
-            == render partial: 'layouts/widgets/widget_ads'
-            == render partial: 'layouts/widgets/widget_latest_posts'
-            == render partial: 'layouts/widgets/widget_tags'
+            == render partial: 'layouts/widgets/widget_category_search'
+            == render 'layouts/sidebar'

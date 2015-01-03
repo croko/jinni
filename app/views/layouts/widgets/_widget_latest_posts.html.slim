@@ -1,28 +1,12 @@
-/.widget.latest-posts
-            .widget-title
-              h4 Latest Posts
-              hr
-
-            .media
-              =link_to '#', class: 'pull-left' do
-                =image_tag(@project.photos.first.main_image.thumb.url, class: 'media-object small')
-            .media-body
-              h6.media-heading= link_to '#' do
-                |Top 10 Trending Themes
-              p.small Pellentesque massa eu nulla consequat sed porttitor arcu
-
-            .media
-              =link_to '#', class: 'pull-left' do
-                =image_tag(@project.photos.first.main_image.thumb.url, class: 'media-object small')
-            .media-body
-              h6.media-heading= link_to '#' do
-                |Top 10 Trending Themes
-              p.small Pellentesque massa eu nulla consequat sed porttitor arcu
-
-            .media
-              =link_to '#', class: 'pull-left' do
-                =image_tag(@project.photos.first.main_image.thumb.url, class: 'media-object small')
-            .media-body
-              h6.media-heading= link_to '#' do
-                |Top 10 Trending Themes
-              p.small Pellentesque massa eu nulla consequat sed porttitor arcu
+.widget.latest-posts
+  .widget-title
+    h4= t "titles.project.last_projects"
+    hr
+  - @latest_projects.each do |project|
+    .media
+      =link_to '#', class: 'pull-left' do
+        =image_tag(project.photos.first.main_image.thumb.url, class: 'media-object small')
+    .media-body
+      h6.media-heading= link_to project_path(project) do
+        =project.title
+      p.small= project.goal

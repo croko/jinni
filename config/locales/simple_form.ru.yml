@@ -42,4 +42,4 @@ ru:
         last_name: 'Фамилия'
         password: 'Пароль'
         password_confirmation: 'Подтвердите пароль'
-
+      search: 'Поиск...'

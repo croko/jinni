@@ -12,10 +12,11 @@ class ProjectsController < ApplicationController
     # binding.pry
     if params[:pr] == 'my' && current_user
       @my_projects = true
-      @projects = current_user.projects
+      @q = current_user.projects.search(params[:q])
     else
-      @projects = Project.open.approved.published.sorted
+      @q = Project.open.approved.published.search(params[:q])
     end
+    @projects = @q.result.sorted
   end
 
   # GET /projects/1

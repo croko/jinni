@@ -1,0 +1,4 @@
+- @projects.each_slice(2) do |slice|
+  .row
+    - slice.each do |project|
+      == render partial: 'projects/project', locals: {project: project}
