@@ -318,7 +318,7 @@ ru:
       tags: 'Теги'
       ads: 'Реклама'
       category: 'Категория'
-      author: 'Автор'
+      author: 'Автор проекта'
       comments: 'Комментарии'
       read_more: 'Подробнее'
       my_header: 'Мои проекты'
@@ -363,3 +363,6 @@ ru:
       create: 'Создай свой проект'
     payment_system:
       text: 'Текст для платежных систем'
+    foundation:
+      title: 'Наши партнеры'
+      message: 'Текст для партнеров'

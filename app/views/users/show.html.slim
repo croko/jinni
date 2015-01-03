@@ -30,6 +30,16 @@
               = icon('send', "Email : ")
               - if @user.addresses.first.email.present?
                 = mail_to '', @user.addresses.first.email, class: 'highlight'
+          .post-meta.wow.fadeIn {data-wow-delay="1.4s"}
+            span.bold
+              ul.author-social
+                li= link_to @user.facebook_url, target: '_blank' do
+                  =icon('facebook')
+                li= link_to @user.google_url, target: '_blank' do
+                  =icon('google-plus')
+                li= link_to @user.twitter_url, target: '_blank' do
+                  =icon('twitter')
+
         .col-md-6.col-lg-6.wow.fadeIn {data-wow-delay="1.5s"}
           p.lead= @user.about
 == render 'pages/finished_projects'

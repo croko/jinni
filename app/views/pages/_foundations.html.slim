@@ -1,0 +1,23 @@
+section#service.text-center
+  .container
+    .row.wow.fadeIn {data-wow-delay="0.2s"}
+      .section-title.text-center.col-sm-12.col-md-12.col-lg-12
+        h2= t 'titles.foundation.title'
+        hr
+        h5= t 'titles.foundation.message'
+        .space
+
+    -@foundations.each_slice(3) do |slice|
+      .row
+        - slice.each do |foundation|
+          .col-sm-6.col-md-4.col-lg-4.wow.fadeIn {data-wow-delay="0.4s"}
+            .block-two.text-center
+              .squared.colored
+                i.fa.fa-leaf.fa-2x
+              p.bold= foundation.name
+              p.caption.text-left= foundation.description
+            ul.team-social
+              li= link_to icon('globe'), foundation.website_url, target: '_blank'
+              li= link_to icon('facebook'), foundation.facebook_url, target: '_blank'
+              li= link_to icon('google-plus'), foundation.google_url, target: '_blank'
+              li= link_to icon('twitter'), foundation.twitter_url, target: '_blank'

@@ -11,7 +11,14 @@
 #
 
 class Foundation < ActiveRecord::Base
+  mount_uploader :logo, LogoUploader
+  include AdminFoundation
+  include SocialUrl
+
   has_many :payment_systems, dependent: :restrict_with_error
   has_many :addresses, as: :addressable, dependent: :destroy
   accepts_nested_attributes_for :payment_systems, allow_destroy: true
+  accepts_nested_attributes_for :addresses, allow_destroy: true
+
+  scope :published, -> {where(active: true)}
 end

@@ -119,7 +119,7 @@ ru:
         category: 'Категория'
         category_description: 'Выберите категорию, к которой относится Ваш проект'
         title: "Название"
-        title_description: "Название Вашего проекта должно быть простым, специфическим и запоминающимся"
+        title_description: "Название Вашего проекта должно быть простым, специфическим и запоминающимся и состоять из 3 - 6 слов"
         goal: 'Краткое описание'
         goal_description: 'Опишите Ваш проект одной фразой, будет под фото, максимум 250 символов'
         date_start: 'Начало'
@@ -203,6 +203,12 @@ ru:
         name: 'Наименование'
         active: 'Показывать'
         description: 'Доп. информация'
+        logo: 'Логотип'
+        twitter_url: 'Профиль в Twitter'
+        facebook_url: 'Профиль в Facebook'
+        google_url: 'Профиль в Google+'
+        website_url: "Веб сайт"
+        featured: 'Выделен'
       page:
         name: 'Название'
         nickname: 'Служебное имя'
@@ -213,22 +219,6 @@ ru:
       role:
         name: 'Название'
         nickname: 'Служебное имя'
-      blog:
-        date: 'Дата'
-        organization_id: 'Организация'
-        organization: 'Организация'
-        name: 'Название'
-        description: 'Описание'
-      post:
-        date: 'Дата'
-        recipient_category_id: 'Тематическая группа'
-        recipient_category: 'Тематическая группа'
-        organization_id: 'Организация'
-        organization: 'Организация'
-        title: 'Заголовок'
-        announce: 'Анонс'
-        body: 'Текст'
-        published: "Опубликована"
       user_session:
         remember_me: 'Запомнить меня'
       city:

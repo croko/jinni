@@ -73,7 +73,6 @@
           /TODO finish tags
           .pull-right
             ul.social-share
-              /TODO add share links
               li= t "titles.project.share_this"
               li= link_to icon('facebook'), project_url
               li= link_to icon('google-plus'), project_url
@@ -83,15 +82,15 @@
           =link_to user_path(@project.user), class: 'pull-left' do
             =image_tag(@project.user.avatar, class: 'media-object')
           .media-body
+            h3.media-heading.author-name= t "titles.project.author"
             h4.media-heading.author-name= @project.user.first_name
-            =@project.user.about
 
             ul.author-social
-              li= link_to @project.user.facebook_url do
+              li= link_to @project.user.facebook_url, target: '_blank' do
                 =icon('facebook')
-              li= link_to @project.user.google_url do
+              li= link_to @project.user.google_url, target: '_blank' do
                 =icon('google-plus')
-              li= link_to @project.user.twitter_url do
+              li= link_to @project.user.twitter_url, target: '_blank' do
                 =icon('twitter')
 
         #comments

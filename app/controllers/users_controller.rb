@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-  skip_before_action :require_login, only: [:index, :new, :edit, :update, :create]
+  skip_before_action :require_login, only: [:index, :new, :create]
   before_action :set_user, only: [:edit, :update, :destroy]
+  force_ssl if: :ssl_configured?, only: [:edit, :update, :create]
 
   # GET /users
   # GET /users.json
@@ -66,7 +67,13 @@ class UsersController < ApplicationController
     end
   end
 
+
   private
+
+  def ssl_configured?
+      !Rails.env.development?
+  end
+
   # Use callbacks to share common setup or constraints between actions.
   def set_user
     @user = current_user
