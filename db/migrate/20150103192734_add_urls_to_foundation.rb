@@ -1,4 +1,4 @@
-class AddUrlToFoundation < ActiveRecord::Migration
+class AddUrlsToFoundation < ActiveRecord::Migration
   def change
     add_column :foundations, :logo, :string
     add_column :foundations, :website_url, :string
