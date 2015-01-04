@@ -25,10 +25,28 @@ RailsAdmin.config do |config|
 
   config.model 'Address' do
     visible false
+    include_all_fields
+    nested do
+      field :addressable do
+        visible false
+      end
+    end
   end
 
   config.model 'PaymentSystem' do
     visible false
+    include_all_fields
+    nested do
+      field :foundation do
+        visible false
+      end
+      field :user do
+        visible false
+      end
+      field :projects do
+        visible false
+      end
+    end
   end
 
   config.actions do

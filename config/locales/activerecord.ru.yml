@@ -209,6 +209,8 @@ ru:
         google_url: 'Профиль в Google+'
         website_url: "Веб сайт"
         featured: 'Выделен'
+        payment_systems: 'Платежные системы'
+        addresses: 'Адрес'
       page:
         name: 'Название'
         nickname: 'Служебное имя'

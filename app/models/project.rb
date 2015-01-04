@@ -11,7 +11,6 @@ class Project < ActiveRecord::Base
 
   include AdminProject
   include TagExtend
-  # include FriendlyNorm
   acts_as_taggable
 
   extend FriendlyId
@@ -55,5 +54,9 @@ class Project < ActiveRecord::Base
 
   def thumb
     photos.try(:first).try(:main_image).try(:thumb).try(:url)
+  end
+
+  def payment_ready?
+    status == 'open' && (foundation.try(:payment_ready?) || payment_system_id.present?)
   end
 end

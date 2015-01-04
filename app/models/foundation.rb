@@ -17,8 +17,13 @@ class Foundation < ActiveRecord::Base
 
   has_many :payment_systems, dependent: :restrict_with_error
   has_many :addresses, as: :addressable, dependent: :destroy
-  accepts_nested_attributes_for :payment_systems, allow_destroy: true
+  accepts_nested_attributes_for :payment_systems, :reject_if => lambda { |a| a[:payment_gateway_id].blank? }, allow_destroy: true
   accepts_nested_attributes_for :addresses, allow_destroy: true
 
   scope :published, -> {where(active: true)}
+
+  def payment_ready?
+    payment_systems.any?
+  end
+
 end
