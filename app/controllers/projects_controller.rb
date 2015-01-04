@@ -24,7 +24,7 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.friendly.find(params[:id])
 
-    if @project.payment_system.present?
+    if @project.payment_ready
       liqpay_form
     end
   end

@@ -24,6 +24,7 @@ class Project < ActiveRecord::Base
   validates_presence_of :category_id, :title, :goal, :date_start, :date_end, :amount, :about
   validates_numericality_of :amount, greater_than: 0
   validates_length_of :goal, maximum: 250
+  validate :publish
 
   scope :published, -> { where(published: true) }
   scope :featured, -> { where(featured: true) }
@@ -56,7 +57,11 @@ class Project < ActiveRecord::Base
     photos.try(:first).try(:main_image).try(:thumb).try(:url)
   end
 
-  def payment_ready?
-    status == 'open' && (foundation.try(:payment_ready?) || payment_system_id.present?)
+  def payment_ready
+    status == 'open' && (foundation.try(:payment_ready) || payment_system_id.present?)
+  end
+
+  def publish
+    errors.add(:published,  "#{I18n.t 'no_payment_system'}") unless payment_ready
   end
 end

@@ -22,8 +22,11 @@ class Foundation < ActiveRecord::Base
 
   scope :published, -> {where(active: true)}
 
-  def payment_ready?
-    payment_systems.any?
+  def payment_ready
+    payment_systems.active.any?
   end
 
+  def self.payment_ready
+    published.map{|fo| [fo.name, fo.id] if fo.payment_ready}.compact
+  end
 end

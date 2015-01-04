@@ -2,21 +2,31 @@ module PaymentProcessing
   extend ActiveSupport::Concern
 
   def liqpay_form
-     Liqpay.default_options = {
-         public_key: @project.payment_system.public_key,
-         private_key: @project.payment_system.private_key,
-         language: 'ru'
-     }
+    if @project.payment_system_id.present?
+      Liqpay.default_options = {
+          public_key: @project.payment_system.public_key,
+          private_key: @project.payment_system.private_key,
+          language: 'ru'
+      }
+    else
+      payment_system = @project.foundation.payment_systems.active.first
+      Liqpay.default_options = {
+          public_key: payment_system.public_key,
+          private_key: payment_system.private_key,
+          language: 'ru'
+      }
+    end
 
-     @liqpay_request = Liqpay::Request.new(
-         amount: '1000',
-         currency: 'UAH',
-         order_id: SecureRandom.urlsafe_base64(nil, true).to_s + @project.id.to_s,
-         description: @project.title,
-         type: 'donate',
-         result_url: project_url(@project),
-         server_url: liqpay_callback_url
-     )
+
+    @liqpay_request = Liqpay::Request.new(
+        amount: '1000',
+        currency: 'UAH',
+        order_id: SecureRandom.urlsafe_base64(nil, true).to_s + @project.id.to_s,
+        description: @project.title,
+        type: 'donate',
+        result_url: project_url(@project),
+        server_url: liqpay_callback_url
+    )
   end
 
   def liqpay_payment

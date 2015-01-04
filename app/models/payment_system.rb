@@ -19,4 +19,6 @@ class PaymentSystem < ActiveRecord::Base
   belongs_to :user
   belongs_to :payment_gateway
   has_many :projects
+
+  scope :active, -> { where(active: true) }
 end
