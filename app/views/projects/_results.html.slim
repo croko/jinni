@@ -2,3 +2,5 @@
   .row
     - slice.each do |project|
       == render partial: 'projects/project', locals: {project: project}
+
+== paginate @projects

@@ -8,19 +8,23 @@
 # end
 
 Rails.application.routes.draw do
-
+  concern :paginatable do
+    get '(page/:page)', action: :index, :on => :collection, :as => ''
+  end
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
-  resources :categories, only: :show
+
+  resources :categories, only: :show, concerns: :paginatable
 
   resources :password_resets, only: [:create, :edit, :update]
 
-  resources :projects do
+  resources :projects, concerns: :paginatable do
     collection do
       get :tags, as: :tags
     end
     resources :reports, exclude: :index
   end
+
   get 'my-projects' => 'projects#index', as: :my_projects, pr: 'my'
 
   resources :foundations

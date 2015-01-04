@@ -16,7 +16,7 @@ class ProjectsController < ApplicationController
     else
       @q = Project.open.approved.published.search(params[:q])
     end
-    @projects = @q.result.sorted
+    @projects = @q.result.sorted.page params[:page]
   end
 
   # GET /projects/1

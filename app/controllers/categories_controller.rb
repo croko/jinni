@@ -4,7 +4,7 @@ class CategoriesController < ApplicationController
 
   def show
     @q = @category.projects.open.approved.published.search(params[:q])
-    @projects = @q.result.sorted
+    @projects = @q.result.sorted.page params[:page]
   end
 
   private

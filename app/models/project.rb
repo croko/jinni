@@ -32,6 +32,8 @@ class Project < ActiveRecord::Base
   scope :approved, -> { where(approved: true) }
   scope :sorted, -> { order('date_start DESC') }
 
+  paginates_per 8
+
   def localized_end_date
     (I18n.t :abbr_month_names, scope: :date)[date_end.month].to_s + ' ' + date_end.year.to_s
   end
