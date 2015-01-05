@@ -68,8 +68,7 @@
             ul.post-tags
               li=icon('tag')
               -@project.tags.each do |tag|
-                li= link_to tag.name, '#'
-          /TODO finish tags
+                li= link_to tag.name, tag_path(tag: tag.name)
           .pull-right
             ul.social-share
               li= t "titles.project.share_this"

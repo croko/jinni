@@ -5,4 +5,4 @@
   br
   ul.tag-lists
     -Project.all_tag_counts.each do |tag|
-      li= link_to tag.name, '#'
+      li= link_to tag.name, tag_path(tag: tag.name)

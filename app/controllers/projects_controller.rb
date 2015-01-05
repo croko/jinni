@@ -13,6 +13,8 @@ class ProjectsController < ApplicationController
     if params[:pr] == 'my' && current_user
       @my_projects = true
       @q = current_user.projects.search(params[:q])
+    elsif params[:tag].present?
+      @q = Project.opened.approved.published.tagged_with(params[:tag]).search(params[:q])
     else
       @q = Project.opened.approved.published.search(params[:q])
     end
