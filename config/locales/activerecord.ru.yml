@@ -153,18 +153,28 @@ ru:
 
       address:
         phone_number: "Телефон для связи"
+        phone_number_description: "не будет показываться на сайте, служит для связи администрации с Вами"
         mobile_1: "Телефон для сайта"
+        mobile_1_description: "данный № телефона будет опубликован на сайте"
         mobile_2: "Телефон моб."
         address_1: "Адрес"
+        address_1_description: "укажите адрес"
         address_2: "Адрес доп."
+        address_2_description: "укажите дополнения к адресу"
         city: "Город"
+        city_description: "укажите город"
         state: "Область"
+        state_description: "Область"
         zip_code: "Индекс"
+        zip_code_description: "Индекс"
         created_at: "Создан"
         updated_at: "Изменен"
         website_url: "Веб сайт"
+        website_url_description: "укажите ссылку на Ваш сайт"
         email: "Email для сайта"
+        email_description: "данный Email будет опубликован на сайте"
         district: "Район"
+        district_description: "Район"
       category:
         name: 'Наименование'
         projects: 'Проекты'
@@ -181,24 +191,35 @@ ru:
         commentable: 'Доктор(Клиника)'
       user:
         email: 'Email (Логин)'
+        email_description: 'данный Email служит для авторизации на сайте, а так же для связи администрации с Вами'
         password: 'Пароль'
+        password_description: 'должен содержать не менее 5 символов'
         remember_me: 'Запомнить меня'
         password_confirmation: 'Подтвердите пароль'
+        password_confirmation_description: 'подтвердите пароль'
         first_name: 'Имя'
+        first_name_description: 'при желании укажите Ваше имя'
         last_name: 'Фамилия'
+        last_name_description: 'при желании укажите Вашу фамилию'
         role: 'Права доступа'
         with_foundation: 'Сотрудничество с фондом'
+        with_foundation_description: 'подтверждение Вашего сотрудничества с благотворительным фондом и получение собранных средств на расчетный счет фонда. Выбор фондов доступен на странице создания проекта'
         addresses: 'Адрес'
         payment_systems: 'Платежные системы'
+        payment_systems_description: 'На данный момент существует 2 способа приема платежей: на счет благотворительного фонда, с которым Вы сотрудничаете или на Ваш счет в LiqPay. При создании проекта необходимо указать способ приема платежей.'
         projects: 'Проекты'
         finished_projects: 'Законченные проекты'
         admin: 'Администратор'
         about: 'О себе'
+        about_description: 'оставьте информацию о себе, она будет доступна для просмотра на публичной странице Вашего профиля'
         image: 'Аватар'
         remove_image: 'Удалить'
         twitter_url: 'Мой профиль в Twitter'
+        twitter_url_description: 'укажите ссылку на Ваш профиль'
         facebook_url: 'Мой профиль в Facebook'
+        facebook_url_description: 'укажите ссылку на Ваш профиль'
         google_url: 'Мой профиль в Google+'
+        google_url_description: 'укажите ссылку на Ваш профиль'
       foundation:
         name: 'Наименование'
         active: 'Показывать'
