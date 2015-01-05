@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-  skip_before_action :require_login, only: [:index, :new, :create]
+  skip_before_action :require_login, only: [:index, :show, :new, :create]
   before_action :set_user, only: [:edit, :update, :destroy]
   force_ssl if: :ssl_configured?, only: [:edit, :update, :create]
 

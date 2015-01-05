@@ -1,11 +1,12 @@
 class ReportsController < ApplicationController
   skip_before_action :require_login, only: [:show]
   before_action :set_project
-  before_action :set_report, only: [:show, :edit, :update, :destroy]
+  before_action :set_report, only: [:edit, :update, :destroy]
 
   # GET /reports/1
   # GET /reports/1.json
   def show
+    @report = Report.friendly.find(params[:id])
   end
 
   # GET /reports/new
