@@ -9,9 +9,9 @@ nav.navbar.top-nav role="navigation"
           span.bold.nav-info
             i.glyphicon.glyphicon-send= mail_to ' info@jinni.com.ua'
       ul.social.navbar-nav.navbar-right
-        li= link_to icon('facebook'), '#'
-        li= link_to icon('google-plus'), '#'
-        li= link_to icon('twitter'), '#'
+        li= link_to icon('facebook'), 'https://www.facebook.com/profile.php?id=100008747744770', target: '_blank'
+        li= link_to icon('google-plus'), 'https://plus.google.com/u/0/100244714114692241796', target: '_blank'
+        li= link_to icon('twitter'), 'https://twitter.com/JinniUA', target: '_blank'
         -if logged_in?
           li= link_to 'выйти', logout_path, method: :post
         -else
