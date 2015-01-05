@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
 
   def latest_projects
     @latest_projects = Project.open.approved.published.sorted.limit(5)
+    @finished_projects = Project.close.approved.published.limit(8).order("RANDOM()")
   end
 
   private
