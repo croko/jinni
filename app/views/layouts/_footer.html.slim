@@ -35,7 +35,7 @@
           - @latest_finished_projects.each do |project|
             .media
               =link_to image_tag(project.thumb, class: 'media-object'), project_path(project), class: 'pull-left'
-              .media-body
+              /.media-body
                 p.bold= link_to project.title, project_path(project)
                 /p.small= project.goal
 

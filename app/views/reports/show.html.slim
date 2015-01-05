@@ -39,7 +39,7 @@
             = icon('tag', "#{t 'titles.project.category'} : " )
             = link_to @project.category.name, @project.category, class: 'highlight'
           span.bold
-            -if @project.open?
+            -if @project.opened?
               = icon('play')
               .label.label-success= t @project.status
             -else

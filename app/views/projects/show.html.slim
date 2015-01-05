@@ -38,7 +38,7 @@
             = icon('tag', "#{t 'titles.project.category'} : " )
             = link_to @project.category.name, @project.category, class: 'highlight'
           span.bold
-            -if @project.open?
+            -if @project.opened?
               = icon('play')
               .label.label-success= t @project.status
             -else
@@ -52,7 +52,7 @@
           .progress
             .progress-bar {role="progressbar" aria-valuenow="#{@project.progress}" aria-valuemin="0" aria-valuemax="100" style="width: #{@project.progress}%"}
               |#{@project.progress}%
-          -if @project.payment_ready
+          -if @project.payment_ready && @project.opened?
             .post-meta
               = liqpay_button @liqpay_request do
                 =submit_tag("#{t 'titles.project.pay'}", class: 'btn btn-default btn-lg st-btn yellow pull-right')

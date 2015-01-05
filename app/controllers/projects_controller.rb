@@ -14,7 +14,7 @@ class ProjectsController < ApplicationController
       @my_projects = true
       @q = current_user.projects.search(params[:q])
     else
-      @q = Project.open.approved.published.search(params[:q])
+      @q = Project.opened.approved.published.search(params[:q])
     end
     @projects = @q.result.sorted.page params[:page]
   end

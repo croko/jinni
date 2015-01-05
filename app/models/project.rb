@@ -19,7 +19,7 @@ class Project < ActiveRecord::Base
   accepts_nested_attributes_for :photos, allow_destroy: true
   accepts_nested_attributes_for :reports, allow_destroy: true
 
-  enum status: [:open, :close]
+  enum status: [:opened, :close]
 
   validates_presence_of :category_id, :title, :goal, :date_start, :date_end, :amount, :about
   validates_numericality_of :amount, greater_than: 0
@@ -60,7 +60,7 @@ class Project < ActiveRecord::Base
   end
 
   def payment_ready
-    status == 'open' && (foundation.try(:payment_ready) || payment_system_id.present?)
+    foundation.try(:payment_ready) || payment_system_id.present?
   end
 
   def publish

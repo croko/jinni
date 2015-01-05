@@ -9,8 +9,8 @@ class ApplicationController < ActionController::Base
   end
 
   def latest_projects
-    @latest_projects = Project.open.approved.published.sorted.limit(5)
-    @latest_finished_projects = Project.close.approved.published.limit(3)
+    @latest_projects = Project.opened.approved.published.sorted.limit(5)
+    @latest_finished_projects = Project.close.approved.published.limit(6)
   end
 
   private
