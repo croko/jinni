@@ -47,7 +47,6 @@ gem 'babosa'
 gem 'liqpay', '~>1.0.0'
 gem 'disqus_api'
 gem 'responders', '~> 2.0'
-gem 'google-analytics-rails'
 
 group :development do
   gem 'quiet_assets'
