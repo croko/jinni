@@ -1,16 +1,15 @@
 #footer
   .container
     .row
-      /-- About Us Widget ******************************************
       .col-md-3.col-lg-3.widget.wow.fadeIn {data-wow-delay="0.4s"}
         .footer-heading
-          h4 About Us
+          h4= t "footer.goal.title"
           hr
         .about-details
           =link_to image_tag('logo.png', class: 'media-object img-responsive'), root_path, class: 'logo'
           .description
-            h6.media-heading Who and What is Styled Theme
-            p.small Curabitur pellentesque massa eu nulla consequat sed porttitor arcu porttitor. Quisque volutpat pharetra felis. Curabitur pellentesque massa eu nulla consequat sed porttitor arcu porttitor. Quisque volutpat pharetra felis.
+            h6.media-heading= t "footer.goal.header"
+            p.small= t "footer.goal.message"
             ul.footer-social
               li= link_to icon('facebook'), '#'
               li= link_to icon('google-plus'), '#'
@@ -31,27 +30,14 @@
       /-- Contact Info Widget **************************************
       .col-md-3.col-lg-3.widget.wow.fadeIn {data-wow-delay="1.2s"}
         .footer-heading
-          h4 Contact Info
+          h4= t "titles.project.finished"
           hr
-
-        address
-          strong Octoberian,
-          br
-          |12345 Igbalanga
-          br
-          |Bugasong, Antique, PH, 5704
-          br
-          abbr title= "Phone No." P:
-          | 0927-338-2289
-
-        address
-          strong Email
-          br
-          =mail_to 'info@test.com'
-        address
-          strong Website
-          br
-          =link_to 'www', root_path
+          - @finished_projects.limit(3).each do |project|
+            .media
+              =link_to image_tag(project.thumb, class: 'media-object'), project_path(project), class: 'pull-left'
+              .media-body
+                p.bold= link_to project.title, project_path(project)
+                /p.small= project.goal
 
 /Footer Navbar
 nav#footer-nav
