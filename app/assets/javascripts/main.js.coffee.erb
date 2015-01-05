@@ -45,6 +45,15 @@ ready = ->
     return
   )()
 
+  $("a[data-popup]").on "click", (e) ->
+    left = (screen.width/2)-300
+    top = (screen.height/2)-300
+    window.open($(this).attr("href"), '', 'width=600, height=600, top='+top+',left='+left)
+    e.preventDefault()
+    return
+
+  $('[data-toggle="tooltip"]').tooltip()
+
 $(document).ready(ready)
 $(document).on('page:load', ready)
 window.ready = ready
