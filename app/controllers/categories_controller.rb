@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
   skip_before_action :require_login
 
   def show
-    @q = @category.projects.open.approved.published.search(params[:q])
+    @q = @category.projects.opened.approved.published.search(params[:q])
     @projects = @q.result.sorted.page params[:page]
   end
 

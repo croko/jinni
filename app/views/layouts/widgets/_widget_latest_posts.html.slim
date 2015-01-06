@@ -4,7 +4,7 @@
     hr
   - @latest_projects.each do |project|
     .media
-      =link_to '#', class: 'pull-left' do
+      =link_to project_path(project), class: 'pull-left' do
         =image_tag(project.photos.first.main_image.thumb.url, class: 'media-object small')
     .media-body
       h6.media-heading= link_to project_path(project) do
