@@ -25,7 +25,12 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @project = Project.friendly.find(params[:id])
-
+    set_meta_tags og: {
+                      title: @project.title,
+                      description: @project.goal,
+                      url: projects_url(@project),
+                      image: @project.image_full_size
+                  }
     if @project.payment_ready
       liqpay_form
     end

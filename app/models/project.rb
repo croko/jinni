@@ -59,6 +59,10 @@ class Project < ActiveRecord::Base
     photos.try(:first).try(:main_image).try(:thumb).try(:url)
   end
 
+  def image_full_size
+    photos.try(:first).try(:main_image).try(:url)
+  end
+
   def payment_ready
     foundation.try(:payment_ready) || payment_system_id.present?
   end
