@@ -10,8 +10,8 @@ nav.navbar.top-nav role="navigation"
             i.glyphicon.glyphicon-send= mail_to ' info@jinni.com.ua'
       ul.social.navbar-nav.navbar-right
         li= link_to icon('facebook'), "https://facebook.com/share.php?u=#{request.original_url}", data: {popup: true, toggle: "tooltip", placement: "left"}, title: "#{t 'titles.project.share_this'}"
-        li= link_to icon('google-plus'), 'https://plus.google.com/share?url=https://jinni.com.ua', data: {popup: true, toggle: "tooltip", placement: "left"}, title: "#{t 'titles.project.share_this'}"
-        li= link_to icon('twitter'), 'http://twitter.com/home?status=jinni+https://jinni.com.ua', data: {popup: true, toggle: "tooltip", placement: "left"}, title: "#{t 'titles.project.share_this'}"
+        li= link_to icon('google-plus'), "https://plus.google.com/share?url=#{request.original_url}", data: {popup: true, toggle: "tooltip", placement: "left"}, title: "#{t 'titles.project.share_this'}"
+        li= link_to icon('twitter'), "http://twitter.com/home?status=Jinni+#{request.original_url}", data: {popup: true, toggle: "tooltip", placement: "left"}, title: "#{t 'titles.project.share_this'}"
         -if logged_in?
           li= link_to 'выйти', logout_path, method: :post
         -else

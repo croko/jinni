@@ -74,7 +74,7 @@
               li= t "titles.project.share_this"
               li= link_to icon('facebook'), "https://facebook.com/sharer.php?s=100&p[title]=#{@project.title}&p[url]=#{project_url(@project)}&p[images][0]=#{@project.image_full_size}", data: {popup: true, toggle: "tooltip", placement: "left"}, title: "#{t 'titles.project.share_this'}"
               li= link_to icon('google-plus'), project_url
-              li= link_to icon('twitter'), project_url
+              li= link_to icon('twitter'), "http://twitter.com/home?status=#{@project.title}+#{project_url(@project)}", data: {popup: true, toggle: "tooltip", placement: "left"}, title: "#{t 'titles.project.share_this'}"
 
         .media.post-author.wow.fadeIn {data-wow-delay="0.4s"}
           =link_to user_path(@project.user), class: 'pull-left' do
