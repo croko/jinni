@@ -13,10 +13,10 @@ module AdminProject
           searchable :name
         end
         field :date_start do
-          date_format :default
+          formatted_value{ I18n.l bindings[:object].date_start }
         end
         field :date_end do
-          date_format :default
+          formatted_value{ I18n.l bindings[:object].date_end }
         end
         field :amount
         field :status
@@ -24,14 +24,7 @@ module AdminProject
       end
 
       edit do
-        field :category do
-          associated_collection_cache_all false
-          associated_collection_scope do
-            Proc.new { |scope|
-              scope.order(:name)
-            }
-          end
-        end
+        field :category
         field :title do
           html_attributes do
             {style: "width:60%"}

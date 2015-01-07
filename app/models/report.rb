@@ -4,7 +4,7 @@ class Report < ActiveRecord::Base
   belongs_to :project, inverse_of: :reports
   has_many :photos
 
-  include AdminProject
+  include AdminReport
   extend FriendlyId
 
   friendly_id :slug_candidates, use: :slugged
@@ -13,6 +13,8 @@ class Report < ActiveRecord::Base
 
   validates_presence_of :goal, :about
   validates_length_of :goal, maximum: 250
+
+  alias_attribute :name, :goal
 
   def slug_candidates
     [:goal,
