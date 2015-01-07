@@ -8,9 +8,6 @@
 # end
 
 Rails.application.routes.draw do
-  concern :paginatable do
-    get '(page/:page)', action: :index, :on => :collection, :as => ''
-  end
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
@@ -18,7 +15,7 @@ Rails.application.routes.draw do
 
   resources :password_resets, only: [:create, :edit, :update]
 
-  resources :projects, concerns: :paginatable do
+  resources :projects do
     collection do
       get :tags, as: :tags
     end
