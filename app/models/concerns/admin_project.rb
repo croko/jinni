@@ -32,16 +32,35 @@ module AdminProject
             }
           end
         end
-        field :title
-        field :goal
-        field :about
+        field :title do
+          html_attributes do
+            {style: "width:60%"}
+          end
+        end
+        field :goal do
+          html_attributes do
+            {style: "width:80%"}
+          end
+        end
+        field :about do
+          html_attributes do
+            {style: "width:90%", rows: '7'}
+          end
+        end
         field :user
         field :foundation
         field :payment_system
         field :date_start
         field :date_end
         field :amount
-        field :tag_list
+        field :tag_list do
+          html_attributes do
+            {style: "width:60%"}
+          end
+          def form_value
+            bindings[:object].tag_list.join(', ')
+          end
+        end
         field :location
         field :featured
         field :published

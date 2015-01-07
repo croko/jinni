@@ -71,7 +71,7 @@ class UsersController < ApplicationController
   private
 
   def ssl_configured?
-      !Rails.env.development?
+    !Rails.env.development?
   end
 
   # Use callbacks to share common setup or constraints between actions.
