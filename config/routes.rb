@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
-  resources :categories, only: :show, concerns: :paginatable
+  resources :categories, only: :show
 
   resources :password_resets, only: [:create, :edit, :update]
 
