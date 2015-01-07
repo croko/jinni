@@ -28,7 +28,7 @@
                   =image_tag(photo.main_image.medium.url)
 
         .single-post-title.wow.fadeIn {data-wow-delay="1s"}
-          h2= link_to(@project.title, project_path(@project), class: 'highlight'), data: {:"no-turbolink" => "true"}
+          h2= link_to(@project.title, project_path(@project), class: 'highlight', data: {:"no-turbolink" => "true"})
 
         .post-meta.wow.fadeIn {data-wow-delay="1.4s"}
           span.bold
