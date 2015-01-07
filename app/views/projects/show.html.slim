@@ -81,7 +81,7 @@
             =image_tag(@project.user.avatar, class: 'media-object')
           .media-body
             h3.media-heading.author-name= t "titles.project.author"
-            h4.media-heading.author-name= @project.user.first_name
+            h4.media-heading.author-name= @project.user.fio
 
             ul.author-social
               li= link_to @project.user.facebook_url, target: '_blank' do

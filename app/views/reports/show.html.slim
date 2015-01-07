@@ -76,7 +76,8 @@
           =link_to user_path(@project.user), class: 'pull-left' do
             =image_tag(@project.user.avatar, class: 'media-object')
           .media-body
-            h4.media-heading.author-name= @project.user.first_name
+            h3.media-heading.author-name= t "titles.project.author"
+            h4.media-heading.author-name= @project.user.fio
             =@project.user.about
 
             ul.author-social
