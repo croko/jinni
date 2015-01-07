@@ -78,7 +78,7 @@
 
         .media.post-author.wow.fadeIn {data-wow-delay="0.4s"}
           =link_to user_path(@project.user), class: 'pull-left' do
-            =image_tag(@project.user.avatar, class: 'media-object')
+            =image_tag(@project.user.image.thumb.url, class: 'media-object')
           .media-body
             h3.media-heading.author-name= t "titles.project.author"
             h4.media-heading.author-name= @project.user.fio
