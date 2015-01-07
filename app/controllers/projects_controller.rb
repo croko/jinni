@@ -28,13 +28,13 @@ class ProjectsController < ApplicationController
     set_meta_tags og: {
                       title: @project.title,
                       description: @project.goal,
-                      url: projects_url(@project),
+                      url: project_url(@project),
                       image: @project.image_full_size
                   }
     set_meta_tags twitter: {
                       card: 'product',
                       site: '@JinniUA',
-                      domain: projects_url(@project),
+                      domain: project_url(@project),
                       title:  @project.title,
                       image:  @project.image_full_size
                   }
