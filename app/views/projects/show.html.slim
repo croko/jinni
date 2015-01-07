@@ -58,7 +58,7 @@
                 =submit_tag("#{t 'titles.project.pay'}", class: 'btn btn-default btn-lg st-btn yellow pull-right')
           -else
             -if @project.reports.any?
-              =link_to Report.model_name.human, project_report_path(@project, @project.reports.first), class: 'btn btn-default btn-lg st-btn yellow pull-right'
+              =link_to Report.model_name.human, project_report_path(@project, @project.reports.first), class: 'btn btn-default btn-lg st-btn yellow pull-right', data: {:"no-turbolink" => "true"}
         .post-body.wow.fadeIn {data-wow-delay="1.5s" data-wow-duration="2s"}
           p.lead{itemprop="description"}= @project.goal
           p= @project.about
@@ -74,7 +74,8 @@
               li= t "titles.project.share_this"
               li= link_to icon('facebook'), "https://facebook.com/sharer.php?s=100&p[title]=#{@project.title}&p[url]=#{project_url(@project)}&p[images][0]=#{@project.image_full_size}", data: {popup: true, toggle: "tooltip", placement: "top"}, title: "#{t 'titles.project.share_this'}"
               li= link_to icon('google-plus'), "https://plus.google.com/share?url=#{project_url(@project)}", data: {popup: true, toggle: "tooltip", placement: "top"}, title: "#{t 'titles.project.share_this'}"
-              li= link_to icon('twitter'), "http://twitter.com/home?status=#{url_encode(@project.title)+ ' ' + project_url(@project)}", data: {popup: true, toggle: "tooltip", placement: "top"}, title: "#{t 'titles.project.share_this'}"
+              li= link_to icon('twitter'), "http://twitter.com/share?text=#{url_encode(@project.title)}&url=#{project_url(@project)}", data: {popup: true, toggle: "tooltip", placement: "top"}, title: "#{t 'titles.project.share_this'}"
+
         .media.post-author.wow.fadeIn {data-wow-delay="0.4s"}
           =link_to user_path(@project.user), class: 'pull-left' do
             =image_tag(@project.user.avatar, class: 'media-object')

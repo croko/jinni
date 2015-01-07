@@ -3,7 +3,7 @@
     - slice.each do |project|
       .col-sm-6.col-md-4.col-lg-4.posts.wow.fadeIn {data-wow-delay="0.4s"}
         .blog-photo
-          = link_to project_path(project), class: 'plink' do
+          = link_to project_path(project), class: 'plink', data: {:"no-turbolink" => "true"} do
             .hover
               .hover-content
                 =icon('search fa-2x')
@@ -12,7 +12,7 @@
             h4=project.date_end.day
             p.small= project.localized_end_date
         .caption.text-left
-          h2{itemprop="name"}= link_to project.title, project_path(project)
+          h2{itemprop="name"}= link_to project.title, project_path(project), data: {:"no-turbolink" => "true"}
           .post-meta
             span.bold
               = icon('user', "#{t 'titles.project.author'} : ")
@@ -34,4 +34,4 @@
               |#{project.progress}%
 
           p{itemprop="description"}= project.goal
-          =link_to t('titles.project.read_more'), project, class: 'btn btn-default st-btn'
+          =link_to t('titles.project.read_more'), project, class: 'btn btn-default st-btn', data: {:"no-turbolink" => "true"}

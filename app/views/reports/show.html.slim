@@ -1,7 +1,7 @@
 #header
   .color-overlay
     .container
-      h2= @project.title
+      h2{itemprop="name"}= @project.title
       p Придумать текст
 
 
@@ -28,7 +28,7 @@
                   =image_tag(photo.main_image.medium.url)
 
         .single-post-title.wow.fadeIn {data-wow-delay="1s"}
-          h2= link_to(@project.title, project_path(@project), class: 'highlight')
+          h2= link_to(@project.title, project_path(@project), class: 'highlight'), data: {:"no-turbolink" => "true"}
 
         .post-meta.wow.fadeIn {data-wow-delay="1.4s"}
           span.bold
@@ -63,15 +63,14 @@
             ul.post-tags
               li=icon('tag')
               -@project.tags.each do |tag|
-                li= link_to tag.name, '#'
-          /TODO finish tags
+                li= link_to tag.name, tag_path(tag: tag.name)
           .pull-right
             ul.social-share
               /TODO add share links
               li= t "titles.project.share_this"
-              li= link_to icon('facebook'), project_url
-              li= link_to icon('google-plus'), project_url
-              li= link_to icon('twitter'), project_url
+              li= link_to icon('facebook'), "https://facebook.com/sharer.php?s=100&p[title]=#{@project.title}&p[url]=#{project_url(@project)}&p[images][0]=#{@project.image_full_size}", data: {popup: true, toggle: "tooltip", placement: "top"}, title: "#{t 'titles.project.share_this'}"
+              li= link_to icon('google-plus'), "https://plus.google.com/share?url=#{project_url(@project)}", data: {popup: true, toggle: "tooltip", placement: "top"}, title: "#{t 'titles.project.share_this'}"
+              li= link_to icon('twitter'), "http://twitter.com/share?text=#{url_encode(@project.title)}&url=#{project_url(@project)}", data: {popup: true, toggle: "tooltip", placement: "top"}, title: "#{t 'titles.project.share_this'}"
 
         .media.post-author.wow.fadeIn {data-wow-delay="0.4s"}
           =link_to user_path(@project.user), class: 'pull-left' do
@@ -81,11 +80,11 @@
             =@project.user.about
 
             ul.author-social
-              li= link_to @project.user.facebook_url do
+              li= link_to @project.user.facebook_url, target: '_blank' do
                 =icon('facebook')
-              li= link_to @project.user.google_url do
+              li= link_to @project.user.google_url, target: '_blank' do
                 =icon('google-plus')
-              li= link_to @project.user.twitter_url do
+              li= link_to @project.user.twitter_url, target: '_blank' do
                 =icon('twitter')
 
         #comments

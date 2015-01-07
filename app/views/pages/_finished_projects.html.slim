@@ -12,9 +12,9 @@ section#portfolio.bg.light-gray
           .item.col-sm-6.col-md-3
             .wow.fadeIn {data-wow-delay="0.4s"}
               .portfolio-img
-                =link_to project_path(project), class: 'plink' do
+                =link_to project_path(project), class: 'plink', data: {:"no-turbolink" => "true"} do
                   .hover
                     .hover-content
                       =icon('search fa-2x')
                   =image_tag(project.thumb, class: 'img-responsive')
-              h4= link_to project.title, project_path(project)
+              h4= link_to project.title, project_path(project), data: {:"no-turbolink" => "true"}

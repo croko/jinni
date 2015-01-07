@@ -22,9 +22,9 @@
           hr
           - @latest_projects.limit(3).each do |project|
             .media
-              =link_to image_tag(project.thumb, class: 'media-object'), project_path(project), class: 'pull-left'
+              =link_to image_tag(project.thumb, class: 'media-object'), project_path(project), class: 'pull-left', data: {:"no-turbolink" => "true"}
               .media-body
-                p.bold= link_to project.title, project_path(project)
+                p.bold= link_to project.title, project_path(project), data: {:"no-turbolink" => "true"}
                 p.small= project.goal
 
       /-- Contact Info Widget **************************************
@@ -34,9 +34,9 @@
           hr
           - @latest_finished_projects.each do |project|
             .media
-              =link_to image_tag(project.thumb, class: 'media-object'), project_path(project), class: 'pull-left'
+              =link_to image_tag(project.thumb, class: 'media-object'), project_path(project), class: 'pull-left', data: {:"no-turbolink" => "true"}
               /.media-body
-                p.bold= link_to project.title, project_path(project)
+                p.bold= link_to project.title, project_path(project), data: {:"no-turbolink" => "true"}
                 /p.small= project.goal
 
 /Footer Navbar
