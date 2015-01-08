@@ -363,7 +363,9 @@ ru:
       button: 'Разместить проект'
     slider:
       help: 'Помоги волонтерам'
+      help_message: ''
       create: 'Создай свой проект'
+      create_message: ''
     payment_system:
       text: 'Текст для платежных систем'
     foundation:

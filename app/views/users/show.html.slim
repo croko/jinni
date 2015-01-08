@@ -41,5 +41,5 @@
                   =icon('twitter')
 
         .col-md-6.col-lg-6.wow.fadeIn {data-wow-delay="1.5s"}
-          p.lead= @user.about
+          p.lead= simple_format(@user.about)
 == render 'pages/finished_projects'
