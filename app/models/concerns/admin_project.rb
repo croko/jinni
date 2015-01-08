@@ -7,7 +7,7 @@ module AdminProject
         field :id
         field :title
         field :user do
-          searchable :first_name
+          searchable :last_name
         end
         field :category do
           searchable :name
