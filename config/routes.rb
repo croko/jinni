@@ -11,6 +11,9 @@ Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
+  resource :terms, only: :show
+  resource :agreements, only: :show
+
   resources :categories, only: :show
 
   resources :password_resets, only: [:create, :edit, :update]
@@ -40,7 +43,6 @@ Rails.application.routes.draw do
   get "oauth/:provider" => "oauths#oauth", as: :auth_at_provider
   post '/api/liqpay_callback' => 'payments#liqpay_callback', as: :liqpay_callback
   root 'pages#index'
-
 
   # constraints(AdminConstraint) do
   #   namespace :admin do

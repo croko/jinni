@@ -42,6 +42,7 @@
         address
           strong
           abbr {title} г. Днепропетровск
+          |ул. Гоголя 14а
         address
           strong Email
           br
@@ -58,6 +59,6 @@ nav#footer-nav
       span= t 'titles.rights'
       ul.footer-nav.navbar-right
         li
-          =link_to "#{t 'titles.tos'}", '#'
+          =link_to "#{t 'titles.tos'}", terms_path
           span.dot
-        li= link_to "#{t 'titles.privacy'}", '#', class: 'dot'
+        li= link_to "#{t 'titles.agreement'}", agreements_path, class: 'dot'

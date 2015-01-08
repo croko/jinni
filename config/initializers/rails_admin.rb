@@ -49,6 +49,22 @@ RailsAdmin.config do |config|
     end
   end
 
+  config.model Term do
+    edit do
+      field :body, :wysihtml5 do
+        config_options locale: "ru-RU"
+      end
+    end
+  end
+
+  config.model Agreement do
+    edit do
+      field :body, :wysihtml5 do
+        config_options :locale => 'ru-RU'
+      end
+    end
+  end
+
   config.actions do
     dashboard # mandatory
     index # mandatory

@@ -1,0 +1,16 @@
+#header.wow.fadeIn
+  .color-overlay
+    .container
+      h2= t('titles.agreement')
+      p= t('titles.about.header_message')
+
+#intro
+  .container
+    .row.wow.fadeIn {data-wow-delay="0.5s"}
+      .section-title.text-center.col-sm-12.col-md-12.col-lg-12
+        h2= t('titles.agreement')
+        hr
+        .space
+    .row
+      .col-md-8.col-lg-8.wow.fadeIn {data-wow-delay="1.5s"}
+        p= simple_format(@agreement.body)
