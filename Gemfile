@@ -48,6 +48,7 @@ gem 'liqpay', '~>1.0.0'
 gem 'disqus_api'
 gem 'responders', '~> 2.0'
 gem 'meta-tags'
+gem 'bootstrap-wysihtml5-rails', :git => 'git://github.com/Nerian/bootstrap-wysihtml5-rails.git'
 
 group :development do
   gem 'quiet_assets'

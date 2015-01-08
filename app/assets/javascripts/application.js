@@ -23,6 +23,8 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require moment/ru
+//= require bootstrap-wysihtml5
+//= require bootstrap-wysihtml5/locales/ru-RU
 //= require main.js.coffee.erb
 //= require jquery.tokeninput.min
 //= require turbolinks

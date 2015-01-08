@@ -54,6 +54,8 @@ ready = ->
 
   $('[data-toggle="tooltip"]').tooltip()
 
+  $('.editor').wysihtml5({locale: "ru-RU", toolbar: { "fa": true, "indent": true, "html": true }})
+
 $(document).ready(ready)
 $(document).on('page:load', ready)
 window.ready = ready
