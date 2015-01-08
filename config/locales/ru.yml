@@ -334,6 +334,7 @@ ru:
       phone: 'Телефон'
     report:
       header: 'Отчет'
+      header_message: ''
       new_header_message: 'Создание отчета'
       edit_header_message: 'Редактирование отчета'
       title: 'Создайте отчет'
