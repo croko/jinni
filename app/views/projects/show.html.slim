@@ -61,7 +61,7 @@
               =link_to Report.model_name.human, project_report_path(@project, @project.reports.first), class: 'btn btn-default btn-lg st-btn yellow pull-right', data: {:"no-turbolink" => "true"}
         .post-body.wow.fadeIn {data-wow-delay="1.5s" data-wow-duration="2s"}
           p.lead{itemprop="description"}= @project.goal
-          p= @project.about
+          p=simple_format @project.about
         .space
         .post-bottom-bar.wow.fadeIn
           .pull-left
