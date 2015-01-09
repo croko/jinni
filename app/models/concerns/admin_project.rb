@@ -21,6 +21,7 @@ module AdminProject
         field :amount
         field :status
         field :approved
+        field :published
       end
 
       edit do
