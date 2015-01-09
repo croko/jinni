@@ -40,12 +40,14 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :payment_systems, :reject_if => lambda { |a| a[:payment_gateway_id].blank? }, allow_destroy: true
   accepts_nested_attributes_for :addresses, allow_destroy: true
 
-  validates :password, length: { minimum: 5 }, allow_blank: true
+  validates :password, length: {minimum: 5}, allow_blank: true
   validates :password, confirmation: true
   validates :password_confirmation, presence: true, allow_blank: true
   validates :email, presence: true, uniqueness: true
 
   validates :addresses, presence: true, on: :update
+
+  after_create :notify_admin
 
   def fio
     last_name.to_s + ' ' + first_name.to_s
@@ -54,4 +56,11 @@ class User < ActiveRecord::Base
   def avatar
     authentications.first.avatar_url
   end
+
+  protected
+
+  def notify_admin
+    SystemMailer.new_user_registered(self).deliver_later
+  end
+
 end

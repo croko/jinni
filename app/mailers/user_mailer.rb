@@ -1,5 +1,4 @@
-class UserMailer < ActionMailer::Base
-  default from: "noreply@jinni.com.ua"
+class UserMailer < ApplicationMailer
 
   def reset_password_email(user)
     @user = user

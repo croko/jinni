@@ -34,6 +34,9 @@ class Project < ActiveRecord::Base
 
   paginates_per 8
 
+  after_create :notify_admin_created
+  after_update :check_published
+
   def localized_end_date
     (I18n.t :abbr_month_names, scope: :date)[date_end.month].to_s + ' ' + date_end.year.to_s
   end
@@ -68,6 +71,27 @@ class Project < ActiveRecord::Base
   end
 
   def publish
-    errors.add(:published,  "#{I18n.t 'no_payment_system'}") unless payment_ready
+    errors.add(:published, "#{I18n.t 'no_payment_system'}") unless payment_ready
   end
+
+  protected
+
+  def notify_admin_created
+    if published?
+      notify_admin_published
+    else
+      SystemMailer.new_project_registered(self).deliver_later
+    end
+  end
+
+  def check_published
+    if published_changed? && published
+      notify_admin_published
+    end
+  end
+
+  def notify_admin_published
+    SystemMailer.new_project_published(self).deliver_later
+  end
+
 end
