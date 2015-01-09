@@ -9,11 +9,10 @@ class OauthsController < ApplicationController
 
   def callback
     provider = auth_params[:provider]
-    if @user = login_from(provider)
-      redirect_to projects_path, :notice => "t 'login.success' #{provider.titleize}!"
-    else
-      begin
-
+    begin
+      if @user = login_from(provider)
+        redirect_to projects_path, :notice => "t 'login.success' #{provider.titleize}!"
+      else
         user_hash = sorcery_fetch_user_hash(provider)
         if @user = User.find_by(email: user_hash[:user_info]['email'])
           reset_session # protect from session fixation attack
@@ -25,18 +24,24 @@ class OauthsController < ApplicationController
           reset_session # protect from session fixation attack
           auto_login(@user)
 
+          # for FB posts
+          if provider == 'facebook'
+            auth_fb = @user.authentications.find_by(provider: 'facebook')
+            auth_fb.update_column('access_token', @access_token.token.to_s)
+          end
+
           if provider == 'google'
             auth = @user.authentications.find_by(provider: 'google')
             auth.update_attribute('avatar_url', user_hash[:user_info]['picture']) if auth
           end
 
-          redirect_to edit_user_path(@user), notice: "t 'registration.success' #{provider.titleize}!" and return
+          redirect_to edit_user_path(@user), notice: "#{t 'session.registration_success'} #{provider.titleize}!" and return
         end
 
-        redirect_to projects_path, :notice => "t 'login.success' #{provider.titleize}!"
-      rescue
-        redirect_to root_path, :alert =>  "#{t} login.fail #{provider.titleize}!"
+        redirect_to projects_path, :notice => "#{t 'session.login_success'} #{provider.titleize}!"
       end
+    rescue
+      redirect_to login_url, alert: "#{t 'session.login_fail'} #{provider.titleize}!"
     end
   end
 

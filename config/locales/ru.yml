@@ -276,9 +276,10 @@ ru:
       all: "Доступ отклонен"
   session:
       error: 'Неверный логин или пароль'
+      registration_success: 'Поздравляем с регистрацией!'
       login_success: 'Вход в систему выполнен'
       logout: 'Выход из системы выполнен'
-      login_fail: ''
+      login_fail: 'Ошибка входа '
   views:
     pagination:
       previous: "&laquo; назад"

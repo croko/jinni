@@ -113,7 +113,7 @@ Rails.application.config.sorcery.configure do |config|
   config.facebook.secret = "#{Rails.application.secrets.sorcery_facebook_secret}"
   config.facebook.callback_url = "#{Rails.application.secrets.sorcery_facebook_callback_url}"
   config.facebook.user_info_mapping = {email: "email", first_name: "first_name", last_name: "last_name"}
-  config.facebook.access_permissions = ['email', 'offline_access']
+  config.facebook.access_permissions = ['email', 'offline_access', 'publish_actions']
   # config.facebook.scope = "email,offline_access"
 
   #
