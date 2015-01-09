@@ -1,0 +1,31 @@
+#header.wow.fadeIn
+  .color-overlay
+    .container
+      h2= t('password_reset.header')
+      p= t('password_reset.header_message')
+
+#contact
+  .container
+    .row.wow.fadeIn {data-wow-delay="0.4s"}
+      .section-title.text-center.col-sm-12.col-md-12.col-lg-12
+        h2=t('password_reset.header')
+        hr
+        h5=t('password_reset.header_message')
+        .bigspace
+    .row
+      .col-md-12.col-lg-12
+        .text-danger= flash.alert
+        #contact-form.text-center
+
+          = simple_form_for(@user, url: password_reset_path(@token), method: :put, html: { class: "form-horizontal" }, wrapper: :horizontal_form) do |f|
+            .row
+              .col-md-7.wow.fadeIn {data-wow-delay="0.8s"}
+                = f.input :email, input_html: {readonly: true}
+              .col-md-7.wow.fadeIn {data-wow-delay="0.8s"}
+                = f.input :password
+              .col-md-7.wow.fadeIn {data-wow-delay="0.8s"}
+                = f.input :password_confirmation
+            .row
+              .col-md-offset-2.col-md-6.wow.fadeIn {data-wow-delay="0.8s"}
+                = f.button :submit, class: 'btn btn-default st-btn'
+                = link_to t('.cancel', :default => t("helpers.links.cancel")), root_url, class: 'btn btn-default bt-btn'

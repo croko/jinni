@@ -383,3 +383,6 @@ ru:
     contacts: 'Наши контакты'
     phone: 'Телефон'
     address: 'Адрес'
+  password_reset:
+    header: 'Сброс пароля'
+    header_message: 'Выберите новый пароль'
