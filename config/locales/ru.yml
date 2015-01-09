@@ -372,7 +372,7 @@ ru:
       text: 'Текст для платежных систем'
     foundation:
       title: 'Наши партнеры'
-      message: 'Текст для партнеров'
+      message: ''
     category:
       header_message: 'Все активные проекты в категории'
   footer:
