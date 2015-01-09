@@ -229,6 +229,7 @@ ru:
         facebook_url_description: 'укажите ссылку на Ваш профиль'
         google_url: 'Мой профиль в Google+'
         google_url_description: 'укажите ссылку на Ваш профиль'
+        authentications: 'Авторизации соцсеть'
       foundation:
         name: 'Наименование'
         active: 'Показывать'
@@ -295,3 +296,8 @@ ru:
         body: 'Текст правил'
       agreement:
         body: 'Текст соглашения'
+      authentication:
+        user_id: 'Участник'
+        provider: 'Социальная сеть'
+        uid: 'Номер'
+        avatar_url: 'Аватар'

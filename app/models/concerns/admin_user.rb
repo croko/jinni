@@ -29,6 +29,12 @@ module AdminUser
         field :google_url
         field :with_foundation
         field :image
+        field :city
+        field :addresses
+        field :payment_systems
+        field :projects
+        field :finished_projects
+        field :authentications
         field :admin
       end
 

@@ -20,7 +20,7 @@ RailsAdmin.config do |config|
 
   ### More at https://github.com/sferik/rails_admin/wiki/Base-configuration
 
-  config.excluded_models = ["Authentication"]
+  # config.excluded_models = ["Authentication"]
   RailsAdmin.config { |c| c.label_methods << :last_name }
 
   config.model 'Address' do
@@ -47,6 +47,13 @@ RailsAdmin.config do |config|
         visible false
       end
     end
+  end
+
+  config.model 'Authentication' do
+    visible false
+    field :provider
+    field :uid
+    field :avatar_url
   end
 
   config.actions do
