@@ -5,11 +5,13 @@ module AdminTerm
     rails_admin do
 
       edit do
-        field :body do
+        field :body, :wysihtml5 do
+          config_options locale: "ru-RU",
+                                 toolbar: {
+                                     fa: true,
+                                     html: true
+                                 }
           label false
-          html_attributes do
-            {style: "width:100%", rows: '60'}
-          end
         end
       end
 

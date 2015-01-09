@@ -1,11 +1,4 @@
 GIT
-  remote: git://github.com/Nerian/bootstrap-wysihtml5-rails.git
-  revision: 1c7cb98c6aafbf4e67125c1dea1c9c910319c9be
-  specs:
-    bootstrap-wysihtml5-rails (0.3.3.1)
-      railties (>= 3.0)
-
-GIT
   remote: git://github.com/carrierwaveuploader/carrierwave.git
   revision: 56873b07105396e0f1cfdd5e38be930dc3dcd362
   specs:
@@ -113,6 +106,8 @@ GEM
       rails (>= 3.1)
     bootstrap-sass (3.3.1.0)
       sass (~> 3.2)
+    bootstrap-wysihtml5-rails (0.3.3.1)
+      railties (>= 3.0)
     bootstrap3-datetimepicker-rails (3.1.3)
       momentjs-rails (>= 2.8.1)
     builder (3.2.2)
@@ -426,7 +421,7 @@ DEPENDENCIES
   babosa
   bootstrap-kaminari-views
   bootstrap-sass (~> 3.3.1)
-  bootstrap-wysihtml5-rails!
+  bootstrap-wysihtml5-rails
   bootstrap3-datetimepicker-rails (~> 3.1.3)
   carrierwave!
   coffee-rails (~> 4.0.0)

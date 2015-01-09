@@ -17,10 +17,12 @@ module AdminReport
             {style: "width:80%"}
           end
         end
-        field :about do
-          html_attributes do
-            {style: "width:90%", rows: '7'}
-          end
+        field :about, :wysihtml5 do
+          config_options locale: "ru-RU",
+                         toolbar: {
+                             fa: true,
+                             html: true
+                         }
         end
         field :project
         field :photos

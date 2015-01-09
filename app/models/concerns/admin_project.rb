@@ -13,10 +13,10 @@ module AdminProject
           searchable :name
         end
         field :date_start do
-          formatted_value{ I18n.l bindings[:object].date_start }
+          formatted_value { I18n.l bindings[:object].date_start }
         end
         field :date_end do
-          formatted_value{ I18n.l bindings[:object].date_end }
+          formatted_value { I18n.l bindings[:object].date_end }
         end
         field :amount
         field :status
@@ -35,10 +35,12 @@ module AdminProject
             {style: "width:80%"}
           end
         end
-        field :about do
-          html_attributes do
-            {style: "width:90%", rows: '7'}
-          end
+        field :about, :wysihtml5 do
+          config_options locale: "ru-RU",
+                         toolbar: {
+                             fa: true,
+                             html: true
+                         }
         end
         field :user
         field :foundation
@@ -50,6 +52,7 @@ module AdminProject
           html_attributes do
             {style: "width:60%"}
           end
+
           def form_value
             bindings[:object].tag_list.join(', ')
           end
