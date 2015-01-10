@@ -60,7 +60,7 @@ class User < ActiveRecord::Base
   protected
 
   def notify_admin
-    SystemMailer.new_user_registered(self).deliver_later
+    # SystemMailer.new_user_registered(self).deliver_later
   end
 
 end

@@ -80,7 +80,7 @@ class Project < ActiveRecord::Base
     if published?
       notify_admin_published
     else
-      SystemMailer.new_project_registered(self).deliver_later
+      # SystemMailer.new_project_registered(self).deliver_later
     end
   end
 
@@ -91,7 +91,7 @@ class Project < ActiveRecord::Base
   end
 
   def notify_admin_published
-    SystemMailer.new_project_published(self).deliver_later
+    # SystemMailer.new_project_published(self).deliver_later
   end
 
 end
