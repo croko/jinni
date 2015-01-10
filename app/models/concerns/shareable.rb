@@ -8,18 +8,22 @@ module Shareable
   def post_to_socials
     unless shared
       if approved_changed? && approved
+        post_to_jinni_fb
         post_to_facebook if user.authentications.facebook.any? && share
       end
     end
   end
 
   def post_to_facebook
-    PostJinni.perform_later(self, 'facebook')
-
-    token = user.authentications.facebook.first.access_token
+    token = user.authentications.facebook.first.try(:access_token)
     if token.present?
       PostSocial.perform_later(self, token, 'facebook')
       update_column('shared', true)
     end
   end
+
+  def post_to_jinni_fb
+    PostJinni.perform_later(self, 'facebook')
+  end
+
 end
