@@ -7,8 +7,8 @@ module Shareable
 
   def post_to_socials
     unless shared
-      if user.authentications.facebook.any? && share
-        post_to_facebook
+      if approved_changed? && approved
+        post_to_facebook if user.authentications.facebook.any? && share
       end
     end
   end
