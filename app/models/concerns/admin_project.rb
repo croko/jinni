@@ -62,6 +62,7 @@ module AdminProject
         field :featured
         field :published
         field :approved
+        field :share
         field :status, :enum do
 
           enum do
@@ -79,7 +80,6 @@ module AdminProject
 
         field :photos
         field :reports
-
       end
       exclude_fields :slug, :project_id
     end

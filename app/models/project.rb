@@ -10,6 +10,7 @@ class Project < ActiveRecord::Base
   has_many :reports
 
   include AdminProject
+  include Shareable
   include TagExtend
   acts_as_taggable
 

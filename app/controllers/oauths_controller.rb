@@ -11,7 +11,7 @@ class OauthsController < ApplicationController
     provider = auth_params[:provider]
     begin
       if @user = login_from(provider)
-        redirect_to projects_path, :notice => "t 'login.success' #{provider.titleize}!"
+        redirect_to projects_path, :notice => "#{t 'session.login_success'} #{provider.titleize}!"
       else
         user_hash = sorcery_fetch_user_hash(provider)
         if @user = User.find_by(email: user_hash[:user_info]['email'])
