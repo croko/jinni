@@ -1,8 +1,9 @@
 class PostJinni < ActiveJob::Base
   queue_as :default
 
-  def perform(project, token, provider)
+  def perform(project, provider)
     if provider == 'facebook'
+      token = User.first.authentications.facebook.first.access_token
       @api = Koala::Facebook::API.new(token)
       pages = @api.get_connections('me', 'accounts')
       page_token = pages.first['access_token']

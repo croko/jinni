@@ -17,7 +17,7 @@ module Shareable
     token = user.authentications.facebook.first.access_token
     if token.present?
       PostSocial.perform_later(self, token, 'facebook')
-      PostJinni.perform_later(self, token, 'facebook')
+      PostJinni.perform_later(self, 'facebook')
       update_column('shared', true)
     end
   end
