@@ -73,4 +73,5 @@ group :production do
   gem 'therubyracer'
   gem 'exception_notification'
   gem 'unicorn'
+  gem 'newrelic_rpm'
 end
