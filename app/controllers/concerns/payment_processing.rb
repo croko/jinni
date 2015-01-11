@@ -43,17 +43,19 @@ module PaymentProcessing
         liqpay_response = Liqpay::Response.new(params)
 
         if liqpay_response.success?
-          @project.payments.create(
-              commission: params[:receiver_commission],
-              sender_phone: params[:sender_phone],
-              payment_transaction: params[:transaction_id],
-              payment_status: params[:status],
-              payment_type: params[:type],
-              currency: params[:currency],
-              amount: params[:amount],
-              liqpay_order_id: params[:liqpay_order_id],
-              payment_gateway: payment_gateway
-          )
+          if params[:status] == 'success'
+            @project.payments.create(
+                commission: params[:receiver_commission],
+                sender_phone: params[:sender_phone],
+                payment_transaction: params[:transaction_id],
+                payment_status: params[:status],
+                payment_type: params[:type],
+                currency: params[:currency],
+                amount_currency: params[:amount],
+                liqpay_order_id: params[:liqpay_order_id],
+                payment_gateway: payment_gateway
+            )
+          end
         else
           logger.error "**** Liqpay payment error, project id: #{@project.try(:id)}, sender_phone : #{params[:sender_phone]}, amount: #{params[:amount]}, payment_status: #{params[:status]}, transaction: #{params[:transaction_id]} ****"
         end
