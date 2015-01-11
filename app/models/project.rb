@@ -39,7 +39,7 @@ class Project < ActiveRecord::Base
   after_update :check_published
 
   def localized_end_date
-    (I18n.t :abbr_month_names, scope: :date)[date_end.month].to_s + ' ' + date_end.year.to_s
+    (I18n.t :abbr_month_names, scope: :date)[date_end.month].to_s #+ ' ' + date_end.year.to_s
   end
 
   def progress

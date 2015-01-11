@@ -335,6 +335,7 @@ ru:
       edit_report: 'Редактировать отчет'
       new_report: 'Создать отчет'
       phone: 'Телефон'
+      final: 'финиш'
     report:
       header: 'Отчет'
       header_message: ''

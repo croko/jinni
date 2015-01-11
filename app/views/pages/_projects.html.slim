@@ -9,8 +9,11 @@
                 =icon('search fa-2x')
             =image_tag(project.thumb, class: 'img-responsive', itemprop: "image")
           .date
+            .small= t 'titles.project.final'
             h4=project.date_end.day
             p.small= project.localized_end_date
+
+            /p.small= project.localized_end_date
         .caption.text-left
           h2{itemprop="name"}= link_to project.title, project_path(project), data: {:"no-turbolink" => "true"}
           .post-meta
