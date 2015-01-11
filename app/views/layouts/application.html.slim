@@ -5,6 +5,12 @@ html lang="ru"
     meta content="IE=Edge,chrome=1" http-equiv="X-UA-Compatible"
     /meta name="description" content="сайт для поиска лучших докторов, рекомендации лучших специалистов и клиник" /
     /meta name="Keywords" content="болезни, лечение, советы доктора, рекомендации, отзывы, посоветуйте доктора, посоветуйте врача, отзывы о докторе, отзывы о больнице, отзывы о клинике, рекомендация, порекомендуйте доктора, в Днепропетровске, в Киеве, в Харькове, в Украине" /
+
+    title= content_for?(:title) ? yield(:title) : "Jinni"
+    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+    meta name="viewport" content="width=device-width, initial-scale=1.0"
     = display_meta_tags
     /![if lt IE 9]
      | <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -21,11 +27,6 @@ html lang="ru"
         ga('require', 'displayfeatures');
         ga('send', 'pageview');
 
-    title= content_for?(:title) ? yield(:title) : "Jinni"
-    = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
-    = javascript_include_tag "application", "data-turbolinks-track" => true
-    = csrf_meta_tags
-    meta name="viewport" content="width=device-width, initial-scale=1.0"
     | <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
 
     = favicon_link_tag 'favicon.ico'
