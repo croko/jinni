@@ -54,7 +54,7 @@ class User < ActiveRecord::Base
   end
 
   def avatar
-    authentications.first.avatar_url
+    authentications.try(:first).try(:avatar_url)
   end
 
   protected
