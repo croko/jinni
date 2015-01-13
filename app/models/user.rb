@@ -4,8 +4,8 @@
 #
 #  id                              :integer          not null, primary key
 #  email                           :string(255)      not null
-#  crypted_password                :string(255)      not null
-#  salt                            :string(255)      not null
+#  crypted_password                :string(255)
+#  salt                            :string(255)
 #  first_name                      :string(255)
 #  last_name                       :string(255)
 #  created_at                      :datetime
@@ -15,6 +15,13 @@
 #  reset_password_token            :string(255)
 #  reset_password_token_expires_at :datetime
 #  reset_password_email_sent_at    :datetime
+#  with_foundation                 :boolean          default("false")
+#  admin                           :boolean          default("false")
+#  about                           :text
+#  image                           :string(255)
+#  twitter_url                     :string(255)
+#  facebook_url                    :string(255)
+#  google_url                      :string(255)
 #
 
 class User < ActiveRecord::Base
@@ -34,7 +41,6 @@ class User < ActiveRecord::Base
   has_many :addresses, as: :addressable, dependent: :destroy
   has_many :projects
   has_many :finished_projects, -> { where(status: 1) }, class_name: 'Project'
-  belongs_to :city
 
   accepts_nested_attributes_for :authentications
   accepts_nested_attributes_for :payment_systems, :reject_if => lambda { |a| a[:payment_gateway_id].blank? }, allow_destroy: true

@@ -9,7 +9,7 @@
 #  payment_gateway_id :integer
 #  public_key         :string(255)
 #  private_key        :string(255)
-#  active             :boolean          default(FALSE)
+#  active             :boolean          default("true")
 #  created_at         :datetime
 #  updated_at         :datetime
 #

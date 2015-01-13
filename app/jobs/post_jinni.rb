@@ -3,6 +3,7 @@ class PostJinni < ActiveJob::Base
 
   def perform(project, provider)
     if provider == 'facebook'
+      begin
       token = User.first.authentications.facebook.first.access_token
       @api = Koala::Facebook::API.new(token)
       pages = @api.get_connections('me', 'accounts')
@@ -19,6 +20,9 @@ class PostJinni < ActiveJob::Base
                                 }
 
       )
+      rescue => ex
+        logger.info(ex)
+      end
     end
   end
 end

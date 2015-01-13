@@ -29,7 +29,6 @@ module AdminUser
         field :google_url
         field :with_foundation
         field :image
-        field :city
         field :addresses
         field :payment_systems
         field :projects

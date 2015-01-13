@@ -9,13 +9,22 @@
 #  user_id           :integer
 #  foundation_id     :integer
 #  payment_system_id :integer
-#  status            :integer
+#  status            :integer          default("0")
 #  date_start        :date
 #  date_end          :date
 #  category_id       :integer
-#  amount            :decimal(8, 2)    default(0.0)
+#  amount            :decimal(8, 2)    default("0.0")
 #  created_at        :datetime
 #  updated_at        :datetime
+#  location          :string(255)
+#  featured          :boolean          default("false")
+#  published         :boolean          default("false")
+#  approved          :boolean          default("false")
+#  slug              :string(255)
+#  collected         :decimal(8, 2)    default("0.0")
+#  payments_count    :integer
+#  share             :boolean          default("true")
+#  shared            :boolean          default("false")
 #
 
 require 'rails_helper'

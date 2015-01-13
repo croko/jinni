@@ -2,12 +2,18 @@
 #
 # Table name: foundations
 #
-#  id          :integer          not null, primary key
-#  name        :string(255)
-#  created_at  :datetime
-#  updated_at  :datetime
-#  active      :boolean
-#  description :string(255)
+#  id           :integer          not null, primary key
+#  name         :string(255)
+#  created_at   :datetime
+#  updated_at   :datetime
+#  active       :boolean
+#  description  :string(255)
+#  featured     :boolean          default("false")
+#  logo         :string
+#  website_url  :string
+#  twitter_url  :string
+#  facebook_url :string
+#  google_url   :string
 #
 
 require 'rails_helper'
