@@ -4,6 +4,7 @@ class PostSocial < ActiveJob::Base
   def perform(project, token, provider)
     if provider == 'facebook'
       @api = Koala::Facebook::API.new(token)
+      begin
       @api.put_wall_post('На https://jinni.com.ua размещен новый проект!',
                          {
                              name: project.title,
@@ -14,6 +15,9 @@ class PostSocial < ActiveJob::Base
                          }
 
       )
+      rescue => ex
+        logger.info(ex)
+      end
     end
   end
 end
