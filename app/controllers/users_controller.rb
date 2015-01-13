@@ -1,18 +1,18 @@
 class UsersController < ApplicationController
-  skip_before_action :require_login, only: [:index, :show, :new, :create]
-  before_action :set_user, only: [:edit, :update, :destroy]
+  skip_before_action :require_login, only: [:show, :new, :create]
+  before_action :set_user, only: [:edit, :update]
   force_ssl if: :ssl_configured?, only: [:edit, :update, :create]
 
   # GET /users
   # GET /users.json
   def index
-    @users = User.all
+    # @users = User.all
   end
 
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = User.find(params[:id])
+    @user = User.for_public.find(params[:id])
     @finished_projects = @user.finished_projects
   end
 
@@ -56,17 +56,6 @@ class UsersController < ApplicationController
       end
     end
   end
-
-  # DELETE /users/1
-  # DELETE /users/1.json
-  def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
-
 
   private
 
