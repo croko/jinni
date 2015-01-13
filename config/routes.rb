@@ -42,6 +42,8 @@ Rails.application.routes.draw do
   get "oauth/callback" => "oauths#callback" # for use with Github, Facebook
   get "oauth/:provider" => "oauths#oauth", as: :auth_at_provider
   post '/api/liqpay_callback' => 'payments#liqpay_callback', as: :liqpay_callback
+
+  match "/404" => "errors#error404", via: [ :get, :post, :patch, :delete ]
   root 'pages#index'
 
   # constraints(AdminConstraint) do

@@ -1,0 +1,10 @@
+section#error
+  .container
+    .row
+      .section-title.text-center.col-md-offset-1.col-md-10
+        .wow.fadeIn {data-wow-delay="0.8s"}
+          h1 404
+          hr
+          h5= t "not_found.sorry"
+          br
+          p.lead.wow.fadeIn {data-wow-delay="1.4s"}= t("not_found.not_found_message_html", href: link_to(t("not_found.not_found_href"), projects_url))

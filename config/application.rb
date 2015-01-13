@@ -28,6 +28,9 @@ module Jinni
     config.autoload_paths += %W(#{config.root}/lib #{config.root}/app/uploaders)
     config.active_job.queue_adapter = :inline
 
+    require Rails.root.join("lib/custom_public_exceptions")
+    config.exceptions_app = CustomPublicExceptions.new(Rails.public_path)
+
     config.i18n.default_locale = :ru
     config.generators do |g|
          g.test_framework :rspec

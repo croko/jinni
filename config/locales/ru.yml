@@ -390,3 +390,7 @@ ru:
   password_reset:
     header: 'Сброс пароля'
     header_message: 'Выберите новый пароль'
+  not_found:
+    sorry: 'Мы сожалеем, но запрашиваемая страница не найдена.'
+    not_found_message_html: 'Вы можете перейти на страницу %{href}'
+    not_found_href: 'наших проектов.'
