@@ -11,8 +11,9 @@
 
         .featured-media.wow.fadeIn {data-wow-delay="0.5s" data-wow-duration="2s"}
           .date
-            h4=@project.date_end.day
-            p.small= @project.localized_end_date
+            .small= t 'titles.report.final'
+            h4=@report.created_at.day
+            p.small= @report.localized_end_date
 
           #post-featured-slider.carousel.slide {data-ride="carousel"}
             ol.carousel-indicators

@@ -29,6 +29,8 @@ class Report < ActiveRecord::Base
 
   alias_attribute :name, :goal
 
+  after_create :close_project
+
   def slug_candidates
     [:goal,
      [:goal, :id]
@@ -39,4 +41,13 @@ class Report < ActiveRecord::Base
     input.to_s.to_slug.normalize(transliterations: :russian).to_s
   end
 
+  def localized_end_date
+    (I18n.t :abbr_month_names, scope: :date)[created_at.month].to_s #+ ' ' + date_end.year.to_s
+  end
+
+  protected
+
+  def close_project
+     project.close! if project.opened?
+  end
 end
