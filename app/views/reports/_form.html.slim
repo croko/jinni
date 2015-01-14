@@ -11,11 +11,14 @@
             blockquote
               small= t "activerecord.attributes.report.goal_description"
         .row
-          .col-md-7.wow.fadeIn {data-wow-delay="0.8s"}
-            = f.input :about, as: :text, input_html: {rows: 15}
-          .col-md-5.wow.fadeIn {data-wow-delay="0.8s"}
+          .col-md-12.wow.fadeIn {data-wow-delay="0.8s"}
+            h5= t 'activerecord.attributes.report.about'
+          .col-md-12.wow.fadeIn {data-wow-delay="0.8s"}
             blockquote
-              small= t "activerecord.attributes.report.about_description"
+              small= t 'activerecord.attributes.report.about_description'
+        .row
+          .col-md-12.wow.fadeIn {data-wow-delay="0.8s"}
+            = f.input :about, as: :text, input_html: {rows: 15, class: 'col-sm-10 editor'}, wrapper: :inline_form
         .row
           .col-md-12.wow.fadeIn {data-wow-delay="0.8s"}
             h4= t("titles.project.photos")

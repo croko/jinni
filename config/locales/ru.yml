@@ -339,10 +339,10 @@ ru:
     report:
       header: 'Отчет'
       header_message: ''
-      new_header_message: 'Создание отчета'
+      new_header_message: 'О завершенном проекте'
       edit_header_message: 'Редактирование отчета'
       title: 'Создайте отчет'
-      message: 'о завершенном проекте'
+      message: 'после сохранения отчета проект завершается и становится недоступен для сбора средств'
       edit_title: 'Редактирование данных отчета'
       edit_message: ''
     about:
