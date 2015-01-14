@@ -4,8 +4,15 @@ module AdminProject
   included do
     rails_admin do
       list do
+        sort_by :date_start
         field :id
         field :title
+        field :approved do
+          column_width 15
+        end
+        field :published do
+                  column_width 15
+                end
         field :user do
           searchable :last_name
         end
@@ -13,6 +20,7 @@ module AdminProject
           searchable :name
         end
         field :date_start do
+          sort_reverse true
           formatted_value { I18n.l bindings[:object].date_start }
         end
         field :date_end do
@@ -20,8 +28,6 @@ module AdminProject
         end
         field :amount
         field :status
-        field :approved
-        field :published
       end
 
       edit do
