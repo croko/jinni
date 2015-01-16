@@ -8,7 +8,11 @@ class RegistrationsController < ApplicationController
   def create
 	  @user = User.new(safe_params)
 
-	  if @user.save
+    if @user.password.blank?
+       @user.errors.add(:password, :blank)
+    end
+
+    if @user.password.present? && @user.save
 	  	auto_login(@user)
 #TODO
       # UserMailer.welcome(@user).deliver
