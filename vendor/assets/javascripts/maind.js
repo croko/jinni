@@ -43,12 +43,12 @@
     ======================================*/
     $(function() {
         $('.carousel').carousel({
-            interval: 3000
+            interval: 4000
         });
     });
     $(function() {
         $('#header-slider-one').carousel({
-            interval: 3000
+            interval: 4000
         });
     });
 
@@ -109,35 +109,6 @@
     $('#accordion1').on('hidden.bs.collapse', toggleTwo);
     $('#accordion1').on('shown.bs.collapse', toggleTwo);
 
-    /*====================================
-    Portfolio Isotope Filter
-    ======================================*/
-    //$(window).load(function() {
-    //    var $container = $('.portfolioContainer');
-    //    if ($container.length > 0) {
-    //        $container.isotope({
-    //            filter: '*',
-    //            animationOptions: {
-    //                duration: 750,
-    //                easing: 'linear',
-    //                queue: false
-    //            }
-    //        });
-    //        $('.item-cat a').click(function () {
-    //            $('.item-cat .current').removeClass('current');
-    //            $(this).addClass('current');
-    //            var selector = $(this).attr('data-filter');
-    //            $container.isotope({
-    //                filter: selector,
-    //                animationOptions: {
-    //                    duration: 750,
-    //                    easing: 'linear',
-    //                    queue: false
-    //                }
-    //            });
-    //            return false;
-    //        });
-    //    }});
 
     $(document).ready(ready);
     $(document).on('page:load', ready);
