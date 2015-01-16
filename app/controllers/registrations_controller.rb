@@ -14,8 +14,6 @@ class RegistrationsController < ApplicationController
 
     if @user.password.present? && @user.save
 	  	auto_login(@user)
-#TODO
-      # UserMailer.welcome(@user).deliver
 
       redirect_to edit_user_path(@user), notice: "t 'registration.success'"
     else

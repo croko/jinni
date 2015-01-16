@@ -1,2 +1,6 @@
-h4 Участником #{@project.user.fio}
-p опубликован проект #{link_to @project.title, rails_admin.edit_url(model_name: Project, id: @project.id)}
+doctype html
+html
+  body
+
+    h4 Участником #{@project.user.fio}
+    p опубликован проект #{link_to @project.title, rails_admin.edit_url(model_name: Project, id: @project.id)}

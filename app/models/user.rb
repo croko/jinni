@@ -55,7 +55,7 @@ class User < ActiveRecord::Base
 
   validates :addresses, presence: true, on: :update
 
-  after_create :notify_admin
+  after_create :notify_admin, :welcome_email
 
   def fio
     last_name.to_s + ' ' + first_name.to_s
@@ -69,6 +69,10 @@ class User < ActiveRecord::Base
 
   def notify_admin
     SystemMailer.new_user_registered(self).deliver_later
+  end
+
+  def welcome_email
+    UserMailer.welcome_email(self).deliver_later if email.present?
   end
 
 end

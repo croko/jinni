@@ -6,4 +6,12 @@ class UserMailer < ApplicationMailer
     mail(to: user.email,
          subject: "Запрос на изменение пароля")
   end
+
+  def welcome_email(user)
+    @user = user
+    if user.email.present?
+      mail(to: user.email,
+           subject: "Приветствуем на Jinni")
+    end
+  end
 end
