@@ -5,12 +5,13 @@ class PostSocial < ActiveJob::Base
     if provider == 'facebook'
       @api = Koala::Facebook::API.new(token)
       begin
+      about = ActionController::Base.helpers.strip_tags(project.about)
       @api.put_wall_post('На https://jinni.com.ua размещен новый проект!',
                          {
                              name: project.title,
                              link: Rails.application.routes.url_helpers.project_url(host: 'jinni.com.ua', id: project.id),
                              caption: project.goal,
-                             description: project.about.html_safe,
+                             description: about,
                              picture: project.image_full_size
                          }
 
