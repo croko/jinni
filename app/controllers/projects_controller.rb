@@ -24,7 +24,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1
   # GET /projects/1.json
   def show
-    if current_user && @project.user == current_user
+    if current_user #&& @project.user == current_user
         @project = current_user.projects.friendly.find(params[:id])
       else
         @project = Project.published.approved.friendly.find(params[:id])
