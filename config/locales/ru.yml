@@ -314,7 +314,7 @@ ru:
       new_header_message: 'Создание нового проекта'
       edit_header_message: 'Редактирование проекта'
       title: 'Создайте свой новый проект'
-      message: ''
+      message: 'отображаются все проекты, независимо от статуса'
       edit_title: 'Редактирование проекта'
       edit_message: ''
       share_this: 'Поделиться'

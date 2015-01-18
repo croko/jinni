@@ -8,10 +8,13 @@ module AdminProject
         field :id
         field :title
         field :approved do
-          column_width 15
+          column_width 10
         end
         field :published do
-                  column_width 15
+                  column_width 10
+                end
+        field :featured do
+                  column_width 10
                 end
         field :user do
           searchable :last_name

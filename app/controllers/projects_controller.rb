@@ -27,7 +27,7 @@ class ProjectsController < ApplicationController
     if current_user
       @project = current_user.projects.friendly.find(params[:id])
       else
-        @project = Project.published.approved.friendly.find(params[:id])
+        @project = Project.published.friendly.find(params[:id])
     end
     set_meta_tags og: {
                       title: @project.title,
