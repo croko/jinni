@@ -27,7 +27,8 @@ Rails.application.routes.draw do
 
   get 'my-projects', to: 'projects#index', as: :my_projects, pr: 'my'
   get 'tags/:tag', to: 'projects#index', as: :tag
-  resources :foundations
+
+  resources :foundations, only: :show
 
   resources :user_sessions
 
