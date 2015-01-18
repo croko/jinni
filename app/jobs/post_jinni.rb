@@ -14,8 +14,8 @@ class PostJinni < ActiveJob::Base
                                 {
                                     name: project.title,
                                     link: Rails.application.routes.url_helpers.project_url(host: 'jinni.com.ua', id: project.id),
-                                    caption: project.goal.html_safe,
-                                    description: project.about,
+                                    caption: project.goal,
+                                    description: project.about.html_safe,
                                     picture: project.image_full_size
                                 }
 
