@@ -15,7 +15,7 @@ section#service.text-center
               .squared.colored
                 i.fa.fa-leaf.fa-2x
               p.bold= foundation.name
-              p.caption.text-left= foundation.description
+              p.caption.text-left= simple_format(foundation.description)
             ul.team-social
               li= link_to icon('globe'), foundation.website_url, target: '_blank'
               li= link_to icon('facebook'), foundation.facebook_url, target: '_blank'

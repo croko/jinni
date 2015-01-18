@@ -15,8 +15,16 @@ module AdminUser
 
       edit do
         field :email
-        field :first_name
-        field :last_name
+        field :first_name do
+          html_attributes do
+            {style: "width:80%"}
+          end
+        end
+        field :last_name do
+          html_attributes do
+            {style: "width:80%"}
+          end
+        end
         field :about, :wysihtml5 do
           config_options locale: "ru-RU",
                          toolbar: {
@@ -24,9 +32,21 @@ module AdminUser
                              html: true
                          }
         end
-        field :twitter_url
-        field :facebook_url
-        field :google_url
+        field :twitter_url do
+          html_attributes do
+            {style: "width:80%"}
+          end
+        end
+        field :facebook_url do
+          html_attributes do
+            {style: "width:80%"}
+          end
+        end
+        field :google_url do
+          html_attributes do
+            {style: "width:80%"}
+          end
+        end
         field :with_foundation
         field :image
         field :addresses
