@@ -27,6 +27,7 @@ module AdminProject
           formatted_value { I18n.l bindings[:object].date_end }
         end
         field :amount
+        field :collected
         field :status
       end
 
@@ -55,6 +56,7 @@ module AdminProject
         field :date_start
         field :date_end
         field :amount
+        field :collected
         field :tag_list do
           html_attributes do
             {style: "width:60%"}
