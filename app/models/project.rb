@@ -72,7 +72,7 @@ class Project < ActiveRecord::Base
   end
 
   def progress
-    (collected / amount).round * 100
+    ((collected / amount) * 100).round
   end
 
   def slug_candidates
