@@ -50,6 +50,8 @@ gem 'responders', '~> 2.0'
 gem 'meta-tags'
 gem 'bootstrap-wysihtml5-rails'
 gem "koala", "~> 1.11.0rc"
+gem 'whenever', require: false
+gem "dynamic_sitemaps"
 
 group :development do
   gem 'quiet_assets'

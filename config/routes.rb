@@ -45,6 +45,7 @@ Rails.application.routes.draw do
   post '/api/liqpay_callback' => 'payments#liqpay_callback', as: :liqpay_callback
 
   match "/404" => "errors#error404", via: [ :get, :post, :patch, :delete ]
+  get 'sitemap' => 'pages#sitemap'
   root 'pages#index'
 
   # constraints(AdminConstraint) do
