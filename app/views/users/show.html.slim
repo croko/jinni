@@ -23,12 +23,12 @@
           .post-meta.wow.fadeIn {data-wow-delay="1.4s"}
             span.bold
               = icon('phone', "#{t 'titles.project.phone'} : ")
-              - if @user.addresses.first.mobile_1.present?
+              - if @user.addresses.first.try(:mobile_1).present?
                 span.highlight= @user.addresses.first.mobile_1
           .post-meta.wow.fadeIn {data-wow-delay="1.4s"}
             span.bold
               = icon('send', "Email : ")
-              - if @user.addresses.first.email.present?
+              - if @user.addresses.first.try(:email).present?
                 = mail_to '', @user.addresses.first.email, class: 'highlight'
           .post-meta.wow.fadeIn {data-wow-delay="1.4s"}
             span.bold
