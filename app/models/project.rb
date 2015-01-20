@@ -97,11 +97,13 @@ class Project < ActiveRecord::Base
   end
 
   def payment_ready
-    foundation.try(:payment_ready) || payment_system_id.present?
+    foundation.try(:payment_ready) || payment_system.try(:payment_ready)
   end
 
   def publish
-    errors.add(:published, "#{I18n.t 'no_payment_system'}") unless payment_ready
+    if published
+      errors.add(:published, "#{I18n.t 'no_payment_system'}") unless payment_ready
+    end
   end
 
   protected

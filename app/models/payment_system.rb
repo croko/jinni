@@ -21,4 +21,8 @@ class PaymentSystem < ActiveRecord::Base
   has_many :projects
 
   scope :active, -> { where(active: true) }
+
+  def payment_ready
+    active? && public_key.present? && private_key.present?
+  end
 end
