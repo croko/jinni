@@ -56,7 +56,7 @@
           -if @project.payment_ready && @project.opened?
             .post-meta
               = liqpay_button @liqpay_request do
-                =submit_tag("#{t 'titles.project.pay'}", class: 'btn btn-default btn-lg st-btn yellow pull-right')
+                =submit_tag("#{t 'titles.project.pay'}", class: 'btn btn-default btn-lg st-btn green pull-right')
           -else
             -if @project.reports.any?
               =link_to Report.model_name.human, project_report_path(@project, @project.reports.first), class: 'btn btn-default btn-lg st-btn yellow pull-right', data: {:"no-turbolink" => "true"}
@@ -95,7 +95,6 @@
         #comments
           .comments-num.wow.fadeIn {data-wow-delay="0.6s"}
             #disqus_thread
-
 
       .col-md-4.wow.fadeIn {data-wow-delay="0.4s"}
         .sidebar

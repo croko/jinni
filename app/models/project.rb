@@ -41,6 +41,7 @@ class Project < ActiveRecord::Base
   include AdminProject
   include Shareable
   include TagExtend
+  include PaymentProcessing
   acts_as_taggable
 
   extend FriendlyId

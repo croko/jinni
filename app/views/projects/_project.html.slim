@@ -32,4 +32,11 @@
         |#{project.progress}%
 
     p{itemprop="description"}= project.goal
-    =link_to t('titles.project.read_more'), project, class: 'btn btn-default st-btn', data: {:"no-turbolink" => "true"}
+    .row
+      .col-sm-6.col-md-6.col-lg-6.text-center
+        =link_to t('titles.project.read_more'), project, class: 'btn bt-btn btn-sm ', data: {:"no-turbolink" => "true"}
+      .col-sm-6.col-md-6.col-lg-6.text-center
+        -if project.payment_ready && project.opened?
+          - @liqpay_request = project.liqpay_form(project)
+          = liqpay_button @liqpay_request do
+            =submit_tag("#{t 'titles.project.pay'}", class: 'btn btn-default st-btn btn-sm green')

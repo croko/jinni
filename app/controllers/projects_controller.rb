@@ -45,7 +45,7 @@ class ProjectsController < ApplicationController
                       image:  @project.image_full_size
                   }
     if @project.payment_ready
-      liqpay_form
+      liqpay_form(@project)
     end
   end
 
