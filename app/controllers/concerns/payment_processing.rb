@@ -16,13 +16,20 @@ module PaymentProcessing
           language: 'ru'
       }
     end
+    if project.fixed_price
+      project_type = 'buy'
+      amount = project.amount
+    else
+      project_type = 'donate'
+      amount = '1000'
+    end
 
     @liqpay_request = Liqpay::Request.new(
-        amount: '1000',
+        amount: amount,
         currency: 'UAH',
         order_id: SecureRandom.urlsafe_base64(nil, true).to_s + project.id.to_s,
         description: project.title,
-        type: 'donate',
+        type: project_type,
         result_url: Rails.application.routes.url_helpers.project_url(host: 'https://jinni.com.ua', id: project.id),
         server_url: Rails.application.routes.url_helpers.liqpay_callback_url(host: 'https://jinni.com.ua')
     )

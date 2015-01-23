@@ -32,6 +32,7 @@ module AdminProject
         field :amount
         field :collected
         field :status
+        field :fixed_price
       end
 
       edit do
@@ -59,6 +60,7 @@ module AdminProject
         field :date_start
         field :date_end
         field :amount
+        field :fixed_price
         field :collected
         field :tag_list do
           html_attributes do
