@@ -11,7 +11,7 @@ Rails.application.routes.draw do
 
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
 
-  resources :faqs, only: :index, path: :help, as: :help
+  resources :faqs, only: :index, path: :help
   resource :terms, only: :show
   resource :agreements, only: :show
 

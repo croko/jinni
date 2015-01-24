@@ -19,6 +19,7 @@ nav.navbar.navbar-default.navbar-main role="navigation"
 
         li= link_to (t "activerecord.models.project.few"), projects_path
         li= link_to (t "titles.navbar.my_projects"), my_projects_path if current_user
+        li= link_to (t "titles.navbar.help"), faqs_path
 
         /li.dropdown
           =link_to '#', class: 'dropdown-toggle', data: {hover: 'dropdown'} do
