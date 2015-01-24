@@ -1,0 +1,37 @@
+#header
+  .color-overlay
+    .container
+      h2= t('titles.faq.header')
+      p= t('titles.faq.header_message')
+
+section#faqs
+  .container
+    .wow.fadeIn {data-wow-delay="0.4s"}
+      .section-title.text-center.col-sm-12.col-md-12.col-lg-12
+        h2=t('titles.faq.title')
+        hr
+        .space
+
+    .row
+      .col-md-8.col-md-offset-2.col-lg-8.col-lg-offset-2.wow.fadeIn {data-wow-delay="0.8s"}
+        .panel-group#accordion1
+          -@faqs.each_with_index do |faq, i|
+            - incss = i == 0 ? 'in' : ''
+            .panel.panel-default
+              .panel-heading
+                h4.panel-title
+                  =link_to "#collapse#{i}", data: {toggle: 'collapse', parent: '#accordion1'} do
+                    =faq.title
+                    =icon('chevron-circle-down', '', class: 'indicator pull-right')
+              div{id= "collapse#{i}" class = "#{incss} panel-collapse collapse"}
+                .panel-body
+                  =simple_format(faq.body)
+#sca-bg.fullwidth-action
+  .color-overlay
+    .container
+      .small-action.wow.fadeIn {data-wow-delay="0.8s" data-wow-duaration="1s"}
+        .left
+          h2= t("titles.faq.not_found")
+          p.bold.faqmail
+            =t('titles.faq.message')
+            = mail_to ' ', ' info@jinni.com.ua !', subject: 'Help'

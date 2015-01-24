@@ -381,6 +381,12 @@ ru:
       message: ''
     category:
       header_message: 'Все активные проекты в категории'
+    faq:
+      header: 'Справочная информация'
+      header_message: 'Ответы на часто задаваемые вопросы'
+      title: 'Как это работает'
+      not_found: 'Не нашли ответ на свой вопрос?'
+      message: 'Напишите нам '
   footer:
     goal:
       title: 'Наша цель'

@@ -1351,6 +1351,9 @@ ul#countdown li span {
 }
 #footer-nav.colored a,
 #footer-nav.colored a:hover { color: #ffffff !important }
+.faqmail a { color: #ffffff !important }
+.faqmail a:hover { color: #009abd !important }
+
 /*===================
 Homepages
 ====================*/
