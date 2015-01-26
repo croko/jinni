@@ -14,7 +14,8 @@ class ApplicationController < ActionController::Base
   end
 
   def set_keywords
-    set_meta_tags keywords: Project.all_tags.limit(30).pluck(:name).uniq
+    predefined = %w(волонтер помощь пожертвование)
+    set_meta_tags keywords: predefined + Project.all_tags.limit(30).pluck(:name).uniq
   end
 
   private

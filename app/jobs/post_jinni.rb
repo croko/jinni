@@ -10,7 +10,7 @@ class PostJinni < ActiveJob::Base
       page_token = pages.first['access_token']
       @page_graph = Koala::Facebook::API.new(page_token)
       about = ActionController::Base.helpers.strip_tags(project.about)
-      @page_graph.put_wall_post('Размещен новый проект!',
+      @page_graph.put_wall_post("Новый проект #{project.title}",
                                 {
                                     name: project.title,
                                     link: Rails.application.routes.url_helpers.project_url(host: 'jinni.com.ua', id: project.id),

@@ -6,7 +6,7 @@ class PostSocial < ActiveJob::Base
       @api = Koala::Facebook::API.new(token)
       begin
       about = ActionController::Base.helpers.strip_tags(project.about)
-      @api.put_wall_post('На https://jinni.com.ua размещен новый проект!',
+      @api.put_wall_post("На https://jinni.com.ua новый проект #{project.title}",
                          {
                              name: project.title,
                              link: Rails.application.routes.url_helpers.project_url(host: 'jinni.com.ua', id: project.id),
