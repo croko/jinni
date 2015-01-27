@@ -7,8 +7,11 @@ section#blog
 
     == render partial: 'projects', locals: {projects: @projects} if @projects.any?
 == render 'offer'
+
 -if @users.any?
   == render 'team'
+
 == render 'foundations'
+
 - if @finished_projects.any?
   == render 'finished_projects'
