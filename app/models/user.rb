@@ -47,6 +47,7 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :addresses, allow_destroy: true
 
   scope :for_public, -> {where('id > 2')}
+  scope :active_volunteers, -> {where('projects_count > ?', 0)}
 
   validates :password, length: {minimum: 5}, allow_blank: true
   validates :password, confirmation: true

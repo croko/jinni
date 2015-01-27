@@ -1,0 +1,24 @@
+section#team
+  .container
+    .row
+      .section-title.text-center.col-sm-12.col-md-12.col-lg-12
+        h2= t "team.title"
+        hr
+        h5= t "team.message"
+        .bigspace
+    -@users.each_slice(4) do |slice|
+      .row
+        - slice.each do |user|
+          .col-sm-6.col-md-3.wow.fadeIn {data-wow-delay="0.4s"}
+            .thumbnail
+              =link_to image_tag(user.image.medium.url), user_path(user)
+              .caption.text-center
+                h3=link_to user.fio, user_path(user)
+                p.small= t('titles.about.description')
+                ul.team-social
+                  li= link_to user.facebook_url, target: '_blank' do
+                    =icon('facebook')
+                  li= link_to user.google_url, target: '_blank' do
+                    =icon('google-plus')
+                  li= link_to user.twitter_url, target: '_blank' do
+                    =icon('twitter')

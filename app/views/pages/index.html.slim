@@ -14,5 +14,7 @@ section#blog
 
     == render partial: 'projects', locals: {projects: @projects} if @projects.any?
 == render 'offer'
+-if @users.any?
+  == render 'team'
 == render 'foundations'
 == render 'finished_projects'

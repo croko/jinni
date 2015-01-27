@@ -30,7 +30,7 @@
 require "babosa"
 
 class Project < ActiveRecord::Base
-  belongs_to :user
+  belongs_to :user, counter_cache: true
   belongs_to :foundation
   belongs_to :payment_system
   belongs_to :category, counter_cache: true
