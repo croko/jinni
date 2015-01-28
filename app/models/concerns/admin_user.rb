@@ -25,6 +25,7 @@ module AdminUser
             {style: "width:80%"}
           end
         end
+        field :publish
         field :about, :wysihtml5 do
           config_options locale: "ru-RU",
                          toolbar: {

@@ -7,13 +7,11 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-    # cc = DisqusApi.v3.threads.details(forum: 'jinni',  :"thread:ident" => 'project_4')
-    # cc.response['posts']
-    # binding.pry
-    if params[:pr] == 'my' && current_user
-      @my_projects = true
-      @q = current_user.projects.search(params[:q])
-    elsif params[:tag].present?
+#TODO remove my projects - moved to user#show
+    # if params[:pr] == 'my' && current_user
+    #   @my_projects = true
+    #   @q = current_user.projects.search(params[:q])
+    if params[:tag].present?
       @q = Project.opened.approved.published.tagged_with(params[:tag]).search(params[:q])
     else
       @q = Project.opened.approved.published.search(params[:q])

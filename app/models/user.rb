@@ -46,7 +46,7 @@ class User < ActiveRecord::Base
   accepts_nested_attributes_for :payment_systems, :reject_if => lambda { |a| a[:payment_gateway_id].blank? }, allow_destroy: true
   accepts_nested_attributes_for :addresses, allow_destroy: true
 
-  scope :for_public, -> {where('id > 2')}
+  scope :published, -> {where('publish is true')}
   scope :active_volunteers, -> {where('projects_count > ?', 0)}
 
   validates :password, length: {minimum: 5}, allow_blank: true

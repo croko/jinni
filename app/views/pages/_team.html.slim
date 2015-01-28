@@ -14,7 +14,7 @@ section#team
               =link_to image_tag(user.image.medium.url), user_path(user)
               .caption.text-center
                 h3=link_to user.fio, user_path(user)
-                p.small= t('titles.about.description')
+                p.small= link_to t('titles.about.description'), user_path(user)
                 ul.team-social
                   li= link_to user.facebook_url, target: '_blank' do
                     =icon('facebook')

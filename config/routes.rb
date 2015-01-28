@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     resources :reports, exclude: :index
   end
 
-  get 'my-projects', to: 'projects#index', as: :my_projects, pr: 'my'
+  # get 'my-projects', to: 'projects#index', as: :my_projects, pr: 'my'
   get 'tags/:tag', to: 'projects#index', as: :tag
 
   resources :foundations, only: [:show]

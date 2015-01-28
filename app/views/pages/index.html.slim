@@ -4,8 +4,14 @@ section#blog
     .row
       .section-title.text-center.col-sm-12.col-md-12.col-lg-12
         .space
-
-    == render partial: 'projects', locals: {projects: @projects} if @projects.any?
+    .container
+      .row
+        .section-title.text-center.col-sm-12.col-md-12.col-lg-12
+          h2= t "titles.project.main_page_title"
+          hr
+          h5= t "titles.project.main_page_message"
+          .bigspace
+          == render partial: 'projects', locals: {projects: @projects} if @projects.any?
 == render 'offer'
 
 -if @users.any?

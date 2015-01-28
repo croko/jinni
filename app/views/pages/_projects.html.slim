@@ -1,54 +1,46 @@
-.container
+-projects.each_slice(3) do |slice|
   .row
-    .section-title.text-center.col-sm-12.col-md-12.col-lg-12
-      h2= t "titles.project.main_page_title"
-      hr
-      h5= t "titles.project.main_page_message"
-      .bigspace
+    - slice.each do |project|
+      .col-sm-6.col-md-4.col-lg-4.posts.wow.fadeIn {data-wow-delay="0.4s"}
+        .blog-photo
+          = link_to project_path(project), class: 'plink', data: {:"no-turbolink" => "true"} do
+            .hover
+              .hover-content
+                =icon('search fa-2x')
+            =image_tag(project.thumb, class: 'img-responsive', itemprop: "image")
+          .date
+            .small= t 'titles.project.final'
+            h4=project.date_end.day
+            p.small= project.localized_end_date
 
-  -projects.each_slice(3) do |slice|
-    .row
-      - slice.each do |project|
-        .col-sm-6.col-md-4.col-lg-4.posts.wow.fadeIn {data-wow-delay="0.4s"}
-          .blog-photo
-            = link_to project_path(project), class: 'plink', data: {:"no-turbolink" => "true"} do
-              .hover
-                .hover-content
-                  =icon('search fa-2x')
-              =image_tag(project.thumb, class: 'img-responsive', itemprop: "image")
-            .date
-              .small= t 'titles.project.final'
-              h4=project.date_end.day
-              p.small= project.localized_end_date
-
-              /p.small= project.localized_end_date
-          .caption.text-left
-            h2{itemprop="name"}= link_to project.title, project_path(project), data: {:"no-turbolink" => "true"}
-            .post-meta
-              span.bold
-                = icon('user', "#{t 'titles.project.author'} : ")
-                - if project.user
-                  = link_to project.user.fio, user_path(project.user), class: 'highlight'
-              /span.bold
-                = icon('comment')
-                = link_to '', project_url(project) + '#disqus_thread', data: {:"disqus-identifier" => "project_#{project.id}"}, class: 'highlight'
-              br
-              span.bold
-                = icon('money', "#{t 'activerecord.attributes.project.amount'} #{number_to_currency(project.amount, precision: 0)}")
-              span.bold
-                = icon('heart', "#{t 'activerecord.attributes.project.payments'} #{project.payments.size}")
-              br
-              span.bold
-                = icon('money', "#{t 'activerecord.attributes.project.collected'} #{number_to_currency(project.collected, precision: 0)}")
-            .progress
-              .progress-bar {role="progressbar" aria-valuenow="#{project.progress}" aria-valuemin="0" aria-valuemax="100" style="width: #{project.progress}%"}
-                |#{project.progress}%
-            p{itemprop="description"}= project.goal
-            .row
-              .col-sm-5.col-md-5.col-lg-5.text-center
-                =link_to t('titles.project.read_more'), project, class: 'btn bt-btn btn-sm ', data: {:"no-turbolink" => "true"}
-              .col-sm-7.col-md-7.col-lg-7.text-center
-                -if project.payment_ready && project.opened?
-                  - @liqpay_request = project.liqpay_form(project)
-                  = liqpay_button @liqpay_request do
-                    =submit_tag("#{t 'titles.project.pay'}", class: 'btn btn-default st-btn btn-sm green')
+            /p.small= project.localized_end_date
+        .caption.text-left
+          h2{itemprop="name"}= link_to project.title, project_path(project), data: {:"no-turbolink" => "true"}
+          .post-meta
+            span.bold
+              = icon('user', "#{t 'titles.project.author'} : ")
+              - if project.user
+                = link_to project.user.fio, user_path(project.user), class: 'highlight'
+            /span.bold
+              = icon('comment')
+              = link_to '', project_url(project) + '#disqus_thread', data: {:"disqus-identifier" => "project_#{project.id}"}, class: 'highlight'
+            br
+            span.bold
+              = icon('money', "#{t 'activerecord.attributes.project.amount'} #{number_to_currency(project.amount, precision: 0)}")
+            span.bold
+              = icon('heart', "#{t 'activerecord.attributes.project.payments'} #{project.payments.size}")
+            br
+            span.bold
+              = icon('money', "#{t 'activerecord.attributes.project.collected'} #{number_to_currency(project.collected, precision: 0)}")
+          .progress
+            .progress-bar {role="progressbar" aria-valuenow="#{project.progress}" aria-valuemin="0" aria-valuemax="100" style="width: #{project.progress}%"}
+              |#{project.progress}%
+          p{itemprop="description"}= project.goal
+          .row
+            .col-sm-5.col-md-5.col-lg-5.text-center
+              =link_to t('titles.project.read_more'), project, class: 'btn bt-btn btn-sm ', data: {:"no-turbolink" => "true"}
+            .col-sm-7.col-md-7.col-lg-7.text-center
+              -if project.payment_ready && project.opened?
+                - @liqpay_request = project.liqpay_form(project)
+                = liqpay_button @liqpay_request do
+                  =submit_tag("#{t 'titles.project.pay'}", class: 'btn btn-default st-btn btn-sm green')

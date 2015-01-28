@@ -38,6 +38,12 @@
               small= t 'activerecord.attributes.user.password_confirmation_description'
         .row
           .col-md-7.wow.fadeIn {data-wow-delay="0.8s"}
+            = f.input :publish
+          .col-md-5.wow.fadeIn {data-wow-delay="0.8s"}
+            blockquote
+              small= t 'activerecord.attributes.user.publish_description'
+        .row
+          .col-md-7.wow.fadeIn {data-wow-delay="0.8s"}
             = f.input :with_foundation
           .col-md-5.wow.fadeIn {data-wow-delay="0.8s"}
             blockquote

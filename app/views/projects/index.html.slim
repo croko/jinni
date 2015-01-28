@@ -1,12 +1,12 @@
 #header
   .color-overlay
     .container
-      -if @my_projects
+      /-if @my_projects
         h2= t('titles.project.my_header')
         p= t('titles.project.my_header_message')
-      -else
-        h2= t('titles.project.header')
-        p= t('titles.project.header_message')
+      /-else
+      h2= t('titles.project.header')
+      p= t('titles.project.header_message')
 
 section#blog-posts.text-center
   .bigspace
