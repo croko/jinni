@@ -21,7 +21,7 @@ module PaymentProcessing
       amount = project.amount
     else
       project_type = 'donate'
-      amount = '1000'
+      amount = '200'
     end
 
     @liqpay_request = Liqpay::Request.new(
