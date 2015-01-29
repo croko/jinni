@@ -297,6 +297,7 @@ ru:
         commission: 'Комиссия'
         currency: 'Валюта'
         amount: 'Сумма'
+        amount_currency: 'Сумма в валюте'
         created_at: 'Дата проведения'
       report:
         goal: 'Краткое описание'

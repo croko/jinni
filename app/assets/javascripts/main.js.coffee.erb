@@ -56,6 +56,10 @@ ready = ->
 
   $('.editor').wysihtml5({locale: "ru-RU", toolbar: { "fa": true, "indent": true, "html": true }})
 
+  $('#paymentForm').on('shown.bs.modal', () ->
+      $('#payment_amount_currency').focus()
+    )
+
 $(document).ready(ready)
 $(document).on('page:load', ready)
 window.ready = ready

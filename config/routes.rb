@@ -24,6 +24,7 @@ Rails.application.routes.draw do
       get :tags, as: :tags
     end
     resources :reports, exclude: :index
+    resources :payments, only: [:new, :create]
   end
 
   # get 'my-projects', to: 'projects#index', as: :my_projects, pr: 'my'

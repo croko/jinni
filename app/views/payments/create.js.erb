@@ -1,0 +1,6 @@
+<% if @success %>
+  $('#paymentForm').modal('hide');
+  location.reload();
+<% else %>
+  $('.text-danger').html("<%= j flash.alert %>");
+<% end %>

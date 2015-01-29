@@ -28,6 +28,8 @@ class Payment < ActiveRecord::Base
   belongs_to :payment_gateway
 
   validates :amount, presence: true
+  validates :amount_currency, presence: true
+  validates_numericality_of :amount_currency, greater_than: 0
 
   before_create :calc_amount
   after_create :increment_project_collected

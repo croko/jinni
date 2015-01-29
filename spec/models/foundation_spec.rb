@@ -7,7 +7,7 @@
 #  created_at   :datetime
 #  updated_at   :datetime
 #  active       :boolean
-#  description  :string(255)
+#  description  :text
 #  featured     :boolean          default("false")
 #  logo         :string
 #  website_url  :string

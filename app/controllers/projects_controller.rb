@@ -23,6 +23,7 @@ class ProjectsController < ApplicationController
   # GET /projects/1.json
   def show
     @project = Project.friendly.find(params[:id])
+    @payment = Payment.new
 
     if current_user && @project.try(:user) == current_user
         @project = current_user.projects.friendly.find(params[:id])

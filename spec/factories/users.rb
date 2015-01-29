@@ -22,6 +22,8 @@
 #  twitter_url                     :string(255)
 #  facebook_url                    :string(255)
 #  google_url                      :string(255)
+#  projects_count                  :integer          default("0")
+#  publish                         :boolean          default("true")
 #
 
 FactoryGirl.define do

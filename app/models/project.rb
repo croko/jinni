@@ -25,6 +25,7 @@
 #  payments_count    :integer
 #  share             :boolean          default("true")
 #  shared            :boolean          default("false")
+#  fixed_price       :boolean          default("false")
 #
 
 require "babosa"
