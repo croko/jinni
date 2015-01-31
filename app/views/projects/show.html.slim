@@ -125,6 +125,9 @@
                     = f.input :amount_currency, input_html: {min: 1}
                   .col-md-4.wow.fadeIn {data-wow-delay="0.2s"}
                     = f.input :currency, as: :select, collection: ['UAH', 'USD'], selected: 'UAH'
+                .row
+                  .col-md-8.wow.fadeIn {data-wow-delay="0.2s"}
+                    = f.input :comment
               .space
               hr
               .row

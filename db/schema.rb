@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150128141908) do
+ActiveRecord::Schema.define(version: 20150131175228) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -134,6 +134,7 @@ ActiveRecord::Schema.define(version: 20150128141908) do
     t.datetime "updated_at"
     t.decimal  "amount_currency",                 precision: 8, scale: 2, default: 0.0
     t.decimal  "exchange_rate",                   precision: 8, scale: 4, default: 1.0
+    t.string   "comment"
   end
 
   add_index "payments", ["payment_gateway_id"], name: "index_payments_on_payment_gateway_id", using: :btree

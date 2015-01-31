@@ -27,7 +27,7 @@ class PaymentsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     # Never trust parameters from the scary internet, only allow the white list through.
     def payment_params
-      params.require(:payment).permit(:currency, :amount_currency)
+      params.require(:payment).permit(:currency, :amount_currency, :comment)
     end
 
 end
