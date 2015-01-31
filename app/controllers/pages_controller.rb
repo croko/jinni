@@ -8,11 +8,6 @@ class PagesController < ApplicationController
     @foundations = Foundation.published.limit(3).order("RANDOM()")
     @users = User.published.active_volunteers.limit(8).order("RANDOM()")
 
-    @projects_cache_key = @projects.sort.collect(&:updated_at).map{|p| p.to_i}.join('')
-    @finished_projects_cache_key = @finished_projects.pluck('updated_at').map{|p| p.to_i}.sort.join('')
-    @foundations_cache_key = @foundations.pluck('updated_at').map{|p| p.to_i}.sort.join('')
-    @users_cache_key = @users.pluck('updated_at').map{|p| p.to_i}.sort.join('')
-
   end
 
   def sitemap
