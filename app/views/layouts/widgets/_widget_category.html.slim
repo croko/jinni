@@ -4,7 +4,8 @@
     hr
 
   ul.cat
-    -@categories.each do |category|
-      li= link_to category do
-        = category.name
-        span.post-count= category.projects.size
+    -cache(@categories) do
+      -@categories.each do |category|
+        li= link_to category do
+          = category.name
+          span.post-count= category.projects.size

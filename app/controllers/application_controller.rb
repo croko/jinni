@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
 
   def get_categories
     @categories = Category.sorted
+    fresh_when(etag: @categories, last_modified: @categories.maximum(:updated_at))
   end
 
   def latest_projects

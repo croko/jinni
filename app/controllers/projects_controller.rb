@@ -7,10 +7,6 @@ class ProjectsController < ApplicationController
   # GET /projects
   # GET /projects.json
   def index
-#TODO remove my projects - moved to user#show
-    # if params[:pr] == 'my' && current_user
-    #   @my_projects = true
-    #   @q = current_user.projects.search(params[:q])
     if params[:tag].present?
       @q = Project.opened.approved.published.tagged_with(params[:tag]).search(params[:q])
     else
@@ -46,6 +42,7 @@ class ProjectsController < ApplicationController
     if @project.payment_ready
       liqpay_form(@project)
     end
+    fresh_when(etag: @project, last_modified: @project.updated_at)
   end
 
   # GET /projects/new
