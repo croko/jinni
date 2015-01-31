@@ -27,7 +27,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'spring', group: :development
 
 gem 'slim-rails'
-gem 'sorcery'
+gem 'sorcery', '~> 0.9.0'
 gem 'simple_form'
 gem "fog", require: "fog/aws/storage"
 gem 'carrierwave', github: 'carrierwaveuploader/carrierwave'
