@@ -35,6 +35,7 @@ class Payment < ActiveRecord::Base
   after_create :increment_project_collected
   after_destroy :decrement_project_collected
 
+  scope :sorted, -> {order('created_at DESC')}
 
   def calc_amount
     if currency == 'UAH'
