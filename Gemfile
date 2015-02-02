@@ -75,4 +75,5 @@ group :production do
   gem 'exception_notification'
   gem 'unicorn'
   gem 'newrelic_rpm'
+  gem 'dalli'
 end
