@@ -48,6 +48,9 @@ class Report < ActiveRecord::Base
   protected
 
   def close_project
-     project.close! if project.opened?
+    if project.opened?
+      project.close!
+      project.user.increment!(:finished_projects_count)
+    end
   end
 end

@@ -17,6 +17,7 @@
 #  updated_at          :datetime
 #  amount_currency     :decimal(8, 2)    default("0.0")
 #  exchange_rate       :decimal(8, 4)    default("1.0")
+#  comment             :string
 #
 
 FactoryGirl.define do
