@@ -18,6 +18,8 @@ class Report < ActiveRecord::Base
   has_many :photos
 
   include AdminReport
+  include Shareable
+
   extend FriendlyId
 
   friendly_id :slug_candidates, use: :slugged
@@ -29,7 +31,7 @@ class Report < ActiveRecord::Base
 
   alias_attribute :name, :goal
 
-  after_create :close_project
+  after_create :close_project, :post_report_to_socials
 
   def slug_candidates
     [:goal,

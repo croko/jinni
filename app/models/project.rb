@@ -68,6 +68,7 @@ class Project < ActiveRecord::Base
 
   after_create :notify_admin_created
   after_update :check_published
+  after_save :post_to_socials
 
   def localized_end_date
     (I18n.t :abbr_month_names, scope: :date)[date_end.month].to_s #+ ' ' + date_end.year.to_s
