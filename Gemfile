@@ -52,11 +52,11 @@ gem 'bootstrap-wysihtml5-rails'
 gem "koala", "~> 1.11.0rc"
 gem 'whenever', require: false
 gem "dynamic_sitemaps"
+gem 'thin'
 
 group :development do
   gem 'quiet_assets'
   gem 'annotate', ">=2.5.0"
-  gem 'thin'
   gem 'web-console', '~> 2.0'
 end
 
@@ -73,7 +73,7 @@ group :production do
   gem 'execjs'
   gem 'therubyracer'
   gem 'exception_notification'
-  gem 'unicorn'
+  # gem 'unicorn'
   gem 'newrelic_rpm'
   gem 'dalli'
 end
