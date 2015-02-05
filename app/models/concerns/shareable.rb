@@ -1,4 +1,5 @@
 module Shareable
+
   extend ActiveSupport::Concern
 
   def post_to_socials
@@ -34,5 +35,4 @@ module Shareable
   def set_shared
     update_column('shared', true)
   end
-
 end
