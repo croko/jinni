@@ -6,6 +6,7 @@ module AdminPayment
       list do
         field :id
         field :project
+        field :created_at
         field :amount
         field :sender_phone
         field :payment_transaction
