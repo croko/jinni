@@ -8,89 +8,89 @@
   .container
     .row
       .col-md-8
-        -cache(@project) do
-          .featured-media.wow.fadeIn {data-wow-delay="0.5s" data-wow-duration="2s"}
-            .date
-              .small= t 'titles.project.final'
-              h4=@project.date_end.day
-              p.small= @project.localized_end_date
+        /-cache(@project) do
+        .featured-media.wow.fadeIn {data-wow-delay="0.5s" data-wow-duration="2s"}
+          .date
+            .small= t 'titles.project.final'
+            h4=@project.date_end.day
+            p.small= @project.localized_end_date
 
-            #post-featured-slider.carousel.slide {data-ride="carousel"}
-              ol.carousel-indicators
-                - @project.photos.each_with_index do |photo , i|
-                  - css = i == 0 ? 'active' : ''
-                  li{class = "#{css}" data-target="#post-featured-slider" data-slide-to="#{i}" }
+          #post-featured-slider.carousel.slide {data-ride="carousel"}
+            ol.carousel-indicators
+              - @project.photos.each_with_index do |photo , i|
+                - css = i == 0 ? 'active' : ''
+                li{class = "#{css}" data-target="#post-featured-slider" data-slide-to="#{i}" }
 
-              .carousel-inner
-                - @project.photos.each_with_index do |photo , i|
-                  - css = i == 0 ? 'active' : ''
-                  .item{class = "#{css}"}
-                    =image_tag(photo.main_image.medium.url, itemprop: "image")
+            .carousel-inner
+              - @project.photos.each_with_index do |photo , i|
+                - css = i == 0 ? 'active' : ''
+                .item{class = "#{css}"}
+                  =image_tag(photo.main_image.medium.url, itemprop: "image")
 
-          .single-post-title.wow.fadeIn {data-wow-delay="1s"}
-            h2= @project.title
+        .single-post-title.wow.fadeIn {data-wow-delay="1s"}
+          h2= @project.title
 
-          .post-meta.wow.fadeIn {data-wow-delay="1.4s"}
-            span.bold
-              = icon('user', "#{t 'titles.project.author'} : ")
-              - if @project.user
-                = link_to @project.user.fio, user_path(@project.user), class: 'highlight'
-            span.bold
-              = icon('tag', "#{t 'titles.project.category'} : " )
-              = link_to @project.category.name, @project.category, class: 'highlight'
-            span.bold
-              -if @project.opened?
-                = icon('play')
-                .label.label-success= t @project.status
-              -else
-                = icon('stop')
-                .label.label-warning= t @project.status
-            .post-meta
-              span.bold
-                = icon('money', "#{t 'activerecord.attributes.project.amount'} #{number_to_currency(@project.amount, precision: 0)}")
-              span.bold
-                = icon('money', "#{t 'activerecord.attributes.project.collected'} #{number_to_currency(@project.collected, precision: 0)}")
-            .progress
-              .progress-bar {role="progressbar" aria-valuenow="#{@project.progress}" aria-valuemin="0" aria-valuemax="100" style="width: #{@project.progress}%"}
-                |#{@project.progress}%
-            -if @project.payment_ready && @project.opened?
-              .post-meta
-                = liqpay_button @liqpay_request do
-                  =submit_tag("#{t 'titles.project.pay'}", class: 'btn btn-default btn-lg st-btn green pull-right')
+        .post-meta.wow.fadeIn {data-wow-delay="1.4s"}
+          span.bold
+            = icon('user', "#{t 'titles.project.author'} : ")
+            - if @project.user
+              = link_to @project.user.fio, user_path(@project.user), class: 'highlight'
+          span.bold
+            = icon('tag', "#{t 'titles.project.category'} : " )
+            = link_to @project.category.name, @project.category, class: 'highlight'
+          span.bold
+            -if @project.opened?
+              = icon('play')
+              .label.label-success= t @project.status
             -else
-              -if @project.reports.any?
-                =link_to Report.model_name.human, project_report_path(@project, @project.reports.first), class: 'btn btn-default btn-lg st-btn yellow pull-right', data: {:"no-turbolink" => "true"}
-          .post-body.wow.fadeIn {data-wow-delay="1.5s" data-wow-duration="2s"}
-            p.lead{itemprop="description"}= @project.goal
-            p=simple_format @project.about
-          .space
-          .post-bottom-bar.wow.fadeIn
-            .pull-left
-              ul.post-tags
-                li=icon('tag')
-                -@project.tags.each do |tag|
-                  li= link_to tag.name, tag_path(tag: tag.name)
-            .pull-right
-              ul.social-share
-                li= t "titles.project.share_this"
-                li= link_to icon('facebook'), "https://facebook.com/sharer.php?u=#{project_url(@project)}", data: {popup: true, toggle: "tooltip", placement: "top"}, title: "#{t 'titles.project.share_this'}"
-                li= link_to icon('google-plus'), "https://plus.google.com/share?url=#{project_url(@project)}", data: {popup: true, toggle: "tooltip", placement: "top"}, title: "#{t 'titles.project.share_this'}"
-                li= link_to icon('twitter'), "http://twitter.com/share?text=#{url_encode(@project.title)}&url=#{project_url(@project)}", data: {popup: true, toggle: "tooltip", placement: "top"}, title: "#{t 'titles.project.share_this'}"
+              = icon('stop')
+              .label.label-warning= t @project.status
+          .post-meta
+            span.bold
+              = icon('money', "#{t 'activerecord.attributes.project.amount'} #{number_to_currency(@project.amount, precision: 0)}")
+            span.bold
+              = icon('money', "#{t 'activerecord.attributes.project.collected'} #{number_to_currency(@project.collected, precision: 0)}")
+          .progress
+            .progress-bar {role="progressbar" aria-valuenow="#{@project.progress}" aria-valuemin="0" aria-valuemax="100" style="width: #{@project.progress}%"}
+              |#{@project.progress}%
+          -if @project.payment_ready && @project.opened?
+            .post-meta
+              = liqpay_button @liqpay_request do
+                =submit_tag("#{t 'titles.project.pay'}", class: 'btn btn-default btn-lg st-btn green pull-right')
+          -else
+            -if @project.reports.any?
+              =link_to Report.model_name.human, project_report_path(@project, @project.reports.first), class: 'btn btn-default btn-lg st-btn yellow pull-right', data: {:"no-turbolink" => "true"}
+        .post-body.wow.fadeIn {data-wow-delay="1.5s" data-wow-duration="2s"}
+          p.lead{itemprop="description"}= @project.goal
+          p=simple_format @project.about
+        .space
+        .post-bottom-bar.wow.fadeIn
+          .pull-left
+            ul.post-tags
+              li=icon('tag')
+              -@project.tags.each do |tag|
+                li= link_to tag.name, tag_path(tag: tag.name)
+          .pull-right
+            ul.social-share
+              li= t "titles.project.share_this"
+              li= link_to icon('facebook'), "https://facebook.com/sharer.php?u=#{project_url(@project)}", data: {popup: true, toggle: "tooltip", placement: "top"}, title: "#{t 'titles.project.share_this'}"
+              li= link_to icon('google-plus'), "https://plus.google.com/share?url=#{project_url(@project)}", data: {popup: true, toggle: "tooltip", placement: "top"}, title: "#{t 'titles.project.share_this'}"
+              li= link_to icon('twitter'), "http://twitter.com/share?text=#{url_encode(@project.title)}&url=#{project_url(@project)}", data: {popup: true, toggle: "tooltip", placement: "top"}, title: "#{t 'titles.project.share_this'}"
 
-          .media.post-author.wow.fadeIn {data-wow-delay="0.4s"}
-            =link_to user_path(@project.user), class: 'pull-left' do
-              =image_tag(@project.user.image.thumb.url, class: 'media-object')
-            .media-body
-              h3.media-heading.author-name= t "titles.project.author"
-              h4.media-heading.author-name= @project.user.fio
+        .media.post-author.wow.fadeIn {data-wow-delay="0.4s"}
+          =link_to user_path(@project.user), class: 'pull-left' do
+            =image_tag(@project.user.image.thumb.url, class: 'media-object')
+          .media-body
+            h3.media-heading.author-name= t "titles.project.author"
+            h4.media-heading.author-name= @project.user.fio
 
-              ul.author-social
-                li= link_to @project.user.facebook_url, target: '_blank' do
-                  =icon('facebook')
-                li= link_to @project.user.google_url, target: '_blank' do
-                  =icon('google-plus')
-                li= link_to @project.user.twitter_url, target: '_blank' do
-                  =icon('twitter')
+            ul.author-social
+              li= link_to @project.user.facebook_url, target: '_blank' do
+                =icon('facebook')
+              li= link_to @project.user.google_url, target: '_blank' do
+                =icon('google-plus')
+              li= link_to @project.user.twitter_url, target: '_blank' do
+                =icon('twitter')
 
         #comments
           .comments-num.wow.fadeIn {data-wow-delay="0.6s"}

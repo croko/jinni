@@ -42,7 +42,7 @@ class ProjectsController < ApplicationController
     if @project.payment_ready
       liqpay_form(@project)
     end
-    fresh_when(etag: @project, last_modified: @project.updated_at)
+    # fresh_when(etag: @project, last_modified: @project.updated_at)
   end
 
   # GET /projects/new
