@@ -1,7 +1,2 @@
-# Pagination for [Twitter Bootstrap 3](http://getbootstrap.com/components/#pagination)
-
-With support for:
-
-- erb
-- haml
-- slim
+* An online service for collecting donations for the needs of the Ukrainian army is a digital platform designed to support and facilitate financial contributions from individuals, organizations, and communities worldwide.
+* The primary objective of this service is to gather funds that are directly channeled towards meeting the essential needs of the Ukrainian military forces.
